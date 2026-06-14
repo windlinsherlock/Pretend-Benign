@@ -23,7 +23,7 @@
 
 This is the official repository for **ICCV 2025 - Pretend Benign**.
 
-**Pretend Benign: A Stealthy Adversarial Attack by Exploiting Vulnerabilities in Cooperative Perception** proposes a stealthy adversarial attack for cooperative perception. Pretend Benign exploits vulnerabilities in cooperative perception systems and enables attackers to disguise themselves as benign cooperators while bypassing defense methods.
+**Pretend Benign** proposes a stealthy adversarial attack for cooperative perception. Pretend Benign exploits vulnerabilities in cooperative perception systems and enables attackers to disguise themselves as benign cooperators while bypassing defense methods.
 
 ## Contents
 
