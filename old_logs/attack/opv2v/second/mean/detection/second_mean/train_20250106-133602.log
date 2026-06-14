@@ -1,0 +1,1329 @@
+2025-01-06 13:36:06,894   INFO  -----------------parser argument:------------------
+2025-01-06 13:36:06,895   INFO  hypes_yaml       ../hypes_yaml/cfg/attack/opv2v/second/mean/detection/second_mean.yaml
+2025-01-06 13:36:06,895   INFO  model_dir        
+2025-01-06 13:36:06,895   INFO  ckpt             -1
+2025-01-06 13:36:06,895   INFO  half             False
+2025-01-06 13:36:06,895   INFO  dist_url         env://
+2025-01-06 13:36:06,895   INFO  rank             0
+2025-01-06 13:36:06,895   INFO  world_size       4
+2025-01-06 13:36:06,895   INFO  gpu              0
+2025-01-06 13:36:06,895   INFO  distributed      True
+2025-01-06 13:36:06,895   INFO  dist_backend     nccl
+2025-01-06 13:36:06,895   INFO  -----------------hypes argument:------------------
+2025-01-06 13:36:06,895   INFO  name: second_mean
+2025-01-06 13:36:06,895   INFO  root_dir: ../../opv2v_data_dumping/train
+2025-01-06 13:36:06,895   INFO  validate_dir: ../../opv2v_data_dumping/validate
+2025-01-06 13:36:06,895   INFO  yaml_parser: load_second_params
+2025-01-06 13:36:06,895   INFO  train_params: {
+2025-01-06 13:36:06,895   INFO      batch_size: 2
+2025-01-06 13:36:06,895   INFO      epoches: 60
+2025-01-06 13:36:06,895   INFO      eval_freq: 1
+2025-01-06 13:36:06,895   INFO      save_freq: 1
+2025-01-06 13:36:06,896   INFO  }
+2025-01-06 13:36:06,896   INFO  num_class: 2
+2025-01-06 13:36:06,896   INFO  fusion: {
+2025-01-06 13:36:06,896   INFO      core_method: IntermediateFusionDataset
+2025-01-06 13:36:06,896   INFO      args: []
+2025-01-06 13:36:06,896   INFO  }
+2025-01-06 13:36:06,896   INFO  preprocess: {
+2025-01-06 13:36:06,896   INFO      core_method: SpVoxelPreprocessor
+2025-01-06 13:36:06,896   INFO      args: {
+2025-01-06 13:36:06,896   INFO          voxel_size: [0.1, 0.1, 0.1]
+2025-01-06 13:36:06,896   INFO          max_points_per_voxel: 5
+2025-01-06 13:36:06,896   INFO          max_voxel_train: 36000
+2025-01-06 13:36:06,896   INFO          max_voxel_test: 70000
+2025-01-06 13:36:06,896   INFO      }
+2025-01-06 13:36:06,896   INFO      cav_lidar_range: [-140.8, -40, -3, 140.8, 40, 1]
+2025-01-06 13:36:06,896   INFO  }
+2025-01-06 13:36:06,896   INFO  data_augment: [{'NAME': 'random_world_flip', 'ALONG_AXIS_LIST': ['x']}, {'NAME': 'random_world_rotation', 'WORLD_ROT_ANGLE': [-0.78539816, 0.78539816]}, {'NAME': 'random_world_scaling', 'WORLD_SCALE_RANGE': [0.95, 1.05]}]
+2025-01-06 13:36:06,896   INFO  postprocess: {
+2025-01-06 13:36:06,896   INFO      core_method: VoxelPostprocessor
+2025-01-06 13:36:06,896   INFO      anchor_args: {
+2025-01-06 13:36:06,896   INFO          cav_lidar_range: [-140.8, -40, -3, 140.8, 40, 1]
+2025-01-06 13:36:06,896   INFO          l: 3.9
+2025-01-06 13:36:06,896   INFO          w: 1.6
+2025-01-06 13:36:06,896   INFO          h: 1.56
+2025-01-06 13:36:06,896   INFO          r: [0, 90]
+2025-01-06 13:36:06,896   INFO          feature_stride: 8
+2025-01-06 13:36:06,896   INFO          num: 2
+2025-01-06 13:36:06,896   INFO          vw: 0.1
+2025-01-06 13:36:06,897   INFO          vh: 0.1
+2025-01-06 13:36:06,897   INFO          vd: 0.1
+2025-01-06 13:36:06,897   INFO          W: 2816
+2025-01-06 13:36:06,897   INFO          H: 800
+2025-01-06 13:36:06,897   INFO          D: 40
+2025-01-06 13:36:06,897   INFO      }
+2025-01-06 13:36:06,897   INFO      target_args: {
+2025-01-06 13:36:06,897   INFO          pos_threshold: 0.6
+2025-01-06 13:36:06,897   INFO          neg_threshold: 0.45
+2025-01-06 13:36:06,897   INFO          score_threshold: 0.2
+2025-01-06 13:36:06,897   INFO      }
+2025-01-06 13:36:06,897   INFO      order: hwl
+2025-01-06 13:36:06,897   INFO      max_num: 100
+2025-01-06 13:36:06,897   INFO      nms_thresh: 0.15
+2025-01-06 13:36:06,897   INFO  }
+2025-01-06 13:36:06,897   INFO  model: {
+2025-01-06 13:36:06,897   INFO      core_method: second_intermediate
+2025-01-06 13:36:06,897   INFO      args: {
+2025-01-06 13:36:06,897   INFO          batch_size: 2
+2025-01-06 13:36:06,897   INFO          voxel_size: [0.1, 0.1, 0.1]
+2025-01-06 13:36:06,897   INFO          lidar_range: [-140.8, -40, -3, 140.8, 40, 1]
+2025-01-06 13:36:06,897   INFO          anchor_number: 2
+2025-01-06 13:36:06,897   INFO          num_class: 2
+2025-01-06 13:36:06,897   INFO          fusion_module: MeanFusion
+2025-01-06 13:36:06,897   INFO          mean_vfe: {
+2025-01-06 13:36:06,897   INFO              feature_points: 4
+2025-01-06 13:36:06,897   INFO          }
+2025-01-06 13:36:06,898   INFO          backbone_3d: []
+2025-01-06 13:36:06,898   INFO          height_compression: {
+2025-01-06 13:36:06,898   INFO              feature_num: 256
+2025-01-06 13:36:06,898   INFO          }
+2025-01-06 13:36:06,898   INFO          base_bev_backbone: {
+2025-01-06 13:36:06,898   INFO              layer_nums: [3, 5]
+2025-01-06 13:36:06,898   INFO              layer_strides: [1, 2]
+2025-01-06 13:36:06,898   INFO              num_filters: [128, 256]
+2025-01-06 13:36:06,898   INFO              upsample_strides: [1, 2]
+2025-01-06 13:36:06,898   INFO              num_upsample_filter: [192, 192]
+2025-01-06 13:36:06,898   INFO          }
+2025-01-06 13:36:06,898   INFO          anchor_num: 2
+2025-01-06 13:36:06,898   INFO          grid_size: [2816  800   40]
+2025-01-06 13:36:06,898   INFO      }
+2025-01-06 13:36:06,898   INFO  }
+2025-01-06 13:36:06,898   INFO  loss: {
+2025-01-06 13:36:06,898   INFO      core_method: point_pillar_loss
+2025-01-06 13:36:06,898   INFO      args: {
+2025-01-06 13:36:06,898   INFO          cls_weight: 1.0
+2025-01-06 13:36:06,898   INFO          reg: 2.0
+2025-01-06 13:36:06,899   INFO          num_class: 2
+2025-01-06 13:36:06,899   INFO      }
+2025-01-06 13:36:06,899   INFO  }
+2025-01-06 13:36:06,899   INFO  optimizer: {
+2025-01-06 13:36:06,899   INFO      core_method: Adam
+2025-01-06 13:36:06,899   INFO      lr: 0.002
+2025-01-06 13:36:06,899   INFO      args: {
+2025-01-06 13:36:06,899   INFO          eps: 1e-10
+2025-01-06 13:36:06,899   INFO          weight_decay: 0.0001
+2025-01-06 13:36:06,899   INFO      }
+2025-01-06 13:36:06,899   INFO  }
+2025-01-06 13:36:06,899   INFO  lr_scheduler: {
+2025-01-06 13:36:06,899   INFO      core_method: multistep
+2025-01-06 13:36:06,899   INFO      gamma: 0.1
+2025-01-06 13:36:06,899   INFO      step_size: [15, 30]
+2025-01-06 13:36:06,899   INFO  }
+2025-01-06 13:36:06,899   INFO  -----------------Dataset Building------------------
+2025-01-06 13:36:07,638   INFO  ---------------Creating Model------------------
+2025-01-06 13:36:14,000   INFO  ----------- Model second_mean created, param count: 4926930 -----------
+2025-01-06 13:36:14,001   INFO  DistributedDataParallel(
+  (module): SecondIntermediate(
+    (mean_vfe): MeanVFE()
+    (backbone_3d): VoxelBackBone8x(
+      (conv_input): SparseSequential(
+        (0): SubMConv3d(4, 16, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (conv1): SparseSequential(
+        (0): SparseSequential(
+          (0): SubMConv3d(16, 16, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (conv2): SparseSequential(
+        (0): SparseSequential(
+          (0): SparseConv3d(16, 32, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (1): SparseSequential(
+          (0): SubMConv3d(32, 32, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (2): SparseSequential(
+          (0): SubMConv3d(32, 32, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (conv3): SparseSequential(
+        (0): SparseSequential(
+          (0): SparseConv3d(32, 64, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (1): SparseSequential(
+          (0): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (2): SparseSequential(
+          (0): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (conv4): SparseSequential(
+        (0): SparseSequential(
+          (0): SparseConv3d(64, 64, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[0, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (1): SparseSequential(
+          (0): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (2): SparseSequential(
+          (0): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (conv_out): SparseSequential(
+        (0): SparseConv3d(64, 128, kernel_size=[3, 1, 1], stride=[2, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (height_compression): HeightCompression()
+    (backbone_2d): BaseBEVBackbone(
+      (blocks): ModuleList(
+        (0): Sequential(
+          (0): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+          (1): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), bias=False)
+          (2): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (3): ReLU()
+          (4): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (5): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (6): ReLU()
+          (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (8): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (9): ReLU()
+          (10): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (11): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (12): ReLU()
+        )
+        (1): Sequential(
+          (0): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+          (1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), bias=False)
+          (2): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (3): ReLU()
+          (4): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (5): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (6): ReLU()
+          (7): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (8): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (9): ReLU()
+          (10): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (11): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (12): ReLU()
+          (13): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (14): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (15): ReLU()
+          (16): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (17): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (18): ReLU()
+        )
+      )
+      (deblocks): ModuleList(
+        (0): Sequential(
+          (0): ConvTranspose2d(128, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (1): Sequential(
+          (0): ConvTranspose2d(256, 192, kernel_size=(2, 2), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+    )
+    (batch_norm): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (fusion_module): MeanFusion()
+    (cls_head): Conv2d(384, 4, kernel_size=(1, 1), stride=(1, 1))
+    (reg_head): Conv2d(384, 14, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+2025-01-06 13:36:14,034   INFO  Training start
+2025-01-06 13:36:14,035   INFO  learning rate 0.0020000
+2025-01-06 13:36:18,927   INFO  [epoch 0][1/797], || Loss: 401.0467 || Conf Loss: 394.2599 || Loc Loss: 6.7868
+2025-01-06 13:36:52,190   INFO  [epoch 0][51/797], || Loss: 33.8826 || Conf Loss: 31.2102 || Loc Loss: 2.6723
+2025-01-06 13:37:13,759   INFO  [epoch 0][101/797], || Loss: 4.5868 || Conf Loss: 3.9395 || Loc Loss: 0.6473
+2025-01-06 13:37:38,679   INFO  [epoch 0][151/797], || Loss: 3.5515 || Conf Loss: 2.7385 || Loc Loss: 0.8130
+2025-01-06 13:38:01,976   INFO  [epoch 0][201/797], || Loss: 3.3685 || Conf Loss: 2.6977 || Loc Loss: 0.6708
+2025-01-06 13:38:23,458   INFO  [epoch 0][251/797], || Loss: 4.2941 || Conf Loss: 3.4192 || Loc Loss: 0.8749
+2025-01-06 13:38:44,555   INFO  [epoch 0][301/797], || Loss: 3.3373 || Conf Loss: 2.6357 || Loc Loss: 0.7016
+2025-01-06 13:39:07,287   INFO  [epoch 0][351/797], || Loss: 2.2170 || Conf Loss: 1.5481 || Loc Loss: 0.6689
+2025-01-06 13:39:29,538   INFO  [epoch 0][401/797], || Loss: 2.7564 || Conf Loss: 1.8891 || Loc Loss: 0.8673
+2025-01-06 13:39:52,450   INFO  [epoch 0][451/797], || Loss: 5.1626 || Conf Loss: 4.4373 || Loc Loss: 0.7253
+2025-01-06 13:40:13,678   INFO  [epoch 0][501/797], || Loss: 1.9595 || Conf Loss: 1.5347 || Loc Loss: 0.4248
+2025-01-06 13:40:39,497   INFO  [epoch 0][551/797], || Loss: 2.1589 || Conf Loss: 1.4975 || Loc Loss: 0.6614
+2025-01-06 13:41:01,930   INFO  [epoch 0][601/797], || Loss: 1.5965 || Conf Loss: 1.2819 || Loc Loss: 0.3146
+2025-01-06 13:41:27,769   INFO  [epoch 0][651/797], || Loss: 2.0055 || Conf Loss: 1.3536 || Loc Loss: 0.6519
+2025-01-06 13:41:49,104   INFO  [epoch 0][701/797], || Loss: 1.8341 || Conf Loss: 1.3291 || Loc Loss: 0.5051
+2025-01-06 13:42:13,611   INFO  [epoch 0][751/797], || Loss: 1.5299 || Conf Loss: 1.0892 || Loc Loss: 0.4406
+2025-01-06 13:42:38,962   INFO  [epoch 0][797/797], || Loss: 1.9742 || Conf Loss: 1.3023 || Loc Loss: 0.6718
+2025-01-06 13:42:39,453   INFO  learning rate 0.0020000
+2025-01-06 13:42:42,794   INFO  [epoch 1][1/797], || Loss: 1.5737 || Conf Loss: 1.0467 || Loc Loss: 0.5269
+2025-01-06 13:43:02,898   INFO  [epoch 1][51/797], || Loss: 2.1852 || Conf Loss: 1.4827 || Loc Loss: 0.7025
+2025-01-06 13:43:19,221   INFO  [epoch 1][101/797], || Loss: 1.3497 || Conf Loss: 0.9478 || Loc Loss: 0.4018
+2025-01-06 13:43:34,930   INFO  [epoch 1][151/797], || Loss: 3.0334 || Conf Loss: 1.7889 || Loc Loss: 1.2445
+2025-01-06 13:43:52,241   INFO  [epoch 1][201/797], || Loss: 1.9372 || Conf Loss: 1.2522 || Loc Loss: 0.6849
+2025-01-06 13:44:09,926   INFO  [epoch 1][251/797], || Loss: 1.3008 || Conf Loss: 0.8469 || Loc Loss: 0.4539
+2025-01-06 13:44:27,527   INFO  [epoch 1][301/797], || Loss: 2.2394 || Conf Loss: 1.2852 || Loc Loss: 0.9542
+2025-01-06 13:44:46,376   INFO  [epoch 1][351/797], || Loss: 1.9525 || Conf Loss: 1.2853 || Loc Loss: 0.6672
+2025-01-06 13:45:03,658   INFO  [epoch 1][401/797], || Loss: 1.7618 || Conf Loss: 1.2041 || Loc Loss: 0.5577
+2025-01-06 13:45:20,013   INFO  [epoch 1][451/797], || Loss: 1.3952 || Conf Loss: 1.0235 || Loc Loss: 0.3717
+2025-01-06 13:45:37,672   INFO  [epoch 1][501/797], || Loss: 0.9615 || Conf Loss: 0.6121 || Loc Loss: 0.3494
+2025-01-06 13:45:55,688   INFO  [epoch 1][551/797], || Loss: 0.9606 || Conf Loss: 0.6385 || Loc Loss: 0.3221
+2025-01-06 13:46:15,427   INFO  [epoch 1][601/797], || Loss: 1.0336 || Conf Loss: 0.6763 || Loc Loss: 0.3574
+2025-01-06 13:46:32,116   INFO  [epoch 1][651/797], || Loss: 1.2772 || Conf Loss: 0.8912 || Loc Loss: 0.3859
+2025-01-06 13:46:51,339   INFO  [epoch 1][701/797], || Loss: 0.9062 || Conf Loss: 0.6097 || Loc Loss: 0.2965
+2025-01-06 13:47:09,041   INFO  [epoch 1][751/797], || Loss: 1.4542 || Conf Loss: 0.9149 || Loc Loss: 0.5393
+2025-01-06 13:47:25,491   INFO  [epoch 1][797/797], || Loss: 0.9971 || Conf Loss: 0.6207 || Loc Loss: 0.3764
+2025-01-06 13:47:26,300   INFO  learning rate 0.0020000
+2025-01-06 13:47:29,398   INFO  [epoch 2][1/797], || Loss: 1.1746 || Conf Loss: 0.6959 || Loc Loss: 0.4787
+2025-01-06 13:47:49,511   INFO  [epoch 2][51/797], || Loss: 0.9117 || Conf Loss: 0.5353 || Loc Loss: 0.3764
+2025-01-06 13:48:07,777   INFO  [epoch 2][101/797], || Loss: 0.7701 || Conf Loss: 0.4502 || Loc Loss: 0.3199
+2025-01-06 13:48:24,538   INFO  [epoch 2][151/797], || Loss: 1.2418 || Conf Loss: 0.9012 || Loc Loss: 0.3406
+2025-01-06 13:48:41,130   INFO  [epoch 2][201/797], || Loss: 0.7215 || Conf Loss: 0.4900 || Loc Loss: 0.2314
+2025-01-06 13:48:59,783   INFO  [epoch 2][251/797], || Loss: 0.9353 || Conf Loss: 0.5745 || Loc Loss: 0.3607
+2025-01-06 13:49:16,911   INFO  [epoch 2][301/797], || Loss: 1.3465 || Conf Loss: 0.9918 || Loc Loss: 0.3548
+2025-01-06 13:49:35,110   INFO  [epoch 2][351/797], || Loss: 1.2192 || Conf Loss: 0.8738 || Loc Loss: 0.3454
+2025-01-06 13:49:51,460   INFO  [epoch 2][401/797], || Loss: 1.2640 || Conf Loss: 0.8765 || Loc Loss: 0.3875
+2025-01-06 13:50:09,321   INFO  [epoch 2][451/797], || Loss: 0.8446 || Conf Loss: 0.6249 || Loc Loss: 0.2197
+2025-01-06 13:50:28,058   INFO  [epoch 2][501/797], || Loss: 0.4781 || Conf Loss: 0.3114 || Loc Loss: 0.1667
+2025-01-06 13:50:45,366   INFO  [epoch 2][551/797], || Loss: 0.7572 || Conf Loss: 0.5352 || Loc Loss: 0.2220
+2025-01-06 13:51:03,253   INFO  [epoch 2][601/797], || Loss: 1.0357 || Conf Loss: 0.5865 || Loc Loss: 0.4492
+2025-01-06 13:51:21,739   INFO  [epoch 2][651/797], || Loss: 1.1364 || Conf Loss: 0.7500 || Loc Loss: 0.3864
+2025-01-06 13:51:38,653   INFO  [epoch 2][701/797], || Loss: 0.7642 || Conf Loss: 0.5323 || Loc Loss: 0.2320
+2025-01-06 13:52:00,173   INFO  [epoch 2][751/797], || Loss: 1.3246 || Conf Loss: 0.8040 || Loc Loss: 0.5206
+2025-01-06 13:52:16,250   INFO  [epoch 2][797/797], || Loss: 1.8109 || Conf Loss: 1.3239 || Loc Loss: 0.4870
+2025-01-06 13:52:16,746   INFO  learning rate 0.0020000
+2025-01-06 13:52:21,986   INFO  [epoch 3][1/797], || Loss: 1.1377 || Conf Loss: 0.7478 || Loc Loss: 0.3899
+2025-01-06 13:52:38,173   INFO  [epoch 3][51/797], || Loss: 1.4388 || Conf Loss: 1.1129 || Loc Loss: 0.3259
+2025-01-06 13:52:55,143   INFO  [epoch 3][101/797], || Loss: 0.9760 || Conf Loss: 0.6390 || Loc Loss: 0.3369
+2025-01-06 13:53:11,263   INFO  [epoch 3][151/797], || Loss: 1.1992 || Conf Loss: 0.8166 || Loc Loss: 0.3825
+2025-01-06 13:53:27,599   INFO  [epoch 3][201/797], || Loss: 0.9677 || Conf Loss: 0.5753 || Loc Loss: 0.3923
+2025-01-06 13:53:45,125   INFO  [epoch 3][251/797], || Loss: 1.1285 || Conf Loss: 0.7446 || Loc Loss: 0.3839
+2025-01-06 13:54:01,877   INFO  [epoch 3][301/797], || Loss: 1.8427 || Conf Loss: 1.0802 || Loc Loss: 0.7625
+2025-01-06 13:54:18,936   INFO  [epoch 3][351/797], || Loss: 0.8900 || Conf Loss: 0.5001 || Loc Loss: 0.3899
+2025-01-06 13:54:36,877   INFO  [epoch 3][401/797], || Loss: 1.3262 || Conf Loss: 0.9078 || Loc Loss: 0.4184
+2025-01-06 13:54:54,491   INFO  [epoch 3][451/797], || Loss: 0.7994 || Conf Loss: 0.5168 || Loc Loss: 0.2825
+2025-01-06 13:55:12,054   INFO  [epoch 3][501/797], || Loss: 0.9119 || Conf Loss: 0.5972 || Loc Loss: 0.3148
+2025-01-06 13:55:29,788   INFO  [epoch 3][551/797], || Loss: 0.6564 || Conf Loss: 0.4554 || Loc Loss: 0.2010
+2025-01-06 13:55:48,413   INFO  [epoch 3][601/797], || Loss: 0.7511 || Conf Loss: 0.4961 || Loc Loss: 0.2551
+2025-01-06 13:56:05,675   INFO  [epoch 3][651/797], || Loss: 0.8132 || Conf Loss: 0.5520 || Loc Loss: 0.2612
+2025-01-06 13:56:25,660   INFO  [epoch 3][701/797], || Loss: 0.7614 || Conf Loss: 0.4653 || Loc Loss: 0.2961
+2025-01-06 13:56:43,516   INFO  [epoch 3][751/797], || Loss: 0.6868 || Conf Loss: 0.4133 || Loc Loss: 0.2735
+2025-01-06 13:56:59,401   INFO  [epoch 3][797/797], || Loss: 0.9035 || Conf Loss: 0.6705 || Loc Loss: 0.2330
+2025-01-06 13:56:59,811   INFO  learning rate 0.0020000
+2025-01-06 13:57:03,936   INFO  [epoch 4][1/797], || Loss: 1.0107 || Conf Loss: 0.7177 || Loc Loss: 0.2930
+2025-01-06 13:57:22,819   INFO  [epoch 4][51/797], || Loss: 0.7879 || Conf Loss: 0.5751 || Loc Loss: 0.2127
+2025-01-06 13:57:38,850   INFO  [epoch 4][101/797], || Loss: 0.6948 || Conf Loss: 0.4596 || Loc Loss: 0.2352
+2025-01-06 13:57:55,224   INFO  [epoch 4][151/797], || Loss: 0.7926 || Conf Loss: 0.5079 || Loc Loss: 0.2847
+2025-01-06 13:58:11,849   INFO  [epoch 4][201/797], || Loss: 0.5988 || Conf Loss: 0.4151 || Loc Loss: 0.1837
+2025-01-06 13:58:29,024   INFO  [epoch 4][251/797], || Loss: 0.5394 || Conf Loss: 0.3652 || Loc Loss: 0.1742
+2025-01-06 13:58:46,822   INFO  [epoch 4][301/797], || Loss: 1.3633 || Conf Loss: 0.8923 || Loc Loss: 0.4710
+2025-01-06 13:59:03,051   INFO  [epoch 4][351/797], || Loss: 1.0634 || Conf Loss: 0.5746 || Loc Loss: 0.4888
+2025-01-06 13:59:21,621   INFO  [epoch 4][401/797], || Loss: 0.8761 || Conf Loss: 0.6209 || Loc Loss: 0.2552
+2025-01-06 13:59:39,008   INFO  [epoch 4][451/797], || Loss: 0.6244 || Conf Loss: 0.4633 || Loc Loss: 0.1611
+2025-01-06 13:59:57,069   INFO  [epoch 4][501/797], || Loss: 0.7298 || Conf Loss: 0.4243 || Loc Loss: 0.3055
+2025-01-06 14:00:16,437   INFO  [epoch 4][551/797], || Loss: 0.9023 || Conf Loss: 0.5761 || Loc Loss: 0.3262
+2025-01-06 14:00:34,226   INFO  [epoch 4][601/797], || Loss: 0.7421 || Conf Loss: 0.4960 || Loc Loss: 0.2461
+2025-01-06 14:00:54,540   INFO  [epoch 4][651/797], || Loss: 0.5674 || Conf Loss: 0.4141 || Loc Loss: 0.1534
+2025-01-06 14:01:12,743   INFO  [epoch 4][701/797], || Loss: 0.8897 || Conf Loss: 0.6266 || Loc Loss: 0.2630
+2025-01-06 14:01:31,223   INFO  [epoch 4][751/797], || Loss: 1.0450 || Conf Loss: 0.6107 || Loc Loss: 0.4343
+2025-01-06 14:01:46,984   INFO  [epoch 4][797/797], || Loss: 0.7117 || Conf Loss: 0.4127 || Loc Loss: 0.2990
+2025-01-06 14:01:47,459   INFO  learning rate 0.0020000
+2025-01-06 14:01:50,945   INFO  [epoch 5][1/797], || Loss: 0.7148 || Conf Loss: 0.4955 || Loc Loss: 0.2192
+2025-01-06 14:02:08,026   INFO  [epoch 5][51/797], || Loss: 0.6984 || Conf Loss: 0.4623 || Loc Loss: 0.2362
+2025-01-06 14:02:24,681   INFO  [epoch 5][101/797], || Loss: 0.8000 || Conf Loss: 0.6045 || Loc Loss: 0.1954
+2025-01-06 14:02:40,402   INFO  [epoch 5][151/797], || Loss: 0.7611 || Conf Loss: 0.5134 || Loc Loss: 0.2477
+2025-01-06 14:02:57,481   INFO  [epoch 5][201/797], || Loss: 0.9411 || Conf Loss: 0.6694 || Loc Loss: 0.2717
+2025-01-06 14:03:15,982   INFO  [epoch 5][251/797], || Loss: 0.8639 || Conf Loss: 0.5423 || Loc Loss: 0.3216
+2025-01-06 14:03:32,059   INFO  [epoch 5][301/797], || Loss: 1.0157 || Conf Loss: 0.6306 || Loc Loss: 0.3850
+2025-01-06 14:03:51,208   INFO  [epoch 5][351/797], || Loss: 0.6143 || Conf Loss: 0.3833 || Loc Loss: 0.2310
+2025-01-06 14:04:09,006   INFO  [epoch 5][401/797], || Loss: 0.9273 || Conf Loss: 0.7601 || Loc Loss: 0.1672
+2025-01-06 14:04:27,153   INFO  [epoch 5][451/797], || Loss: 0.4315 || Conf Loss: 0.3335 || Loc Loss: 0.0981
+2025-01-06 14:04:46,234   INFO  [epoch 5][501/797], || Loss: 0.6197 || Conf Loss: 0.3818 || Loc Loss: 0.2379
+2025-01-06 14:05:05,299   INFO  [epoch 5][551/797], || Loss: 0.7542 || Conf Loss: 0.5524 || Loc Loss: 0.2018
+2025-01-06 14:05:22,153   INFO  [epoch 5][601/797], || Loss: 0.5248 || Conf Loss: 0.3305 || Loc Loss: 0.1943
+2025-01-06 14:05:39,157   INFO  [epoch 5][651/797], || Loss: 0.5925 || Conf Loss: 0.4452 || Loc Loss: 0.1474
+2025-01-06 14:05:58,524   INFO  [epoch 5][701/797], || Loss: 0.6779 || Conf Loss: 0.3952 || Loc Loss: 0.2827
+2025-01-06 14:06:17,248   INFO  [epoch 5][751/797], || Loss: 0.4833 || Conf Loss: 0.3209 || Loc Loss: 0.1624
+2025-01-06 14:06:34,682   INFO  [epoch 5][797/797], || Loss: 0.3418 || Conf Loss: 0.1873 || Loc Loss: 0.1545
+2025-01-06 14:06:35,131   INFO  learning rate 0.0020000
+2025-01-06 14:06:38,680   INFO  [epoch 6][1/797], || Loss: 0.6978 || Conf Loss: 0.4812 || Loc Loss: 0.2167
+2025-01-06 14:06:55,884   INFO  [epoch 6][51/797], || Loss: 0.9781 || Conf Loss: 0.6910 || Loc Loss: 0.2871
+2025-01-06 14:07:13,594   INFO  [epoch 6][101/797], || Loss: 1.0035 || Conf Loss: 0.7424 || Loc Loss: 0.2611
+2025-01-06 14:07:31,635   INFO  [epoch 6][151/797], || Loss: 0.6200 || Conf Loss: 0.3848 || Loc Loss: 0.2351
+2025-01-06 14:07:48,861   INFO  [epoch 6][201/797], || Loss: 0.6124 || Conf Loss: 0.4013 || Loc Loss: 0.2111
+2025-01-06 14:08:05,782   INFO  [epoch 6][251/797], || Loss: 0.2724 || Conf Loss: 0.1165 || Loc Loss: 0.1559
+2025-01-06 14:08:22,384   INFO  [epoch 6][301/797], || Loss: 0.6597 || Conf Loss: 0.4231 || Loc Loss: 0.2366
+2025-01-06 14:08:39,541   INFO  [epoch 6][351/797], || Loss: 0.3644 || Conf Loss: 0.2806 || Loc Loss: 0.0838
+2025-01-06 14:08:56,629   INFO  [epoch 6][401/797], || Loss: 0.3234 || Conf Loss: 0.1874 || Loc Loss: 0.1361
+2025-01-06 14:09:14,818   INFO  [epoch 6][451/797], || Loss: 0.8180 || Conf Loss: 0.6443 || Loc Loss: 0.1737
+2025-01-06 14:09:33,518   INFO  [epoch 6][501/797], || Loss: 1.3117 || Conf Loss: 0.9395 || Loc Loss: 0.3722
+2025-01-06 14:09:50,618   INFO  [epoch 6][551/797], || Loss: 0.7523 || Conf Loss: 0.3399 || Loc Loss: 0.4124
+2025-01-06 14:10:10,107   INFO  [epoch 6][601/797], || Loss: 0.4253 || Conf Loss: 0.2997 || Loc Loss: 0.1256
+2025-01-06 14:10:29,360   INFO  [epoch 6][651/797], || Loss: 0.5697 || Conf Loss: 0.3813 || Loc Loss: 0.1883
+2025-01-06 14:10:47,519   INFO  [epoch 6][701/797], || Loss: 1.0924 || Conf Loss: 0.7450 || Loc Loss: 0.3474
+2025-01-06 14:11:06,672   INFO  [epoch 6][751/797], || Loss: 0.5697 || Conf Loss: 0.4174 || Loc Loss: 0.1523
+2025-01-06 14:11:22,278   INFO  [epoch 6][797/797], || Loss: 1.7392 || Conf Loss: 0.6794 || Loc Loss: 1.0598
+2025-01-06 14:11:22,760   INFO  learning rate 0.0020000
+2025-01-06 14:11:26,912   INFO  [epoch 7][1/797], || Loss: 0.7039 || Conf Loss: 0.4825 || Loc Loss: 0.2215
+2025-01-06 14:11:44,224   INFO  [epoch 7][51/797], || Loss: 1.3050 || Conf Loss: 0.8540 || Loc Loss: 0.4510
+2025-01-06 14:12:00,614   INFO  [epoch 7][101/797], || Loss: 2.9643 || Conf Loss: 1.8070 || Loc Loss: 1.1573
+2025-01-06 14:12:17,885   INFO  [epoch 7][151/797], || Loss: 1.5788 || Conf Loss: 1.0258 || Loc Loss: 0.5530
+2025-01-06 14:12:35,133   INFO  [epoch 7][201/797], || Loss: 1.1007 || Conf Loss: 0.6359 || Loc Loss: 0.4648
+2025-01-06 14:12:52,225   INFO  [epoch 7][251/797], || Loss: 1.2209 || Conf Loss: 0.8350 || Loc Loss: 0.3859
+2025-01-06 14:13:10,526   INFO  [epoch 7][301/797], || Loss: 0.7765 || Conf Loss: 0.4745 || Loc Loss: 0.3020
+2025-01-06 14:13:27,413   INFO  [epoch 7][351/797], || Loss: 0.8474 || Conf Loss: 0.6056 || Loc Loss: 0.2418
+2025-01-06 14:13:46,356   INFO  [epoch 7][401/797], || Loss: 0.9682 || Conf Loss: 0.6494 || Loc Loss: 0.3188
+2025-01-06 14:14:04,186   INFO  [epoch 7][451/797], || Loss: 1.1869 || Conf Loss: 0.8963 || Loc Loss: 0.2905
+2025-01-06 14:14:21,941   INFO  [epoch 7][501/797], || Loss: 1.2132 || Conf Loss: 0.8692 || Loc Loss: 0.3440
+2025-01-06 14:14:40,900   INFO  [epoch 7][551/797], || Loss: 1.5620 || Conf Loss: 1.1450 || Loc Loss: 0.4170
+2025-01-06 14:14:58,834   INFO  [epoch 7][601/797], || Loss: 0.8077 || Conf Loss: 0.5251 || Loc Loss: 0.2826
+2025-01-06 14:15:16,054   INFO  [epoch 7][651/797], || Loss: 1.2425 || Conf Loss: 0.7543 || Loc Loss: 0.4882
+2025-01-06 14:15:34,977   INFO  [epoch 7][701/797], || Loss: 0.6751 || Conf Loss: 0.4353 || Loc Loss: 0.2398
+2025-01-06 14:15:53,722   INFO  [epoch 7][751/797], || Loss: 0.8241 || Conf Loss: 0.5195 || Loc Loss: 0.3046
+2025-01-06 14:16:09,602   INFO  [epoch 7][797/797], || Loss: 0.5729 || Conf Loss: 0.3860 || Loc Loss: 0.1869
+2025-01-06 14:16:10,037   INFO  learning rate 0.0020000
+2025-01-06 14:16:12,700   INFO  [epoch 8][1/797], || Loss: 0.8581 || Conf Loss: 0.6036 || Loc Loss: 0.2545
+2025-01-06 14:16:31,388   INFO  [epoch 8][51/797], || Loss: 0.7276 || Conf Loss: 0.5177 || Loc Loss: 0.2099
+2025-01-06 14:16:49,321   INFO  [epoch 8][101/797], || Loss: 0.6480 || Conf Loss: 0.4406 || Loc Loss: 0.2074
+2025-01-06 14:17:06,054   INFO  [epoch 8][151/797], || Loss: 0.5371 || Conf Loss: 0.3728 || Loc Loss: 0.1643
+2025-01-06 14:17:23,923   INFO  [epoch 8][201/797], || Loss: 0.5984 || Conf Loss: 0.4235 || Loc Loss: 0.1749
+2025-01-06 14:17:40,976   INFO  [epoch 8][251/797], || Loss: 0.6029 || Conf Loss: 0.4250 || Loc Loss: 0.1779
+2025-01-06 14:17:58,959   INFO  [epoch 8][301/797], || Loss: 0.5594 || Conf Loss: 0.3561 || Loc Loss: 0.2034
+2025-01-06 14:18:16,685   INFO  [epoch 8][351/797], || Loss: 0.5512 || Conf Loss: 0.3473 || Loc Loss: 0.2039
+2025-01-06 14:18:33,608   INFO  [epoch 8][401/797], || Loss: 0.4218 || Conf Loss: 0.2962 || Loc Loss: 0.1255
+2025-01-06 14:18:50,656   INFO  [epoch 8][451/797], || Loss: 0.6549 || Conf Loss: 0.4705 || Loc Loss: 0.1844
+2025-01-06 14:19:09,069   INFO  [epoch 8][501/797], || Loss: 0.6640 || Conf Loss: 0.5028 || Loc Loss: 0.1612
+2025-01-06 14:19:27,274   INFO  [epoch 8][551/797], || Loss: 0.7327 || Conf Loss: 0.5586 || Loc Loss: 0.1741
+2025-01-06 14:19:44,901   INFO  [epoch 8][601/797], || Loss: 0.5112 || Conf Loss: 0.3369 || Loc Loss: 0.1743
+2025-01-06 14:20:03,257   INFO  [epoch 8][651/797], || Loss: 0.4893 || Conf Loss: 0.3297 || Loc Loss: 0.1597
+2025-01-06 14:20:21,008   INFO  [epoch 8][701/797], || Loss: 0.6306 || Conf Loss: 0.4691 || Loc Loss: 0.1615
+2025-01-06 14:20:40,478   INFO  [epoch 8][751/797], || Loss: 0.7483 || Conf Loss: 0.5189 || Loc Loss: 0.2294
+2025-01-06 14:20:54,814   INFO  [epoch 8][797/797], || Loss: 0.7041 || Conf Loss: 0.4971 || Loc Loss: 0.2070
+2025-01-06 14:20:55,291   INFO  learning rate 0.0020000
+2025-01-06 14:20:58,453   INFO  [epoch 9][1/797], || Loss: 0.9790 || Conf Loss: 0.8009 || Loc Loss: 0.1782
+2025-01-06 14:21:18,075   INFO  [epoch 9][51/797], || Loss: 0.7726 || Conf Loss: 0.5665 || Loc Loss: 0.2061
+2025-01-06 14:21:32,866   INFO  [epoch 9][101/797], || Loss: 0.8124 || Conf Loss: 0.5934 || Loc Loss: 0.2191
+2025-01-06 14:21:50,604   INFO  [epoch 9][151/797], || Loss: 0.9467 || Conf Loss: 0.6770 || Loc Loss: 0.2697
+2025-01-06 14:22:08,399   INFO  [epoch 9][201/797], || Loss: 0.4878 || Conf Loss: 0.3070 || Loc Loss: 0.1808
+2025-01-06 14:22:25,384   INFO  [epoch 9][251/797], || Loss: 0.5112 || Conf Loss: 0.3883 || Loc Loss: 0.1229
+2025-01-06 14:22:43,229   INFO  [epoch 9][301/797], || Loss: 0.6538 || Conf Loss: 0.4536 || Loc Loss: 0.2003
+2025-01-06 14:22:59,887   INFO  [epoch 9][351/797], || Loss: 0.8346 || Conf Loss: 0.6302 || Loc Loss: 0.2044
+2025-01-06 14:23:18,034   INFO  [epoch 9][401/797], || Loss: 1.1815 || Conf Loss: 0.9246 || Loc Loss: 0.2569
+2025-01-06 14:23:35,637   INFO  [epoch 9][451/797], || Loss: 0.9233 || Conf Loss: 0.7029 || Loc Loss: 0.2203
+2025-01-06 14:23:54,107   INFO  [epoch 9][501/797], || Loss: 0.3090 || Conf Loss: 0.2215 || Loc Loss: 0.0874
+2025-01-06 14:24:12,608   INFO  [epoch 9][551/797], || Loss: 0.4366 || Conf Loss: 0.3258 || Loc Loss: 0.1108
+2025-01-06 14:24:31,643   INFO  [epoch 9][601/797], || Loss: 0.5551 || Conf Loss: 0.4059 || Loc Loss: 0.1492
+2025-01-06 14:24:48,648   INFO  [epoch 9][651/797], || Loss: 0.4448 || Conf Loss: 0.2607 || Loc Loss: 0.1841
+2025-01-06 14:25:07,853   INFO  [epoch 9][701/797], || Loss: 0.6989 || Conf Loss: 0.4288 || Loc Loss: 0.2701
+2025-01-06 14:25:27,032   INFO  [epoch 9][751/797], || Loss: 0.4255 || Conf Loss: 0.2987 || Loc Loss: 0.1268
+2025-01-06 14:25:43,479   INFO  [epoch 9][797/797], || Loss: 0.5763 || Conf Loss: 0.4512 || Loc Loss: 0.1251
+2025-01-06 14:25:43,941   INFO  learning rate 0.0020000
+2025-01-06 14:25:48,657   INFO  [epoch 10][1/797], || Loss: 1.2170 || Conf Loss: 0.8370 || Loc Loss: 0.3800
+2025-01-06 14:26:05,120   INFO  [epoch 10][51/797], || Loss: 0.5861 || Conf Loss: 0.3998 || Loc Loss: 0.1863
+2025-01-06 14:26:22,825   INFO  [epoch 10][101/797], || Loss: 0.9707 || Conf Loss: 0.6591 || Loc Loss: 0.3116
+2025-01-06 14:26:38,302   INFO  [epoch 10][151/797], || Loss: 0.8937 || Conf Loss: 0.7009 || Loc Loss: 0.1928
+2025-01-06 14:26:55,401   INFO  [epoch 10][201/797], || Loss: 0.6327 || Conf Loss: 0.3828 || Loc Loss: 0.2499
+2025-01-06 14:27:13,300   INFO  [epoch 10][251/797], || Loss: 0.6898 || Conf Loss: 0.4918 || Loc Loss: 0.1980
+2025-01-06 14:27:30,524   INFO  [epoch 10][301/797], || Loss: 0.9655 || Conf Loss: 0.8462 || Loc Loss: 0.1194
+2025-01-06 14:27:48,663   INFO  [epoch 10][351/797], || Loss: 0.2689 || Conf Loss: 0.2065 || Loc Loss: 0.0624
+2025-01-06 14:28:05,961   INFO  [epoch 10][401/797], || Loss: 0.3687 || Conf Loss: 0.2189 || Loc Loss: 0.1498
+2025-01-06 14:28:24,105   INFO  [epoch 10][451/797], || Loss: 0.8220 || Conf Loss: 0.5919 || Loc Loss: 0.2301
+2025-01-06 14:28:42,785   INFO  [epoch 10][501/797], || Loss: 0.7737 || Conf Loss: 0.4923 || Loc Loss: 0.2815
+2025-01-06 14:29:01,245   INFO  [epoch 10][551/797], || Loss: 0.4988 || Conf Loss: 0.3178 || Loc Loss: 0.1809
+2025-01-06 14:29:18,569   INFO  [epoch 10][601/797], || Loss: 1.1315 || Conf Loss: 0.7620 || Loc Loss: 0.3695
+2025-01-06 14:29:36,181   INFO  [epoch 10][651/797], || Loss: 0.7749 || Conf Loss: 0.5650 || Loc Loss: 0.2099
+2025-01-06 14:29:54,829   INFO  [epoch 10][701/797], || Loss: 0.2634 || Conf Loss: 0.1675 || Loc Loss: 0.0959
+2025-01-06 14:30:12,468   INFO  [epoch 10][751/797], || Loss: 0.7381 || Conf Loss: 0.4561 || Loc Loss: 0.2820
+2025-01-06 14:30:28,106   INFO  [epoch 10][797/797], || Loss: 0.6339 || Conf Loss: 0.4851 || Loc Loss: 0.1488
+2025-01-06 14:30:28,548   INFO  learning rate 0.0020000
+2025-01-06 14:30:33,507   INFO  [epoch 11][1/797], || Loss: 0.4637 || Conf Loss: 0.3240 || Loc Loss: 0.1396
+2025-01-06 14:30:52,746   INFO  [epoch 11][51/797], || Loss: 0.5292 || Conf Loss: 0.3516 || Loc Loss: 0.1776
+2025-01-06 14:31:10,142   INFO  [epoch 11][101/797], || Loss: 0.6798 || Conf Loss: 0.4755 || Loc Loss: 0.2043
+2025-01-06 14:31:26,835   INFO  [epoch 11][151/797], || Loss: 1.6817 || Conf Loss: 1.1755 || Loc Loss: 0.5062
+2025-01-06 14:31:44,179   INFO  [epoch 11][201/797], || Loss: 0.7105 || Conf Loss: 0.5434 || Loc Loss: 0.1671
+2025-01-06 14:32:02,346   INFO  [epoch 11][251/797], || Loss: 0.8385 || Conf Loss: 0.5813 || Loc Loss: 0.2571
+2025-01-06 14:32:18,985   INFO  [epoch 11][301/797], || Loss: 0.4814 || Conf Loss: 0.3840 || Loc Loss: 0.0974
+2025-01-06 14:32:34,551   INFO  [epoch 11][351/797], || Loss: 0.4462 || Conf Loss: 0.3258 || Loc Loss: 0.1204
+2025-01-06 14:32:52,886   INFO  [epoch 11][401/797], || Loss: 0.6245 || Conf Loss: 0.4422 || Loc Loss: 0.1823
+2025-01-06 14:33:10,369   INFO  [epoch 11][451/797], || Loss: 0.8339 || Conf Loss: 0.5700 || Loc Loss: 0.2640
+2025-01-06 14:33:28,099   INFO  [epoch 11][501/797], || Loss: 0.6575 || Conf Loss: 0.3997 || Loc Loss: 0.2578
+2025-01-06 14:33:46,426   INFO  [epoch 11][551/797], || Loss: 0.6720 || Conf Loss: 0.4350 || Loc Loss: 0.2370
+2025-01-06 14:34:04,747   INFO  [epoch 11][601/797], || Loss: 0.6166 || Conf Loss: 0.4204 || Loc Loss: 0.1963
+2025-01-06 14:34:24,410   INFO  [epoch 11][651/797], || Loss: 0.5224 || Conf Loss: 0.3685 || Loc Loss: 0.1539
+2025-01-06 14:34:42,159   INFO  [epoch 11][701/797], || Loss: 0.3937 || Conf Loss: 0.2636 || Loc Loss: 0.1301
+2025-01-06 14:35:04,231   INFO  [epoch 11][751/797], || Loss: 0.7990 || Conf Loss: 0.5474 || Loc Loss: 0.2515
+2025-01-06 14:35:19,427   INFO  [epoch 11][797/797], || Loss: 0.6180 || Conf Loss: 0.4344 || Loc Loss: 0.1835
+2025-01-06 14:35:19,884   INFO  learning rate 0.0020000
+2025-01-06 14:35:24,574   INFO  [epoch 12][1/797], || Loss: 0.5925 || Conf Loss: 0.2782 || Loc Loss: 0.3143
+2025-01-06 14:35:40,652   INFO  [epoch 12][51/797], || Loss: 0.2633 || Conf Loss: 0.1874 || Loc Loss: 0.0759
+2025-01-06 14:35:57,018   INFO  [epoch 12][101/797], || Loss: 0.7583 || Conf Loss: 0.5793 || Loc Loss: 0.1790
+2025-01-06 14:36:15,215   INFO  [epoch 12][151/797], || Loss: 0.4100 || Conf Loss: 0.2603 || Loc Loss: 0.1498
+2025-01-06 14:36:32,244   INFO  [epoch 12][201/797], || Loss: 0.3457 || Conf Loss: 0.2461 || Loc Loss: 0.0996
+2025-01-06 14:36:48,585   INFO  [epoch 12][251/797], || Loss: 0.2675 || Conf Loss: 0.1646 || Loc Loss: 0.1029
+2025-01-06 14:37:05,970   INFO  [epoch 12][301/797], || Loss: 0.5130 || Conf Loss: 0.3550 || Loc Loss: 0.1580
+2025-01-06 14:37:23,031   INFO  [epoch 12][351/797], || Loss: 0.3488 || Conf Loss: 0.2225 || Loc Loss: 0.1263
+2025-01-06 14:37:40,825   INFO  [epoch 12][401/797], || Loss: 0.7317 || Conf Loss: 0.5430 || Loc Loss: 0.1887
+2025-01-06 14:37:57,475   INFO  [epoch 12][451/797], || Loss: 0.4456 || Conf Loss: 0.2929 || Loc Loss: 0.1526
+2025-01-06 14:38:13,962   INFO  [epoch 12][501/797], || Loss: 1.0423 || Conf Loss: 0.7989 || Loc Loss: 0.2434
+2025-01-06 14:38:32,093   INFO  [epoch 12][551/797], || Loss: 0.7740 || Conf Loss: 0.5974 || Loc Loss: 0.1767
+2025-01-06 14:38:52,002   INFO  [epoch 12][601/797], || Loss: 0.5381 || Conf Loss: 0.3657 || Loc Loss: 0.1724
+2025-01-06 14:39:10,386   INFO  [epoch 12][651/797], || Loss: 0.5483 || Conf Loss: 0.4088 || Loc Loss: 0.1395
+2025-01-06 14:39:29,599   INFO  [epoch 12][701/797], || Loss: 0.8825 || Conf Loss: 0.6452 || Loc Loss: 0.2373
+2025-01-06 14:39:48,963   INFO  [epoch 12][751/797], || Loss: 0.2835 || Conf Loss: 0.2108 || Loc Loss: 0.0727
+2025-01-06 14:40:04,544   INFO  [epoch 12][797/797], || Loss: 0.3636 || Conf Loss: 0.2539 || Loc Loss: 0.1097
+2025-01-06 14:40:04,929   INFO  learning rate 0.0020000
+2025-01-06 14:40:08,464   INFO  [epoch 13][1/797], || Loss: 0.4284 || Conf Loss: 0.3079 || Loc Loss: 0.1205
+2025-01-06 14:40:26,269   INFO  [epoch 13][51/797], || Loss: 0.5776 || Conf Loss: 0.4146 || Loc Loss: 0.1630
+2025-01-06 14:40:43,580   INFO  [epoch 13][101/797], || Loss: 0.4509 || Conf Loss: 0.2875 || Loc Loss: 0.1634
+2025-01-06 14:41:01,039   INFO  [epoch 13][151/797], || Loss: 0.6279 || Conf Loss: 0.4950 || Loc Loss: 0.1329
+2025-01-06 14:41:19,100   INFO  [epoch 13][201/797], || Loss: 0.3821 || Conf Loss: 0.1840 || Loc Loss: 0.1980
+2025-01-06 14:41:35,499   INFO  [epoch 13][251/797], || Loss: 0.4832 || Conf Loss: 0.3394 || Loc Loss: 0.1439
+2025-01-06 14:41:52,451   INFO  [epoch 13][301/797], || Loss: 0.5819 || Conf Loss: 0.3678 || Loc Loss: 0.2141
+2025-01-06 14:42:09,353   INFO  [epoch 13][351/797], || Loss: 0.7010 || Conf Loss: 0.5450 || Loc Loss: 0.1560
+2025-01-06 14:42:26,566   INFO  [epoch 13][401/797], || Loss: 0.2136 || Conf Loss: 0.1485 || Loc Loss: 0.0650
+2025-01-06 14:42:44,845   INFO  [epoch 13][451/797], || Loss: 0.4344 || Conf Loss: 0.3139 || Loc Loss: 0.1205
+2025-01-06 14:43:02,546   INFO  [epoch 13][501/797], || Loss: 0.5203 || Conf Loss: 0.3579 || Loc Loss: 0.1624
+2025-01-06 14:43:20,240   INFO  [epoch 13][551/797], || Loss: 0.4315 || Conf Loss: 0.2339 || Loc Loss: 0.1976
+2025-01-06 14:43:37,685   INFO  [epoch 13][601/797], || Loss: 0.8518 || Conf Loss: 0.5918 || Loc Loss: 0.2599
+2025-01-06 14:43:55,921   INFO  [epoch 13][651/797], || Loss: 0.4897 || Conf Loss: 0.2924 || Loc Loss: 0.1974
+2025-01-06 14:44:15,984   INFO  [epoch 13][701/797], || Loss: 0.5446 || Conf Loss: 0.4033 || Loc Loss: 0.1413
+2025-01-06 14:44:33,754   INFO  [epoch 13][751/797], || Loss: 0.5093 || Conf Loss: 0.3611 || Loc Loss: 0.1482
+2025-01-06 14:44:50,373   INFO  [epoch 13][797/797], || Loss: 0.4419 || Conf Loss: 0.3031 || Loc Loss: 0.1388
+2025-01-06 14:44:50,787   INFO  learning rate 0.0020000
+2025-01-06 14:44:55,149   INFO  [epoch 14][1/797], || Loss: 0.4825 || Conf Loss: 0.3285 || Loc Loss: 0.1539
+2025-01-06 14:45:13,407   INFO  [epoch 14][51/797], || Loss: 0.5732 || Conf Loss: 0.3999 || Loc Loss: 0.1733
+2025-01-06 14:45:29,430   INFO  [epoch 14][101/797], || Loss: 1.0945 || Conf Loss: 0.7646 || Loc Loss: 0.3299
+2025-01-06 14:45:46,245   INFO  [epoch 14][151/797], || Loss: 0.8077 || Conf Loss: 0.6047 || Loc Loss: 0.2030
+2025-01-06 14:46:02,899   INFO  [epoch 14][201/797], || Loss: 0.4265 || Conf Loss: 0.3346 || Loc Loss: 0.0919
+2025-01-06 14:46:19,327   INFO  [epoch 14][251/797], || Loss: 0.7537 || Conf Loss: 0.5609 || Loc Loss: 0.1928
+2025-01-06 14:46:36,930   INFO  [epoch 14][301/797], || Loss: 0.4308 || Conf Loss: 0.3350 || Loc Loss: 0.0958
+2025-01-06 14:46:55,189   INFO  [epoch 14][351/797], || Loss: 0.4312 || Conf Loss: 0.2657 || Loc Loss: 0.1655
+2025-01-06 14:47:12,151   INFO  [epoch 14][401/797], || Loss: 0.5041 || Conf Loss: 0.3860 || Loc Loss: 0.1180
+2025-01-06 14:47:30,131   INFO  [epoch 14][451/797], || Loss: 0.6139 || Conf Loss: 0.3808 || Loc Loss: 0.2331
+2025-01-06 14:47:47,521   INFO  [epoch 14][501/797], || Loss: 0.3184 || Conf Loss: 0.2046 || Loc Loss: 0.1138
+2025-01-06 14:48:05,257   INFO  [epoch 14][551/797], || Loss: 0.3709 || Conf Loss: 0.2506 || Loc Loss: 0.1203
+2025-01-06 14:48:23,115   INFO  [epoch 14][601/797], || Loss: 0.4630 || Conf Loss: 0.3012 || Loc Loss: 0.1618
+2025-01-06 14:48:42,002   INFO  [epoch 14][651/797], || Loss: 0.5962 || Conf Loss: 0.3727 || Loc Loss: 0.2235
+2025-01-06 14:48:59,172   INFO  [epoch 14][701/797], || Loss: 0.4468 || Conf Loss: 0.3422 || Loc Loss: 0.1046
+2025-01-06 14:49:18,803   INFO  [epoch 14][751/797], || Loss: 0.4781 || Conf Loss: 0.3559 || Loc Loss: 0.1222
+2025-01-06 14:49:34,830   INFO  [epoch 14][797/797], || Loss: 0.6591 || Conf Loss: 0.4989 || Loc Loss: 0.1601
+2025-01-06 14:49:35,279   INFO  learning rate 0.0002000
+2025-01-06 14:49:38,053   INFO  [epoch 15][1/797], || Loss: 0.4468 || Conf Loss: 0.2654 || Loc Loss: 0.1813
+2025-01-06 14:49:56,748   INFO  [epoch 15][51/797], || Loss: 0.5352 || Conf Loss: 0.3699 || Loc Loss: 0.1653
+2025-01-06 14:50:14,082   INFO  [epoch 15][101/797], || Loss: 0.7894 || Conf Loss: 0.6197 || Loc Loss: 0.1697
+2025-01-06 14:50:30,382   INFO  [epoch 15][151/797], || Loss: 0.1889 || Conf Loss: 0.1222 || Loc Loss: 0.0667
+2025-01-06 14:50:48,005   INFO  [epoch 15][201/797], || Loss: 0.2050 || Conf Loss: 0.1348 || Loc Loss: 0.0702
+2025-01-06 14:51:06,020   INFO  [epoch 15][251/797], || Loss: 0.3239 || Conf Loss: 0.2424 || Loc Loss: 0.0814
+2025-01-06 14:51:23,119   INFO  [epoch 15][301/797], || Loss: 1.1127 || Conf Loss: 0.8363 || Loc Loss: 0.2764
+2025-01-06 14:51:41,946   INFO  [epoch 15][351/797], || Loss: 0.3993 || Conf Loss: 0.2861 || Loc Loss: 0.1132
+2025-01-06 14:52:01,066   INFO  [epoch 15][401/797], || Loss: 0.5662 || Conf Loss: 0.3916 || Loc Loss: 0.1745
+2025-01-06 14:52:18,997   INFO  [epoch 15][451/797], || Loss: 0.6034 || Conf Loss: 0.4476 || Loc Loss: 0.1558
+2025-01-06 14:52:37,290   INFO  [epoch 15][501/797], || Loss: 0.5515 || Conf Loss: 0.3991 || Loc Loss: 0.1524
+2025-01-06 14:52:55,342   INFO  [epoch 15][551/797], || Loss: 0.7380 || Conf Loss: 0.5474 || Loc Loss: 0.1905
+2025-01-06 14:53:14,758   INFO  [epoch 15][601/797], || Loss: 0.3756 || Conf Loss: 0.2830 || Loc Loss: 0.0926
+2025-01-06 14:53:32,517   INFO  [epoch 15][651/797], || Loss: 0.2827 || Conf Loss: 0.2159 || Loc Loss: 0.0668
+2025-01-06 14:53:51,602   INFO  [epoch 15][701/797], || Loss: 0.1461 || Conf Loss: 0.0976 || Loc Loss: 0.0485
+2025-01-06 14:54:10,476   INFO  [epoch 15][751/797], || Loss: 0.4629 || Conf Loss: 0.3443 || Loc Loss: 0.1186
+2025-01-06 14:54:26,263   INFO  [epoch 15][797/797], || Loss: 0.2118 || Conf Loss: 0.1518 || Loc Loss: 0.0600
+2025-01-06 14:54:26,734   INFO  learning rate 0.0002000
+2025-01-06 14:54:30,459   INFO  [epoch 16][1/797], || Loss: 0.3557 || Conf Loss: 0.2653 || Loc Loss: 0.0904
+2025-01-06 14:54:48,366   INFO  [epoch 16][51/797], || Loss: 0.3923 || Conf Loss: 0.3180 || Loc Loss: 0.0743
+2025-01-06 14:55:04,803   INFO  [epoch 16][101/797], || Loss: 0.0828 || Conf Loss: 0.0476 || Loc Loss: 0.0352
+2025-01-06 14:55:21,529   INFO  [epoch 16][151/797], || Loss: 0.3926 || Conf Loss: 0.2820 || Loc Loss: 0.1106
+2025-01-06 14:55:39,575   INFO  [epoch 16][201/797], || Loss: 0.8457 || Conf Loss: 0.6198 || Loc Loss: 0.2259
+2025-01-06 14:55:57,472   INFO  [epoch 16][251/797], || Loss: 0.2593 || Conf Loss: 0.1660 || Loc Loss: 0.0932
+2025-01-06 14:56:14,181   INFO  [epoch 16][301/797], || Loss: 0.2327 || Conf Loss: 0.1503 || Loc Loss: 0.0825
+2025-01-06 14:56:32,541   INFO  [epoch 16][351/797], || Loss: 0.3999 || Conf Loss: 0.2861 || Loc Loss: 0.1138
+2025-01-06 14:56:48,914   INFO  [epoch 16][401/797], || Loss: 0.2269 || Conf Loss: 0.1657 || Loc Loss: 0.0612
+2025-01-06 14:57:07,563   INFO  [epoch 16][451/797], || Loss: 0.2814 || Conf Loss: 0.1728 || Loc Loss: 0.1086
+2025-01-06 14:57:24,713   INFO  [epoch 16][501/797], || Loss: 0.1684 || Conf Loss: 0.1154 || Loc Loss: 0.0530
+2025-01-06 14:57:42,362   INFO  [epoch 16][551/797], || Loss: 0.4578 || Conf Loss: 0.3307 || Loc Loss: 0.1270
+2025-01-06 14:58:00,925   INFO  [epoch 16][601/797], || Loss: 0.4401 || Conf Loss: 0.3134 || Loc Loss: 0.1267
+2025-01-06 14:58:19,122   INFO  [epoch 16][651/797], || Loss: 0.2509 || Conf Loss: 0.1905 || Loc Loss: 0.0604
+2025-01-06 14:58:37,546   INFO  [epoch 16][701/797], || Loss: 0.5220 || Conf Loss: 0.4252 || Loc Loss: 0.0967
+2025-01-06 14:58:57,517   INFO  [epoch 16][751/797], || Loss: 0.2005 || Conf Loss: 0.1449 || Loc Loss: 0.0556
+2025-01-06 14:59:15,737   INFO  [epoch 16][797/797], || Loss: 0.4651 || Conf Loss: 0.3268 || Loc Loss: 0.1383
+2025-01-06 14:59:17,250   INFO  learning rate 0.0002000
+2025-01-06 14:59:23,371   INFO  [epoch 17][1/797], || Loss: 0.7465 || Conf Loss: 0.5261 || Loc Loss: 0.2204
+2025-01-06 14:59:39,981   INFO  [epoch 17][51/797], || Loss: 0.1216 || Conf Loss: 0.0802 || Loc Loss: 0.0414
+2025-01-06 14:59:57,052   INFO  [epoch 17][101/797], || Loss: 0.2139 || Conf Loss: 0.1532 || Loc Loss: 0.0607
+2025-01-06 15:00:13,897   INFO  [epoch 17][151/797], || Loss: 0.4126 || Conf Loss: 0.3033 || Loc Loss: 0.1093
+2025-01-06 15:00:29,664   INFO  [epoch 17][201/797], || Loss: 0.2455 || Conf Loss: 0.1599 || Loc Loss: 0.0856
+2025-01-06 15:00:48,741   INFO  [epoch 17][251/797], || Loss: 0.1550 || Conf Loss: 0.0945 || Loc Loss: 0.0605
+2025-01-06 15:01:06,761   INFO  [epoch 17][301/797], || Loss: 0.6435 || Conf Loss: 0.4924 || Loc Loss: 0.1510
+2025-01-06 15:01:27,107   INFO  [epoch 17][351/797], || Loss: 0.1210 || Conf Loss: 0.0795 || Loc Loss: 0.0414
+2025-01-06 15:01:44,624   INFO  [epoch 17][401/797], || Loss: 0.2946 || Conf Loss: 0.2192 || Loc Loss: 0.0754
+2025-01-06 15:02:03,002   INFO  [epoch 17][451/797], || Loss: 0.2410 || Conf Loss: 0.1779 || Loc Loss: 0.0631
+2025-01-06 15:02:21,732   INFO  [epoch 17][501/797], || Loss: 0.2903 || Conf Loss: 0.1891 || Loc Loss: 0.1012
+2025-01-06 15:02:39,617   INFO  [epoch 17][551/797], || Loss: 0.2302 || Conf Loss: 0.1505 || Loc Loss: 0.0796
+2025-01-06 15:02:58,889   INFO  [epoch 17][601/797], || Loss: 0.2120 || Conf Loss: 0.1477 || Loc Loss: 0.0643
+2025-01-06 15:03:17,010   INFO  [epoch 17][651/797], || Loss: 0.6250 || Conf Loss: 0.5072 || Loc Loss: 0.1179
+2025-01-06 15:03:35,082   INFO  [epoch 17][701/797], || Loss: 0.1335 || Conf Loss: 0.0867 || Loc Loss: 0.0467
+2025-01-06 15:03:54,128   INFO  [epoch 17][751/797], || Loss: 0.7792 || Conf Loss: 0.5331 || Loc Loss: 0.2461
+2025-01-06 15:04:09,306   INFO  [epoch 17][797/797], || Loss: 0.3043 || Conf Loss: 0.2341 || Loc Loss: 0.0702
+2025-01-06 15:04:09,761   INFO  learning rate 0.0002000
+2025-01-06 15:04:13,728   INFO  [epoch 18][1/797], || Loss: 0.2183 || Conf Loss: 0.1335 || Loc Loss: 0.0848
+2025-01-06 15:04:32,422   INFO  [epoch 18][51/797], || Loss: 0.2632 || Conf Loss: 0.1687 || Loc Loss: 0.0945
+2025-01-06 15:04:48,832   INFO  [epoch 18][101/797], || Loss: 0.5626 || Conf Loss: 0.3923 || Loc Loss: 0.1703
+2025-01-06 15:05:04,892   INFO  [epoch 18][151/797], || Loss: 0.3367 || Conf Loss: 0.2370 || Loc Loss: 0.0997
+2025-01-06 15:05:21,738   INFO  [epoch 18][201/797], || Loss: 0.4682 || Conf Loss: 0.3482 || Loc Loss: 0.1200
+2025-01-06 15:05:39,875   INFO  [epoch 18][251/797], || Loss: 0.3829 || Conf Loss: 0.2879 || Loc Loss: 0.0950
+2025-01-06 15:05:55,954   INFO  [epoch 18][301/797], || Loss: 0.1743 || Conf Loss: 0.1140 || Loc Loss: 0.0603
+2025-01-06 15:06:12,926   INFO  [epoch 18][351/797], || Loss: 0.3996 || Conf Loss: 0.2690 || Loc Loss: 0.1307
+2025-01-06 15:06:30,508   INFO  [epoch 18][401/797], || Loss: 0.3561 || Conf Loss: 0.3220 || Loc Loss: 0.0341
+2025-01-06 15:06:46,844   INFO  [epoch 18][451/797], || Loss: 0.3654 || Conf Loss: 0.2855 || Loc Loss: 0.0799
+2025-01-06 15:07:06,838   INFO  [epoch 18][501/797], || Loss: 0.1628 || Conf Loss: 0.1108 || Loc Loss: 0.0520
+2025-01-06 15:07:25,737   INFO  [epoch 18][551/797], || Loss: 0.2272 || Conf Loss: 0.1798 || Loc Loss: 0.0474
+2025-01-06 15:07:43,397   INFO  [epoch 18][601/797], || Loss: 0.2565 || Conf Loss: 0.1917 || Loc Loss: 0.0648
+2025-01-06 15:08:01,757   INFO  [epoch 18][651/797], || Loss: 0.2959 || Conf Loss: 0.1858 || Loc Loss: 0.1102
+2025-01-06 15:08:19,738   INFO  [epoch 18][701/797], || Loss: 0.2455 || Conf Loss: 0.1532 || Loc Loss: 0.0923
+2025-01-06 15:08:39,494   INFO  [epoch 18][751/797], || Loss: 0.5626 || Conf Loss: 0.4377 || Loc Loss: 0.1249
+2025-01-06 15:08:54,808   INFO  [epoch 18][797/797], || Loss: 0.2114 || Conf Loss: 0.1358 || Loc Loss: 0.0757
+2025-01-06 15:08:55,301   INFO  learning rate 0.0002000
+2025-01-06 15:08:59,062   INFO  [epoch 19][1/797], || Loss: 0.2977 || Conf Loss: 0.2099 || Loc Loss: 0.0878
+2025-01-06 15:09:17,881   INFO  [epoch 19][51/797], || Loss: 0.2850 || Conf Loss: 0.1896 || Loc Loss: 0.0953
+2025-01-06 15:09:33,926   INFO  [epoch 19][101/797], || Loss: 0.2271 || Conf Loss: 0.1537 || Loc Loss: 0.0734
+2025-01-06 15:09:52,722   INFO  [epoch 19][151/797], || Loss: 0.2375 || Conf Loss: 0.1560 || Loc Loss: 0.0815
+2025-01-06 15:10:10,431   INFO  [epoch 19][201/797], || Loss: 0.3516 || Conf Loss: 0.2614 || Loc Loss: 0.0902
+2025-01-06 15:10:28,837   INFO  [epoch 19][251/797], || Loss: 0.2192 || Conf Loss: 0.1441 || Loc Loss: 0.0752
+2025-01-06 15:10:47,285   INFO  [epoch 19][301/797], || Loss: 0.2887 || Conf Loss: 0.2090 || Loc Loss: 0.0797
+2025-01-06 15:11:05,387   INFO  [epoch 19][351/797], || Loss: 0.3243 || Conf Loss: 0.2418 || Loc Loss: 0.0826
+2025-01-06 15:11:22,808   INFO  [epoch 19][401/797], || Loss: 0.5494 || Conf Loss: 0.3827 || Loc Loss: 0.1668
+2025-01-06 15:11:39,520   INFO  [epoch 19][451/797], || Loss: 0.2738 || Conf Loss: 0.1865 || Loc Loss: 0.0874
+2025-01-06 15:11:57,664   INFO  [epoch 19][501/797], || Loss: 0.3239 || Conf Loss: 0.2389 || Loc Loss: 0.0849
+2025-01-06 15:12:16,388   INFO  [epoch 19][551/797], || Loss: 0.7254 || Conf Loss: 0.6050 || Loc Loss: 0.1205
+2025-01-06 15:12:33,190   INFO  [epoch 19][601/797], || Loss: 0.4879 || Conf Loss: 0.3325 || Loc Loss: 0.1553
+2025-01-06 15:12:50,864   INFO  [epoch 19][651/797], || Loss: 0.8216 || Conf Loss: 0.5827 || Loc Loss: 0.2389
+2025-01-06 15:13:09,162   INFO  [epoch 19][701/797], || Loss: 0.1783 || Conf Loss: 0.1268 || Loc Loss: 0.0515
+2025-01-06 15:13:28,684   INFO  [epoch 19][751/797], || Loss: 0.2328 || Conf Loss: 0.1738 || Loc Loss: 0.0590
+2025-01-06 15:13:43,956   INFO  [epoch 19][797/797], || Loss: 0.4304 || Conf Loss: 0.2868 || Loc Loss: 0.1436
+2025-01-06 15:13:44,410   INFO  learning rate 0.0002000
+2025-01-06 15:13:50,139   INFO  [epoch 20][1/797], || Loss: 0.2823 || Conf Loss: 0.2167 || Loc Loss: 0.0656
+2025-01-06 15:14:07,750   INFO  [epoch 20][51/797], || Loss: 0.2812 || Conf Loss: 0.2137 || Loc Loss: 0.0675
+2025-01-06 15:14:24,353   INFO  [epoch 20][101/797], || Loss: 0.2068 || Conf Loss: 0.1479 || Loc Loss: 0.0589
+2025-01-06 15:14:42,791   INFO  [epoch 20][151/797], || Loss: 0.3831 || Conf Loss: 0.2593 || Loc Loss: 0.1237
+2025-01-06 15:14:58,960   INFO  [epoch 20][201/797], || Loss: 0.3408 || Conf Loss: 0.2513 || Loc Loss: 0.0895
+2025-01-06 15:15:16,839   INFO  [epoch 20][251/797], || Loss: 0.2678 || Conf Loss: 0.1799 || Loc Loss: 0.0879
+2025-01-06 15:15:33,702   INFO  [epoch 20][301/797], || Loss: 0.3982 || Conf Loss: 0.2905 || Loc Loss: 0.1077
+2025-01-06 15:15:50,642   INFO  [epoch 20][351/797], || Loss: 0.4065 || Conf Loss: 0.3086 || Loc Loss: 0.0979
+2025-01-06 15:16:07,959   INFO  [epoch 20][401/797], || Loss: 0.4062 || Conf Loss: 0.2923 || Loc Loss: 0.1139
+2025-01-06 15:16:25,359   INFO  [epoch 20][451/797], || Loss: 0.3662 || Conf Loss: 0.2366 || Loc Loss: 0.1296
+2025-01-06 15:16:42,015   INFO  [epoch 20][501/797], || Loss: 0.2611 || Conf Loss: 0.1350 || Loc Loss: 0.1260
+2025-01-06 15:17:00,448   INFO  [epoch 20][551/797], || Loss: 0.2220 || Conf Loss: 0.1355 || Loc Loss: 0.0865
+2025-01-06 15:17:18,669   INFO  [epoch 20][601/797], || Loss: 0.2438 || Conf Loss: 0.1860 || Loc Loss: 0.0577
+2025-01-06 15:17:36,988   INFO  [epoch 20][651/797], || Loss: 0.5207 || Conf Loss: 0.3634 || Loc Loss: 0.1573
+2025-01-06 15:17:54,122   INFO  [epoch 20][701/797], || Loss: 0.2672 || Conf Loss: 0.1994 || Loc Loss: 0.0679
+2025-01-06 15:18:13,250   INFO  [epoch 20][751/797], || Loss: 0.7424 || Conf Loss: 0.5130 || Loc Loss: 0.2295
+2025-01-06 15:18:29,676   INFO  [epoch 20][797/797], || Loss: 0.2757 || Conf Loss: 0.2062 || Loc Loss: 0.0696
+2025-01-06 15:18:30,129   INFO  learning rate 0.0002000
+2025-01-06 15:18:35,543   INFO  [epoch 21][1/797], || Loss: 0.3903 || Conf Loss: 0.2564 || Loc Loss: 0.1339
+2025-01-06 15:18:53,239   INFO  [epoch 21][51/797], || Loss: 1.2161 || Conf Loss: 0.8267 || Loc Loss: 0.3895
+2025-01-06 15:19:09,418   INFO  [epoch 21][101/797], || Loss: 0.5727 || Conf Loss: 0.4032 || Loc Loss: 0.1695
+2025-01-06 15:19:26,657   INFO  [epoch 21][151/797], || Loss: 0.1140 || Conf Loss: 0.0788 || Loc Loss: 0.0352
+2025-01-06 15:19:42,429   INFO  [epoch 21][201/797], || Loss: 0.2671 || Conf Loss: 0.1695 || Loc Loss: 0.0976
+2025-01-06 15:19:59,895   INFO  [epoch 21][251/797], || Loss: 0.2449 || Conf Loss: 0.1854 || Loc Loss: 0.0595
+2025-01-06 15:20:16,314   INFO  [epoch 21][301/797], || Loss: 0.1888 || Conf Loss: 0.1307 || Loc Loss: 0.0581
+2025-01-06 15:20:33,707   INFO  [epoch 21][351/797], || Loss: 0.2303 || Conf Loss: 0.1497 || Loc Loss: 0.0807
+2025-01-06 15:20:52,212   INFO  [epoch 21][401/797], || Loss: 0.3894 || Conf Loss: 0.2787 || Loc Loss: 0.1107
+2025-01-06 15:21:12,439   INFO  [epoch 21][451/797], || Loss: 0.2671 || Conf Loss: 0.1907 || Loc Loss: 0.0763
+2025-01-06 15:21:29,372   INFO  [epoch 21][501/797], || Loss: 0.2991 || Conf Loss: 0.1697 || Loc Loss: 0.1293
+2025-01-06 15:21:47,286   INFO  [epoch 21][551/797], || Loss: 0.2396 || Conf Loss: 0.1293 || Loc Loss: 0.1102
+2025-01-06 15:22:05,067   INFO  [epoch 21][601/797], || Loss: 0.2817 || Conf Loss: 0.1919 || Loc Loss: 0.0898
+2025-01-06 15:22:23,217   INFO  [epoch 21][651/797], || Loss: 0.3262 || Conf Loss: 0.2355 || Loc Loss: 0.0907
+2025-01-06 15:22:43,250   INFO  [epoch 21][701/797], || Loss: 0.5834 || Conf Loss: 0.3585 || Loc Loss: 0.2249
+2025-01-06 15:23:02,954   INFO  [epoch 21][751/797], || Loss: 0.3843 || Conf Loss: 0.2285 || Loc Loss: 0.1558
+2025-01-06 15:23:19,306   INFO  [epoch 21][797/797], || Loss: 0.3418 || Conf Loss: 0.2554 || Loc Loss: 0.0864
+2025-01-06 15:23:19,843   INFO  learning rate 0.0002000
+2025-01-06 15:23:23,855   INFO  [epoch 22][1/797], || Loss: 0.2885 || Conf Loss: 0.2103 || Loc Loss: 0.0781
+2025-01-06 15:23:41,466   INFO  [epoch 22][51/797], || Loss: 0.3498 || Conf Loss: 0.2347 || Loc Loss: 0.1152
+2025-01-06 15:23:58,531   INFO  [epoch 22][101/797], || Loss: 0.1101 || Conf Loss: 0.0644 || Loc Loss: 0.0457
+2025-01-06 15:24:14,415   INFO  [epoch 22][151/797], || Loss: 0.2392 || Conf Loss: 0.1679 || Loc Loss: 0.0712
+2025-01-06 15:24:32,824   INFO  [epoch 22][201/797], || Loss: 0.5178 || Conf Loss: 0.3241 || Loc Loss: 0.1938
+2025-01-06 15:24:48,517   INFO  [epoch 22][251/797], || Loss: 0.1553 || Conf Loss: 0.0962 || Loc Loss: 0.0591
+2025-01-06 15:25:06,244   INFO  [epoch 22][301/797], || Loss: 0.3819 || Conf Loss: 0.3091 || Loc Loss: 0.0729
+2025-01-06 15:25:24,594   INFO  [epoch 22][351/797], || Loss: 0.3839 || Conf Loss: 0.3052 || Loc Loss: 0.0787
+2025-01-06 15:25:41,889   INFO  [epoch 22][401/797], || Loss: 0.2130 || Conf Loss: 0.1309 || Loc Loss: 0.0822
+2025-01-06 15:25:59,958   INFO  [epoch 22][451/797], || Loss: 0.1962 || Conf Loss: 0.1312 || Loc Loss: 0.0650
+2025-01-06 15:26:18,496   INFO  [epoch 22][501/797], || Loss: 0.3224 || Conf Loss: 0.2105 || Loc Loss: 0.1119
+2025-01-06 15:26:36,948   INFO  [epoch 22][551/797], || Loss: 0.3250 || Conf Loss: 0.2306 || Loc Loss: 0.0944
+2025-01-06 15:26:56,135   INFO  [epoch 22][601/797], || Loss: 0.4430 || Conf Loss: 0.3231 || Loc Loss: 0.1199
+2025-01-06 15:27:15,520   INFO  [epoch 22][651/797], || Loss: 0.2838 || Conf Loss: 0.1782 || Loc Loss: 0.1056
+2025-01-06 15:27:33,494   INFO  [epoch 22][701/797], || Loss: 0.4528 || Conf Loss: 0.3119 || Loc Loss: 0.1410
+2025-01-06 15:27:51,008   INFO  [epoch 22][751/797], || Loss: 0.3302 || Conf Loss: 0.2247 || Loc Loss: 0.1055
+2025-01-06 15:28:07,007   INFO  [epoch 22][797/797], || Loss: 0.3556 || Conf Loss: 0.2631 || Loc Loss: 0.0925
+2025-01-06 15:28:07,973   INFO  learning rate 0.0002000
+2025-01-06 15:28:11,811   INFO  [epoch 23][1/797], || Loss: 0.1242 || Conf Loss: 0.0852 || Loc Loss: 0.0390
+2025-01-06 15:28:31,018   INFO  [epoch 23][51/797], || Loss: 0.2376 || Conf Loss: 0.1730 || Loc Loss: 0.0647
+2025-01-06 15:28:47,447   INFO  [epoch 23][101/797], || Loss: 0.1608 || Conf Loss: 0.1285 || Loc Loss: 0.0323
+2025-01-06 15:29:04,349   INFO  [epoch 23][151/797], || Loss: 0.2995 || Conf Loss: 0.2171 || Loc Loss: 0.0823
+2025-01-06 15:29:21,311   INFO  [epoch 23][201/797], || Loss: 0.4909 || Conf Loss: 0.3460 || Loc Loss: 0.1449
+2025-01-06 15:29:36,702   INFO  [epoch 23][251/797], || Loss: 0.1210 || Conf Loss: 0.0883 || Loc Loss: 0.0327
+2025-01-06 15:29:54,151   INFO  [epoch 23][301/797], || Loss: 0.1098 || Conf Loss: 0.0621 || Loc Loss: 0.0477
+2025-01-06 15:30:11,368   INFO  [epoch 23][351/797], || Loss: 0.2836 || Conf Loss: 0.1983 || Loc Loss: 0.0853
+2025-01-06 15:30:29,834   INFO  [epoch 23][401/797], || Loss: 0.4038 || Conf Loss: 0.3156 || Loc Loss: 0.0882
+2025-01-06 15:30:47,798   INFO  [epoch 23][451/797], || Loss: 0.3272 || Conf Loss: 0.2262 || Loc Loss: 0.1010
+2025-01-06 15:31:05,831   INFO  [epoch 23][501/797], || Loss: 0.5120 || Conf Loss: 0.3514 || Loc Loss: 0.1606
+2025-01-06 15:31:24,661   INFO  [epoch 23][551/797], || Loss: 0.1654 || Conf Loss: 0.1128 || Loc Loss: 0.0526
+2025-01-06 15:31:43,368   INFO  [epoch 23][601/797], || Loss: 0.1364 || Conf Loss: 0.0766 || Loc Loss: 0.0598
+2025-01-06 15:32:01,013   INFO  [epoch 23][651/797], || Loss: 0.1971 || Conf Loss: 0.1135 || Loc Loss: 0.0836
+2025-01-06 15:32:19,998   INFO  [epoch 23][701/797], || Loss: 0.3376 || Conf Loss: 0.2614 || Loc Loss: 0.0762
+2025-01-06 15:32:38,974   INFO  [epoch 23][751/797], || Loss: 0.2289 || Conf Loss: 0.1673 || Loc Loss: 0.0616
+2025-01-06 15:32:53,919   INFO  [epoch 23][797/797], || Loss: 0.1198 || Conf Loss: 0.0758 || Loc Loss: 0.0440
+2025-01-06 15:32:54,303   INFO  learning rate 0.0002000
+2025-01-06 15:32:58,046   INFO  [epoch 24][1/797], || Loss: 0.2721 || Conf Loss: 0.1712 || Loc Loss: 0.1009
+2025-01-06 15:33:16,508   INFO  [epoch 24][51/797], || Loss: 0.5835 || Conf Loss: 0.3562 || Loc Loss: 0.2273
+2025-01-06 15:33:33,248   INFO  [epoch 24][101/797], || Loss: 0.2139 || Conf Loss: 0.1660 || Loc Loss: 0.0478
+2025-01-06 15:33:50,231   INFO  [epoch 24][151/797], || Loss: 0.3943 || Conf Loss: 0.2942 || Loc Loss: 0.1001
+2025-01-06 15:34:07,561   INFO  [epoch 24][201/797], || Loss: 0.2491 || Conf Loss: 0.1461 || Loc Loss: 0.1030
+2025-01-06 15:34:24,965   INFO  [epoch 24][251/797], || Loss: 0.2226 || Conf Loss: 0.1175 || Loc Loss: 0.1051
+2025-01-06 15:34:43,195   INFO  [epoch 24][301/797], || Loss: 0.5161 || Conf Loss: 0.3561 || Loc Loss: 0.1600
+2025-01-06 15:34:59,829   INFO  [epoch 24][351/797], || Loss: 0.4965 || Conf Loss: 0.3286 || Loc Loss: 0.1678
+2025-01-06 15:35:18,783   INFO  [epoch 24][401/797], || Loss: 0.1661 || Conf Loss: 0.1081 || Loc Loss: 0.0580
+2025-01-06 15:35:39,798   INFO  [epoch 24][451/797], || Loss: 0.1582 || Conf Loss: 0.1099 || Loc Loss: 0.0483
+2025-01-06 15:35:57,923   INFO  [epoch 24][501/797], || Loss: 0.2328 || Conf Loss: 0.1619 || Loc Loss: 0.0708
+2025-01-06 15:36:15,880   INFO  [epoch 24][551/797], || Loss: 0.1034 || Conf Loss: 0.0596 || Loc Loss: 0.0438
+2025-01-06 15:36:34,281   INFO  [epoch 24][601/797], || Loss: 0.2170 || Conf Loss: 0.1470 || Loc Loss: 0.0700
+2025-01-06 15:36:54,056   INFO  [epoch 24][651/797], || Loss: 0.3177 || Conf Loss: 0.2241 || Loc Loss: 0.0936
+2025-01-06 15:37:12,860   INFO  [epoch 24][701/797], || Loss: 0.1991 || Conf Loss: 0.1499 || Loc Loss: 0.0492
+2025-01-06 15:37:32,803   INFO  [epoch 24][751/797], || Loss: 0.1601 || Conf Loss: 0.0923 || Loc Loss: 0.0678
+2025-01-06 15:37:48,066   INFO  [epoch 24][797/797], || Loss: 0.1341 || Conf Loss: 0.0807 || Loc Loss: 0.0534
+2025-01-06 15:37:48,773   INFO  learning rate 0.0002000
+2025-01-06 15:37:52,978   INFO  [epoch 25][1/797], || Loss: 0.1766 || Conf Loss: 0.1141 || Loc Loss: 0.0624
+2025-01-06 15:38:11,604   INFO  [epoch 25][51/797], || Loss: 0.2354 || Conf Loss: 0.1335 || Loc Loss: 0.1019
+2025-01-06 15:38:27,945   INFO  [epoch 25][101/797], || Loss: 0.1746 || Conf Loss: 0.1240 || Loc Loss: 0.0506
+2025-01-06 15:38:43,990   INFO  [epoch 25][151/797], || Loss: 0.2613 || Conf Loss: 0.1779 || Loc Loss: 0.0835
+2025-01-06 15:39:02,059   INFO  [epoch 25][201/797], || Loss: 0.3272 || Conf Loss: 0.2086 || Loc Loss: 0.1186
+2025-01-06 15:39:19,022   INFO  [epoch 25][251/797], || Loss: 0.3344 || Conf Loss: 0.2288 || Loc Loss: 0.1056
+2025-01-06 15:39:37,158   INFO  [epoch 25][301/797], || Loss: 0.3953 || Conf Loss: 0.2655 || Loc Loss: 0.1299
+2025-01-06 15:39:54,904   INFO  [epoch 25][351/797], || Loss: 0.1749 || Conf Loss: 0.0846 || Loc Loss: 0.0903
+2025-01-06 15:40:11,524   INFO  [epoch 25][401/797], || Loss: 0.1175 || Conf Loss: 0.0716 || Loc Loss: 0.0459
+2025-01-06 15:40:28,512   INFO  [epoch 25][451/797], || Loss: 0.1330 || Conf Loss: 0.0851 || Loc Loss: 0.0479
+2025-01-06 15:40:45,458   INFO  [epoch 25][501/797], || Loss: 0.2445 || Conf Loss: 0.1584 || Loc Loss: 0.0861
+2025-01-06 15:41:02,766   INFO  [epoch 25][551/797], || Loss: 0.1848 || Conf Loss: 0.1200 || Loc Loss: 0.0648
+2025-01-06 15:41:20,932   INFO  [epoch 25][601/797], || Loss: 0.2127 || Conf Loss: 0.1531 || Loc Loss: 0.0596
+2025-01-06 15:41:38,685   INFO  [epoch 25][651/797], || Loss: 0.2041 || Conf Loss: 0.1181 || Loc Loss: 0.0860
+2025-01-06 15:42:01,018   INFO  [epoch 25][701/797], || Loss: 0.1648 || Conf Loss: 0.1072 || Loc Loss: 0.0575
+2025-01-06 15:42:21,313   INFO  [epoch 25][751/797], || Loss: 0.4168 || Conf Loss: 0.2895 || Loc Loss: 0.1273
+2025-01-06 15:42:36,346   INFO  [epoch 25][797/797], || Loss: 0.3432 || Conf Loss: 0.2465 || Loc Loss: 0.0967
+2025-01-06 15:42:36,977   INFO  learning rate 0.0002000
+2025-01-06 15:42:39,627   INFO  [epoch 26][1/797], || Loss: 0.0756 || Conf Loss: 0.0461 || Loc Loss: 0.0294
+2025-01-06 15:42:58,022   INFO  [epoch 26][51/797], || Loss: 0.2592 || Conf Loss: 0.1708 || Loc Loss: 0.0884
+2025-01-06 15:43:16,204   INFO  [epoch 26][101/797], || Loss: 0.0358 || Conf Loss: 0.0108 || Loc Loss: 0.0250
+2025-01-06 15:43:34,912   INFO  [epoch 26][151/797], || Loss: 0.1056 || Conf Loss: 0.0676 || Loc Loss: 0.0379
+2025-01-06 15:43:52,473   INFO  [epoch 26][201/797], || Loss: 0.1628 || Conf Loss: 0.1194 || Loc Loss: 0.0434
+2025-01-06 15:44:09,966   INFO  [epoch 26][251/797], || Loss: 0.3661 || Conf Loss: 0.2372 || Loc Loss: 0.1289
+2025-01-06 15:44:27,595   INFO  [epoch 26][301/797], || Loss: 0.0897 || Conf Loss: 0.0582 || Loc Loss: 0.0315
+2025-01-06 15:44:45,045   INFO  [epoch 26][351/797], || Loss: 0.2089 || Conf Loss: 0.1428 || Loc Loss: 0.0661
+2025-01-06 15:45:02,846   INFO  [epoch 26][401/797], || Loss: 0.2349 || Conf Loss: 0.1555 || Loc Loss: 0.0793
+2025-01-06 15:45:20,174   INFO  [epoch 26][451/797], || Loss: 0.2775 || Conf Loss: 0.1235 || Loc Loss: 0.1539
+2025-01-06 15:45:38,318   INFO  [epoch 26][501/797], || Loss: 0.1708 || Conf Loss: 0.0755 || Loc Loss: 0.0953
+2025-01-06 15:45:55,548   INFO  [epoch 26][551/797], || Loss: 0.4664 || Conf Loss: 0.3481 || Loc Loss: 0.1183
+2025-01-06 15:46:13,991   INFO  [epoch 26][601/797], || Loss: 0.2086 || Conf Loss: 0.1157 || Loc Loss: 0.0929
+2025-01-06 15:46:32,548   INFO  [epoch 26][651/797], || Loss: 0.3737 || Conf Loss: 0.2603 || Loc Loss: 0.1134
+2025-01-06 15:46:49,742   INFO  [epoch 26][701/797], || Loss: 0.2135 || Conf Loss: 0.1444 || Loc Loss: 0.0691
+2025-01-06 15:47:08,392   INFO  [epoch 26][751/797], || Loss: 0.3489 || Conf Loss: 0.2670 || Loc Loss: 0.0819
+2025-01-06 15:47:23,326   INFO  [epoch 26][797/797], || Loss: 0.2528 || Conf Loss: 0.1547 || Loc Loss: 0.0981
+2025-01-06 15:47:23,792   INFO  learning rate 0.0002000
+2025-01-06 15:47:28,218   INFO  [epoch 27][1/797], || Loss: 0.1627 || Conf Loss: 0.1195 || Loc Loss: 0.0432
+2025-01-06 15:47:43,674   INFO  [epoch 27][51/797], || Loss: 0.1292 || Conf Loss: 0.1037 || Loc Loss: 0.0255
+2025-01-06 15:48:01,353   INFO  [epoch 27][101/797], || Loss: 0.3190 || Conf Loss: 0.2193 || Loc Loss: 0.0996
+2025-01-06 15:48:18,924   INFO  [epoch 27][151/797], || Loss: 0.1870 || Conf Loss: 0.1107 || Loc Loss: 0.0763
+2025-01-06 15:48:35,008   INFO  [epoch 27][201/797], || Loss: 0.3130 || Conf Loss: 0.2271 || Loc Loss: 0.0859
+2025-01-06 15:48:51,868   INFO  [epoch 27][251/797], || Loss: 0.1848 || Conf Loss: 0.1220 || Loc Loss: 0.0628
+2025-01-06 15:49:09,406   INFO  [epoch 27][301/797], || Loss: 0.2258 || Conf Loss: 0.1703 || Loc Loss: 0.0555
+2025-01-06 15:49:27,651   INFO  [epoch 27][351/797], || Loss: 0.2851 || Conf Loss: 0.2180 || Loc Loss: 0.0670
+2025-01-06 15:49:45,830   INFO  [epoch 27][401/797], || Loss: 0.1581 || Conf Loss: 0.0904 || Loc Loss: 0.0677
+2025-01-06 15:50:02,376   INFO  [epoch 27][451/797], || Loss: 0.2346 || Conf Loss: 0.1739 || Loc Loss: 0.0607
+2025-01-06 15:50:20,528   INFO  [epoch 27][501/797], || Loss: 0.1029 || Conf Loss: 0.0663 || Loc Loss: 0.0365
+2025-01-06 15:50:39,700   INFO  [epoch 27][551/797], || Loss: 0.3101 || Conf Loss: 0.2126 || Loc Loss: 0.0975
+2025-01-06 15:50:57,424   INFO  [epoch 27][601/797], || Loss: 0.1271 || Conf Loss: 0.0880 || Loc Loss: 0.0391
+2025-01-06 15:51:16,713   INFO  [epoch 27][651/797], || Loss: 0.2921 || Conf Loss: 0.1934 || Loc Loss: 0.0986
+2025-01-06 15:51:34,181   INFO  [epoch 27][701/797], || Loss: 0.0332 || Conf Loss: 0.0069 || Loc Loss: 0.0263
+2025-01-06 15:51:52,340   INFO  [epoch 27][751/797], || Loss: 0.3382 || Conf Loss: 0.2189 || Loc Loss: 0.1193
+2025-01-06 15:52:07,788   INFO  [epoch 27][797/797], || Loss: 0.4088 || Conf Loss: 0.2743 || Loc Loss: 0.1345
+2025-01-06 15:52:08,236   INFO  learning rate 0.0002000
+2025-01-06 15:52:14,330   INFO  [epoch 28][1/797], || Loss: 0.2087 || Conf Loss: 0.1266 || Loc Loss: 0.0822
+2025-01-06 15:52:30,757   INFO  [epoch 28][51/797], || Loss: 0.2695 || Conf Loss: 0.1572 || Loc Loss: 0.1123
+2025-01-06 15:52:47,315   INFO  [epoch 28][101/797], || Loss: 0.3841 || Conf Loss: 0.3044 || Loc Loss: 0.0797
+2025-01-06 15:53:05,153   INFO  [epoch 28][151/797], || Loss: 0.1809 || Conf Loss: 0.1112 || Loc Loss: 0.0697
+2025-01-06 15:53:21,568   INFO  [epoch 28][201/797], || Loss: 0.1835 || Conf Loss: 0.1266 || Loc Loss: 0.0569
+2025-01-06 15:53:39,248   INFO  [epoch 28][251/797], || Loss: 0.1674 || Conf Loss: 0.0934 || Loc Loss: 0.0739
+2025-01-06 15:53:56,320   INFO  [epoch 28][301/797], || Loss: 0.2536 || Conf Loss: 0.1386 || Loc Loss: 0.1150
+2025-01-06 15:54:13,290   INFO  [epoch 28][351/797], || Loss: 0.3526 || Conf Loss: 0.2225 || Loc Loss: 0.1302
+2025-01-06 15:54:31,003   INFO  [epoch 28][401/797], || Loss: 0.2960 || Conf Loss: 0.1609 || Loc Loss: 0.1351
+2025-01-06 15:54:49,875   INFO  [epoch 28][451/797], || Loss: 0.1654 || Conf Loss: 0.1172 || Loc Loss: 0.0482
+2025-01-06 15:55:08,089   INFO  [epoch 28][501/797], || Loss: 0.1138 || Conf Loss: 0.0696 || Loc Loss: 0.0442
+2025-01-06 15:55:25,312   INFO  [epoch 28][551/797], || Loss: 0.2348 || Conf Loss: 0.1567 || Loc Loss: 0.0781
+2025-01-06 15:55:44,148   INFO  [epoch 28][601/797], || Loss: 0.1577 || Conf Loss: 0.1023 || Loc Loss: 0.0553
+2025-01-06 15:56:02,849   INFO  [epoch 28][651/797], || Loss: 0.2638 || Conf Loss: 0.1868 || Loc Loss: 0.0770
+2025-01-06 15:56:21,390   INFO  [epoch 28][701/797], || Loss: 0.3943 || Conf Loss: 0.2349 || Loc Loss: 0.1595
+2025-01-06 15:56:40,307   INFO  [epoch 28][751/797], || Loss: 0.1893 || Conf Loss: 0.0908 || Loc Loss: 0.0985
+2025-01-06 15:56:56,846   INFO  [epoch 28][797/797], || Loss: 0.0992 || Conf Loss: 0.0542 || Loc Loss: 0.0450
+2025-01-06 15:56:57,335   INFO  learning rate 0.0002000
+2025-01-06 15:57:02,569   INFO  [epoch 29][1/797], || Loss: 0.3280 || Conf Loss: 0.2093 || Loc Loss: 0.1186
+2025-01-06 15:57:19,219   INFO  [epoch 29][51/797], || Loss: 0.1387 || Conf Loss: 0.0942 || Loc Loss: 0.0445
+2025-01-06 15:57:35,672   INFO  [epoch 29][101/797], || Loss: 0.2330 || Conf Loss: 0.1487 || Loc Loss: 0.0843
+2025-01-06 15:57:52,759   INFO  [epoch 29][151/797], || Loss: 0.0494 || Conf Loss: 0.0148 || Loc Loss: 0.0346
+2025-01-06 15:58:09,339   INFO  [epoch 29][201/797], || Loss: 0.2229 || Conf Loss: 0.1596 || Loc Loss: 0.0633
+2025-01-06 15:58:28,025   INFO  [epoch 29][251/797], || Loss: 0.1534 || Conf Loss: 0.0822 || Loc Loss: 0.0712
+2025-01-06 15:58:45,631   INFO  [epoch 29][301/797], || Loss: 0.1535 || Conf Loss: 0.0593 || Loc Loss: 0.0942
+2025-01-06 15:59:03,793   INFO  [epoch 29][351/797], || Loss: 0.1465 || Conf Loss: 0.0860 || Loc Loss: 0.0604
+2025-01-06 15:59:21,321   INFO  [epoch 29][401/797], || Loss: 0.7163 || Conf Loss: 0.4985 || Loc Loss: 0.2178
+2025-01-06 15:59:37,910   INFO  [epoch 29][451/797], || Loss: 0.2015 || Conf Loss: 0.1223 || Loc Loss: 0.0792
+2025-01-06 15:59:55,230   INFO  [epoch 29][501/797], || Loss: 0.2077 || Conf Loss: 0.1269 || Loc Loss: 0.0808
+2025-01-06 16:00:14,150   INFO  [epoch 29][551/797], || Loss: 0.1571 || Conf Loss: 0.0900 || Loc Loss: 0.0671
+2025-01-06 16:00:33,219   INFO  [epoch 29][601/797], || Loss: 0.1676 || Conf Loss: 0.0891 || Loc Loss: 0.0785
+2025-01-06 16:00:50,606   INFO  [epoch 29][651/797], || Loss: 0.1395 || Conf Loss: 0.0641 || Loc Loss: 0.0754
+2025-01-06 16:01:08,756   INFO  [epoch 29][701/797], || Loss: 0.1209 || Conf Loss: 0.0727 || Loc Loss: 0.0483
+2025-01-06 16:01:26,379   INFO  [epoch 29][751/797], || Loss: 0.1903 || Conf Loss: 0.1435 || Loc Loss: 0.0467
+2025-01-06 16:01:41,456   INFO  [epoch 29][797/797], || Loss: 0.3356 || Conf Loss: 0.2457 || Loc Loss: 0.0898
+2025-01-06 16:01:42,846   INFO  learning rate 0.0000200
+2025-01-06 16:01:45,922   INFO  [epoch 30][1/797], || Loss: 0.0793 || Conf Loss: 0.0246 || Loc Loss: 0.0547
+2025-01-06 16:02:04,419   INFO  [epoch 30][51/797], || Loss: 0.0897 || Conf Loss: 0.0487 || Loc Loss: 0.0410
+2025-01-06 16:02:20,685   INFO  [epoch 30][101/797], || Loss: 0.1242 || Conf Loss: 0.0615 || Loc Loss: 0.0627
+2025-01-06 16:02:38,505   INFO  [epoch 30][151/797], || Loss: 0.2718 || Conf Loss: 0.1823 || Loc Loss: 0.0895
+2025-01-06 16:02:54,036   INFO  [epoch 30][201/797], || Loss: 0.1449 || Conf Loss: 0.0937 || Loc Loss: 0.0511
+2025-01-06 16:03:12,107   INFO  [epoch 30][251/797], || Loss: 0.3011 || Conf Loss: 0.1564 || Loc Loss: 0.1447
+2025-01-06 16:03:28,590   INFO  [epoch 30][301/797], || Loss: 0.2566 || Conf Loss: 0.1712 || Loc Loss: 0.0854
+2025-01-06 16:03:45,588   INFO  [epoch 30][351/797], || Loss: 0.1009 || Conf Loss: 0.0592 || Loc Loss: 0.0417
+2025-01-06 16:04:03,932   INFO  [epoch 30][401/797], || Loss: 0.1951 || Conf Loss: 0.0935 || Loc Loss: 0.1017
+2025-01-06 16:04:21,888   INFO  [epoch 30][451/797], || Loss: 0.3450 || Conf Loss: 0.2472 || Loc Loss: 0.0979
+2025-01-06 16:04:40,261   INFO  [epoch 30][501/797], || Loss: 0.1011 || Conf Loss: 0.0721 || Loc Loss: 0.0289
+2025-01-06 16:04:57,091   INFO  [epoch 30][551/797], || Loss: 0.2292 || Conf Loss: 0.1155 || Loc Loss: 0.1137
+2025-01-06 16:05:15,377   INFO  [epoch 30][601/797], || Loss: 0.1346 || Conf Loss: 0.0600 || Loc Loss: 0.0746
+2025-01-06 16:05:34,719   INFO  [epoch 30][651/797], || Loss: 0.0964 || Conf Loss: 0.0190 || Loc Loss: 0.0774
+2025-01-06 16:05:52,929   INFO  [epoch 30][701/797], || Loss: 0.2066 || Conf Loss: 0.1179 || Loc Loss: 0.0886
+2025-01-06 16:06:15,750   INFO  [epoch 30][751/797], || Loss: 0.2504 || Conf Loss: 0.1453 || Loc Loss: 0.1051
+2025-01-06 16:06:30,845   INFO  [epoch 30][797/797], || Loss: 0.0751 || Conf Loss: 0.0403 || Loc Loss: 0.0348
+2025-01-06 16:06:31,337   INFO  learning rate 0.0000200
+2025-01-06 16:06:35,660   INFO  [epoch 31][1/797], || Loss: 0.0946 || Conf Loss: 0.0472 || Loc Loss: 0.0474
+2025-01-06 16:06:54,313   INFO  [epoch 31][51/797], || Loss: 0.0553 || Conf Loss: 0.0093 || Loc Loss: 0.0459
+2025-01-06 16:07:11,755   INFO  [epoch 31][101/797], || Loss: 0.1334 || Conf Loss: 0.0864 || Loc Loss: 0.0470
+2025-01-06 16:07:27,869   INFO  [epoch 31][151/797], || Loss: 0.1525 || Conf Loss: 0.0923 || Loc Loss: 0.0603
+2025-01-06 16:07:45,893   INFO  [epoch 31][201/797], || Loss: 0.1453 || Conf Loss: 0.0743 || Loc Loss: 0.0710
+2025-01-06 16:08:03,509   INFO  [epoch 31][251/797], || Loss: 0.2787 || Conf Loss: 0.2009 || Loc Loss: 0.0777
+2025-01-06 16:08:21,206   INFO  [epoch 31][301/797], || Loss: 0.1511 || Conf Loss: 0.0939 || Loc Loss: 0.0572
+2025-01-06 16:08:39,096   INFO  [epoch 31][351/797], || Loss: 0.1771 || Conf Loss: 0.1051 || Loc Loss: 0.0720
+2025-01-06 16:08:55,482   INFO  [epoch 31][401/797], || Loss: 0.1906 || Conf Loss: 0.1195 || Loc Loss: 0.0711
+2025-01-06 16:09:12,131   INFO  [epoch 31][451/797], || Loss: 0.1930 || Conf Loss: 0.1044 || Loc Loss: 0.0886
+2025-01-06 16:09:29,774   INFO  [epoch 31][501/797], || Loss: 0.3288 || Conf Loss: 0.1644 || Loc Loss: 0.1645
+2025-01-06 16:09:46,973   INFO  [epoch 31][551/797], || Loss: 0.1650 || Conf Loss: 0.0731 || Loc Loss: 0.0919
+2025-01-06 16:10:04,430   INFO  [epoch 31][601/797], || Loss: 0.1125 || Conf Loss: 0.0616 || Loc Loss: 0.0509
+2025-01-06 16:10:21,606   INFO  [epoch 31][651/797], || Loss: 0.2303 || Conf Loss: 0.1461 || Loc Loss: 0.0843
+2025-01-06 16:10:42,607   INFO  [epoch 31][701/797], || Loss: 0.2615 || Conf Loss: 0.1713 || Loc Loss: 0.0902
+2025-01-06 16:11:02,018   INFO  [epoch 31][751/797], || Loss: 0.2996 || Conf Loss: 0.2213 || Loc Loss: 0.0783
+2025-01-06 16:11:19,248   INFO  [epoch 31][797/797], || Loss: 0.1150 || Conf Loss: 0.0732 || Loc Loss: 0.0418
+2025-01-06 16:11:19,678   INFO  learning rate 0.0000200
+2025-01-06 16:11:24,671   INFO  [epoch 32][1/797], || Loss: 0.2738 || Conf Loss: 0.1414 || Loc Loss: 0.1324
+2025-01-06 16:11:42,105   INFO  [epoch 32][51/797], || Loss: 0.1327 || Conf Loss: 0.0633 || Loc Loss: 0.0694
+2025-01-06 16:11:58,847   INFO  [epoch 32][101/797], || Loss: 0.2321 || Conf Loss: 0.1724 || Loc Loss: 0.0598
+2025-01-06 16:12:15,268   INFO  [epoch 32][151/797], || Loss: 0.1824 || Conf Loss: 0.1127 || Loc Loss: 0.0697
+2025-01-06 16:12:32,134   INFO  [epoch 32][201/797], || Loss: 0.0568 || Conf Loss: 0.0372 || Loc Loss: 0.0196
+2025-01-06 16:12:49,382   INFO  [epoch 32][251/797], || Loss: 0.1131 || Conf Loss: 0.0568 || Loc Loss: 0.0563
+2025-01-06 16:13:06,347   INFO  [epoch 32][301/797], || Loss: 0.1706 || Conf Loss: 0.1095 || Loc Loss: 0.0612
+2025-01-06 16:13:24,049   INFO  [epoch 32][351/797], || Loss: 0.1216 || Conf Loss: 0.0452 || Loc Loss: 0.0763
+2025-01-06 16:13:42,734   INFO  [epoch 32][401/797], || Loss: 0.0695 || Conf Loss: 0.0323 || Loc Loss: 0.0372
+2025-01-06 16:14:00,857   INFO  [epoch 32][451/797], || Loss: 0.0837 || Conf Loss: 0.0562 || Loc Loss: 0.0275
+2025-01-06 16:14:19,531   INFO  [epoch 32][501/797], || Loss: 0.1335 || Conf Loss: 0.0743 || Loc Loss: 0.0592
+2025-01-06 16:14:38,693   INFO  [epoch 32][551/797], || Loss: 0.1310 || Conf Loss: 0.0749 || Loc Loss: 0.0561
+2025-01-06 16:14:56,654   INFO  [epoch 32][601/797], || Loss: 0.0866 || Conf Loss: 0.0258 || Loc Loss: 0.0608
+2025-01-06 16:15:14,804   INFO  [epoch 32][651/797], || Loss: 0.3196 || Conf Loss: 0.1561 || Loc Loss: 0.1636
+2025-01-06 16:15:33,657   INFO  [epoch 32][701/797], || Loss: 0.1606 || Conf Loss: 0.0700 || Loc Loss: 0.0906
+2025-01-06 16:15:51,969   INFO  [epoch 32][751/797], || Loss: 0.2380 || Conf Loss: 0.1611 || Loc Loss: 0.0769
+2025-01-06 16:16:08,006   INFO  [epoch 32][797/797], || Loss: 0.0743 || Conf Loss: 0.0257 || Loc Loss: 0.0486
+2025-01-06 16:16:08,490   INFO  learning rate 0.0000200
+2025-01-06 16:16:11,587   INFO  [epoch 33][1/797], || Loss: 0.0571 || Conf Loss: 0.0267 || Loc Loss: 0.0304
+2025-01-06 16:16:30,899   INFO  [epoch 33][51/797], || Loss: 0.2773 || Conf Loss: 0.1445 || Loc Loss: 0.1329
+2025-01-06 16:16:47,834   INFO  [epoch 33][101/797], || Loss: 0.0923 || Conf Loss: 0.0511 || Loc Loss: 0.0412
+2025-01-06 16:17:03,851   INFO  [epoch 33][151/797], || Loss: 0.1813 || Conf Loss: 0.1030 || Loc Loss: 0.0783
+2025-01-06 16:17:21,516   INFO  [epoch 33][201/797], || Loss: 0.2092 || Conf Loss: 0.0917 || Loc Loss: 0.1175
+2025-01-06 16:17:37,986   INFO  [epoch 33][251/797], || Loss: 0.2119 || Conf Loss: 0.1246 || Loc Loss: 0.0873
+2025-01-06 16:17:55,300   INFO  [epoch 33][301/797], || Loss: 0.1060 || Conf Loss: 0.0617 || Loc Loss: 0.0443
+2025-01-06 16:18:13,981   INFO  [epoch 33][351/797], || Loss: 0.0806 || Conf Loss: 0.0442 || Loc Loss: 0.0365
+2025-01-06 16:18:32,218   INFO  [epoch 33][401/797], || Loss: 0.1879 || Conf Loss: 0.1006 || Loc Loss: 0.0873
+2025-01-06 16:18:49,799   INFO  [epoch 33][451/797], || Loss: 0.1140 || Conf Loss: 0.0529 || Loc Loss: 0.0611
+2025-01-06 16:19:08,708   INFO  [epoch 33][501/797], || Loss: 0.1499 || Conf Loss: 0.0651 || Loc Loss: 0.0848
+2025-01-06 16:19:26,641   INFO  [epoch 33][551/797], || Loss: 0.1542 || Conf Loss: 0.0901 || Loc Loss: 0.0642
+2025-01-06 16:19:44,661   INFO  [epoch 33][601/797], || Loss: 0.1132 || Conf Loss: 0.0646 || Loc Loss: 0.0486
+2025-01-06 16:20:01,153   INFO  [epoch 33][651/797], || Loss: 0.0252 || Conf Loss: 0.0150 || Loc Loss: 0.0103
+2025-01-06 16:20:19,306   INFO  [epoch 33][701/797], || Loss: 0.1788 || Conf Loss: 0.0993 || Loc Loss: 0.0795
+2025-01-06 16:20:39,708   INFO  [epoch 33][751/797], || Loss: 0.0885 || Conf Loss: 0.0420 || Loc Loss: 0.0465
+2025-01-06 16:20:54,955   INFO  [epoch 33][797/797], || Loss: 0.2064 || Conf Loss: 0.0997 || Loc Loss: 0.1067
+2025-01-06 16:20:55,401   INFO  learning rate 0.0000200
+2025-01-06 16:21:00,302   INFO  [epoch 34][1/797], || Loss: 0.2541 || Conf Loss: 0.1449 || Loc Loss: 0.1091
+2025-01-06 16:21:17,896   INFO  [epoch 34][51/797], || Loss: 0.0516 || Conf Loss: 0.0119 || Loc Loss: 0.0397
+2025-01-06 16:21:33,789   INFO  [epoch 34][101/797], || Loss: 0.0625 || Conf Loss: 0.0365 || Loc Loss: 0.0260
+2025-01-06 16:21:52,433   INFO  [epoch 34][151/797], || Loss: 0.1836 || Conf Loss: 0.0948 || Loc Loss: 0.0889
+2025-01-06 16:22:10,169   INFO  [epoch 34][201/797], || Loss: 0.1879 || Conf Loss: 0.0983 || Loc Loss: 0.0896
+2025-01-06 16:22:26,869   INFO  [epoch 34][251/797], || Loss: 0.1703 || Conf Loss: 0.1078 || Loc Loss: 0.0625
+2025-01-06 16:22:43,480   INFO  [epoch 34][301/797], || Loss: 0.1140 || Conf Loss: 0.0708 || Loc Loss: 0.0431
+2025-01-06 16:23:00,387   INFO  [epoch 34][351/797], || Loss: 0.0631 || Conf Loss: 0.0164 || Loc Loss: 0.0467
+2025-01-06 16:23:17,244   INFO  [epoch 34][401/797], || Loss: 0.2770 || Conf Loss: 0.1739 || Loc Loss: 0.1031
+2025-01-06 16:23:33,957   INFO  [epoch 34][451/797], || Loss: 0.2256 || Conf Loss: 0.1506 || Loc Loss: 0.0749
+2025-01-06 16:23:52,419   INFO  [epoch 34][501/797], || Loss: 0.2692 || Conf Loss: 0.1629 || Loc Loss: 0.1062
+2025-01-06 16:24:09,133   INFO  [epoch 34][551/797], || Loss: 0.3027 || Conf Loss: 0.1904 || Loc Loss: 0.1123
+2025-01-06 16:24:27,774   INFO  [epoch 34][601/797], || Loss: 0.1874 || Conf Loss: 0.1111 || Loc Loss: 0.0763
+2025-01-06 16:24:45,640   INFO  [epoch 34][651/797], || Loss: 0.0833 || Conf Loss: 0.0382 || Loc Loss: 0.0451
+2025-01-06 16:25:02,787   INFO  [epoch 34][701/797], || Loss: 0.1408 || Conf Loss: 0.0578 || Loc Loss: 0.0829
+2025-01-06 16:25:21,432   INFO  [epoch 34][751/797], || Loss: 0.1741 || Conf Loss: 0.0911 || Loc Loss: 0.0829
+2025-01-06 16:25:37,253   INFO  [epoch 34][797/797], || Loss: 0.1199 || Conf Loss: 0.0898 || Loc Loss: 0.0301
+2025-01-06 16:25:37,668   INFO  learning rate 0.0000200
+2025-01-06 16:25:42,633   INFO  [epoch 35][1/797], || Loss: 0.2084 || Conf Loss: 0.1035 || Loc Loss: 0.1049
+2025-01-06 16:26:00,632   INFO  [epoch 35][51/797], || Loss: 0.0935 || Conf Loss: 0.0451 || Loc Loss: 0.0484
+2025-01-06 16:26:17,691   INFO  [epoch 35][101/797], || Loss: 0.1173 || Conf Loss: 0.0659 || Loc Loss: 0.0514
+2025-01-06 16:26:35,969   INFO  [epoch 35][151/797], || Loss: 0.0387 || Conf Loss: 0.0145 || Loc Loss: 0.0242
+2025-01-06 16:26:52,270   INFO  [epoch 35][201/797], || Loss: 0.2519 || Conf Loss: 0.1459 || Loc Loss: 0.1060
+2025-01-06 16:27:10,859   INFO  [epoch 35][251/797], || Loss: 0.4402 || Conf Loss: 0.3129 || Loc Loss: 0.1272
+2025-01-06 16:27:26,420   INFO  [epoch 35][301/797], || Loss: 0.1036 || Conf Loss: 0.0468 || Loc Loss: 0.0568
+2025-01-06 16:27:43,773   INFO  [epoch 35][351/797], || Loss: 0.0764 || Conf Loss: 0.0465 || Loc Loss: 0.0299
+2025-01-06 16:28:01,080   INFO  [epoch 35][401/797], || Loss: 0.1169 || Conf Loss: 0.0714 || Loc Loss: 0.0455
+2025-01-06 16:28:21,843   INFO  [epoch 35][451/797], || Loss: 0.2077 || Conf Loss: 0.1219 || Loc Loss: 0.0859
+2025-01-06 16:28:38,695   INFO  [epoch 35][501/797], || Loss: 0.2191 || Conf Loss: 0.1073 || Loc Loss: 0.1118
+2025-01-06 16:28:56,370   INFO  [epoch 35][551/797], || Loss: 0.1354 || Conf Loss: 0.0592 || Loc Loss: 0.0762
+2025-01-06 16:29:13,960   INFO  [epoch 35][601/797], || Loss: 0.2139 || Conf Loss: 0.1593 || Loc Loss: 0.0546
+2025-01-06 16:29:30,797   INFO  [epoch 35][651/797], || Loss: 0.2033 || Conf Loss: 0.1260 || Loc Loss: 0.0773
+2025-01-06 16:29:48,967   INFO  [epoch 35][701/797], || Loss: 0.2156 || Conf Loss: 0.1176 || Loc Loss: 0.0979
+2025-01-06 16:30:08,587   INFO  [epoch 35][751/797], || Loss: 0.1138 || Conf Loss: 0.0400 || Loc Loss: 0.0737
+2025-01-06 16:30:24,641   INFO  [epoch 35][797/797], || Loss: 0.1585 || Conf Loss: 0.0972 || Loc Loss: 0.0613
+2025-01-06 16:30:25,056   INFO  learning rate 0.0000200
+2025-01-06 16:30:28,621   INFO  [epoch 36][1/797], || Loss: 0.1174 || Conf Loss: 0.0625 || Loc Loss: 0.0548
+2025-01-06 16:30:47,514   INFO  [epoch 36][51/797], || Loss: 0.3064 || Conf Loss: 0.1922 || Loc Loss: 0.1141
+2025-01-06 16:31:02,968   INFO  [epoch 36][101/797], || Loss: 0.0764 || Conf Loss: 0.0478 || Loc Loss: 0.0286
+2025-01-06 16:31:21,101   INFO  [epoch 36][151/797], || Loss: 0.2061 || Conf Loss: 0.1194 || Loc Loss: 0.0867
+2025-01-06 16:31:37,140   INFO  [epoch 36][201/797], || Loss: 0.0653 || Conf Loss: 0.0279 || Loc Loss: 0.0374
+2025-01-06 16:31:53,121   INFO  [epoch 36][251/797], || Loss: 0.1206 || Conf Loss: 0.0763 || Loc Loss: 0.0443
+2025-01-06 16:32:10,753   INFO  [epoch 36][301/797], || Loss: 0.1907 || Conf Loss: 0.0940 || Loc Loss: 0.0967
+2025-01-06 16:32:28,326   INFO  [epoch 36][351/797], || Loss: 0.1298 || Conf Loss: 0.0771 || Loc Loss: 0.0527
+2025-01-06 16:32:46,063   INFO  [epoch 36][401/797], || Loss: 0.0886 || Conf Loss: 0.0459 || Loc Loss: 0.0427
+2025-01-06 16:33:02,633   INFO  [epoch 36][451/797], || Loss: 0.1336 || Conf Loss: 0.0575 || Loc Loss: 0.0761
+2025-01-06 16:33:20,651   INFO  [epoch 36][501/797], || Loss: 0.1435 || Conf Loss: 0.0699 || Loc Loss: 0.0736
+2025-01-06 16:33:38,582   INFO  [epoch 36][551/797], || Loss: 0.1066 || Conf Loss: 0.0599 || Loc Loss: 0.0467
+2025-01-06 16:33:56,896   INFO  [epoch 36][601/797], || Loss: 0.0966 || Conf Loss: 0.0560 || Loc Loss: 0.0406
+2025-01-06 16:34:14,262   INFO  [epoch 36][651/797], || Loss: 0.0892 || Conf Loss: 0.0586 || Loc Loss: 0.0306
+2025-01-06 16:34:32,546   INFO  [epoch 36][701/797], || Loss: 0.2306 || Conf Loss: 0.1243 || Loc Loss: 0.1063
+2025-01-06 16:34:51,867   INFO  [epoch 36][751/797], || Loss: 0.1714 || Conf Loss: 0.0929 || Loc Loss: 0.0785
+2025-01-06 16:35:08,593   INFO  [epoch 36][797/797], || Loss: 0.1917 || Conf Loss: 0.1195 || Loc Loss: 0.0721
+2025-01-06 16:35:09,100   INFO  learning rate 0.0000200
+2025-01-06 16:35:14,307   INFO  [epoch 37][1/797], || Loss: 0.1373 || Conf Loss: 0.0702 || Loc Loss: 0.0670
+2025-01-06 16:35:31,380   INFO  [epoch 37][51/797], || Loss: 0.2724 || Conf Loss: 0.1457 || Loc Loss: 0.1267
+2025-01-06 16:35:48,264   INFO  [epoch 37][101/797], || Loss: 0.0747 || Conf Loss: 0.0102 || Loc Loss: 0.0645
+2025-01-06 16:36:04,636   INFO  [epoch 37][151/797], || Loss: 0.3196 || Conf Loss: 0.2001 || Loc Loss: 0.1195
+2025-01-06 16:36:23,174   INFO  [epoch 37][201/797], || Loss: 0.1296 || Conf Loss: 0.0427 || Loc Loss: 0.0870
+2025-01-06 16:36:39,995   INFO  [epoch 37][251/797], || Loss: 0.1770 || Conf Loss: 0.0912 || Loc Loss: 0.0858
+2025-01-06 16:36:57,176   INFO  [epoch 37][301/797], || Loss: 0.0675 || Conf Loss: 0.0318 || Loc Loss: 0.0357
+2025-01-06 16:37:13,604   INFO  [epoch 37][351/797], || Loss: 0.1353 || Conf Loss: 0.0794 || Loc Loss: 0.0559
+2025-01-06 16:37:33,956   INFO  [epoch 37][401/797], || Loss: 0.2624 || Conf Loss: 0.1427 || Loc Loss: 0.1198
+2025-01-06 16:37:52,654   INFO  [epoch 37][451/797], || Loss: 0.7165 || Conf Loss: 0.3511 || Loc Loss: 0.3654
+2025-01-06 16:38:11,634   INFO  [epoch 37][501/797], || Loss: 0.2143 || Conf Loss: 0.0946 || Loc Loss: 0.1198
+2025-01-06 16:38:28,091   INFO  [epoch 37][551/797], || Loss: 0.1112 || Conf Loss: 0.0635 || Loc Loss: 0.0477
+2025-01-06 16:38:46,012   INFO  [epoch 37][601/797], || Loss: 0.2294 || Conf Loss: 0.1383 || Loc Loss: 0.0911
+2025-01-06 16:39:03,185   INFO  [epoch 37][651/797], || Loss: 0.0778 || Conf Loss: 0.0300 || Loc Loss: 0.0477
+2025-01-06 16:39:20,056   INFO  [epoch 37][701/797], || Loss: 0.0828 || Conf Loss: 0.0186 || Loc Loss: 0.0642
+2025-01-06 16:39:38,082   INFO  [epoch 37][751/797], || Loss: 0.1627 || Conf Loss: 0.1034 || Loc Loss: 0.0593
+2025-01-06 16:39:54,310   INFO  [epoch 37][797/797], || Loss: 0.0859 || Conf Loss: 0.0403 || Loc Loss: 0.0456
+2025-01-06 16:39:54,802   INFO  learning rate 0.0000200
+2025-01-06 16:39:59,487   INFO  [epoch 38][1/797], || Loss: 0.2206 || Conf Loss: 0.1490 || Loc Loss: 0.0715
+2025-01-06 16:40:15,848   INFO  [epoch 38][51/797], || Loss: 0.1144 || Conf Loss: 0.0682 || Loc Loss: 0.0461
+2025-01-06 16:40:33,491   INFO  [epoch 38][101/797], || Loss: 0.0611 || Conf Loss: 0.0297 || Loc Loss: 0.0314
+2025-01-06 16:40:50,290   INFO  [epoch 38][151/797], || Loss: 0.1131 || Conf Loss: 0.0644 || Loc Loss: 0.0487
+2025-01-06 16:41:07,520   INFO  [epoch 38][201/797], || Loss: 0.2825 || Conf Loss: 0.1843 || Loc Loss: 0.0982
+2025-01-06 16:41:24,683   INFO  [epoch 38][251/797], || Loss: 0.0329 || Conf Loss: 0.0118 || Loc Loss: 0.0211
+2025-01-06 16:41:41,192   INFO  [epoch 38][301/797], || Loss: 0.0500 || Conf Loss: 0.0299 || Loc Loss: 0.0201
+2025-01-06 16:41:59,657   INFO  [epoch 38][351/797], || Loss: 0.2410 || Conf Loss: 0.1482 || Loc Loss: 0.0928
+2025-01-06 16:42:16,686   INFO  [epoch 38][401/797], || Loss: 0.2305 || Conf Loss: 0.1162 || Loc Loss: 0.1143
+2025-01-06 16:42:34,223   INFO  [epoch 38][451/797], || Loss: 0.1889 || Conf Loss: 0.1228 || Loc Loss: 0.0661
+2025-01-06 16:42:51,941   INFO  [epoch 38][501/797], || Loss: 0.1710 || Conf Loss: 0.0995 || Loc Loss: 0.0715
+2025-01-06 16:43:10,756   INFO  [epoch 38][551/797], || Loss: 0.1165 || Conf Loss: 0.0599 || Loc Loss: 0.0566
+2025-01-06 16:43:30,711   INFO  [epoch 38][601/797], || Loss: 0.1758 || Conf Loss: 0.0787 || Loc Loss: 0.0971
+2025-01-06 16:43:48,620   INFO  [epoch 38][651/797], || Loss: 0.1410 || Conf Loss: 0.0804 || Loc Loss: 0.0606
+2025-01-06 16:44:07,664   INFO  [epoch 38][701/797], || Loss: 0.0421 || Conf Loss: 0.0133 || Loc Loss: 0.0288
+2025-01-06 16:44:26,974   INFO  [epoch 38][751/797], || Loss: 0.1359 || Conf Loss: 0.0551 || Loc Loss: 0.0808
+2025-01-06 16:44:42,308   INFO  [epoch 38][797/797], || Loss: 0.1195 || Conf Loss: 0.0641 || Loc Loss: 0.0554
+2025-01-06 16:44:42,817   INFO  learning rate 0.0000200
+2025-01-06 16:44:46,293   INFO  [epoch 39][1/797], || Loss: 0.1871 || Conf Loss: 0.1046 || Loc Loss: 0.0825
+2025-01-06 16:45:03,857   INFO  [epoch 39][51/797], || Loss: 0.0886 || Conf Loss: 0.0440 || Loc Loss: 0.0446
+2025-01-06 16:45:21,244   INFO  [epoch 39][101/797], || Loss: 0.1914 || Conf Loss: 0.1250 || Loc Loss: 0.0664
+2025-01-06 16:45:37,185   INFO  [epoch 39][151/797], || Loss: 0.0699 || Conf Loss: 0.0219 || Loc Loss: 0.0480
+2025-01-06 16:45:54,644   INFO  [epoch 39][201/797], || Loss: 0.1305 || Conf Loss: 0.0773 || Loc Loss: 0.0532
+2025-01-06 16:46:11,264   INFO  [epoch 39][251/797], || Loss: 0.0866 || Conf Loss: 0.0433 || Loc Loss: 0.0433
+2025-01-06 16:46:27,965   INFO  [epoch 39][301/797], || Loss: 0.2234 || Conf Loss: 0.1379 || Loc Loss: 0.0856
+2025-01-06 16:46:44,608   INFO  [epoch 39][351/797], || Loss: 0.1701 || Conf Loss: 0.1003 || Loc Loss: 0.0699
+2025-01-06 16:47:02,334   INFO  [epoch 39][401/797], || Loss: 0.1023 || Conf Loss: 0.0638 || Loc Loss: 0.0385
+2025-01-06 16:47:19,827   INFO  [epoch 39][451/797], || Loss: 0.1937 || Conf Loss: 0.1058 || Loc Loss: 0.0879
+2025-01-06 16:47:39,906   INFO  [epoch 39][501/797], || Loss: 0.1504 || Conf Loss: 0.0745 || Loc Loss: 0.0759
+2025-01-06 16:47:56,723   INFO  [epoch 39][551/797], || Loss: 0.1148 || Conf Loss: 0.0729 || Loc Loss: 0.0419
+2025-01-06 16:48:15,123   INFO  [epoch 39][601/797], || Loss: 0.2238 || Conf Loss: 0.1294 || Loc Loss: 0.0945
+2025-01-06 16:48:32,229   INFO  [epoch 39][651/797], || Loss: 0.3086 || Conf Loss: 0.1880 || Loc Loss: 0.1206
+2025-01-06 16:48:50,093   INFO  [epoch 39][701/797], || Loss: 0.0930 || Conf Loss: 0.0345 || Loc Loss: 0.0585
+2025-01-06 16:49:08,116   INFO  [epoch 39][751/797], || Loss: 0.1226 || Conf Loss: 0.0585 || Loc Loss: 0.0641
+2025-01-06 16:49:24,539   INFO  [epoch 39][797/797], || Loss: 0.0733 || Conf Loss: 0.0382 || Loc Loss: 0.0351
+2025-01-06 16:49:24,997   INFO  learning rate 0.0000200
+2025-01-06 16:49:29,153   INFO  [epoch 40][1/797], || Loss: 0.1441 || Conf Loss: 0.0562 || Loc Loss: 0.0879
+2025-01-06 16:49:45,863   INFO  [epoch 40][51/797], || Loss: 0.0325 || Conf Loss: 0.0079 || Loc Loss: 0.0246
+2025-01-06 16:50:02,728   INFO  [epoch 40][101/797], || Loss: 0.0350 || Conf Loss: 0.0136 || Loc Loss: 0.0214
+2025-01-06 16:50:19,645   INFO  [epoch 40][151/797], || Loss: 0.2285 || Conf Loss: 0.1110 || Loc Loss: 0.1174
+2025-01-06 16:50:36,066   INFO  [epoch 40][201/797], || Loss: 0.1386 || Conf Loss: 0.0744 || Loc Loss: 0.0643
+2025-01-06 16:50:54,276   INFO  [epoch 40][251/797], || Loss: 0.1379 || Conf Loss: 0.0732 || Loc Loss: 0.0647
+2025-01-06 16:51:11,807   INFO  [epoch 40][301/797], || Loss: 0.1586 || Conf Loss: 0.0892 || Loc Loss: 0.0694
+2025-01-06 16:51:30,128   INFO  [epoch 40][351/797], || Loss: 0.2079 || Conf Loss: 0.1145 || Loc Loss: 0.0934
+2025-01-06 16:51:46,314   INFO  [epoch 40][401/797], || Loss: 0.0355 || Conf Loss: 0.0166 || Loc Loss: 0.0189
+2025-01-06 16:52:03,973   INFO  [epoch 40][451/797], || Loss: 0.1718 || Conf Loss: 0.1154 || Loc Loss: 0.0564
+2025-01-06 16:52:21,544   INFO  [epoch 40][501/797], || Loss: 0.0874 || Conf Loss: 0.0204 || Loc Loss: 0.0670
+2025-01-06 16:52:39,895   INFO  [epoch 40][551/797], || Loss: 0.0532 || Conf Loss: 0.0106 || Loc Loss: 0.0426
+2025-01-06 16:52:57,560   INFO  [epoch 40][601/797], || Loss: 0.2696 || Conf Loss: 0.1696 || Loc Loss: 0.1001
+2025-01-06 16:53:15,038   INFO  [epoch 40][651/797], || Loss: 0.0921 || Conf Loss: 0.0331 || Loc Loss: 0.0590
+2025-01-06 16:53:35,068   INFO  [epoch 40][701/797], || Loss: 0.0395 || Conf Loss: 0.0027 || Loc Loss: 0.0368
+2025-01-06 16:53:52,766   INFO  [epoch 40][751/797], || Loss: 0.1148 || Conf Loss: 0.0569 || Loc Loss: 0.0580
+2025-01-06 16:54:10,867   INFO  [epoch 40][797/797], || Loss: 0.2308 || Conf Loss: 0.1403 || Loc Loss: 0.0905
+2025-01-06 16:54:11,317   INFO  learning rate 0.0000200
+2025-01-06 16:54:15,409   INFO  [epoch 41][1/797], || Loss: 0.0928 || Conf Loss: 0.0271 || Loc Loss: 0.0657
+2025-01-06 16:54:36,021   INFO  [epoch 41][51/797], || Loss: 0.1016 || Conf Loss: 0.0370 || Loc Loss: 0.0646
+2025-01-06 16:54:54,956   INFO  [epoch 41][101/797], || Loss: 0.2344 || Conf Loss: 0.1154 || Loc Loss: 0.1190
+2025-01-06 16:55:11,794   INFO  [epoch 41][151/797], || Loss: 0.1353 || Conf Loss: 0.0643 || Loc Loss: 0.0710
+2025-01-06 16:55:28,589   INFO  [epoch 41][201/797], || Loss: 0.1027 || Conf Loss: 0.0493 || Loc Loss: 0.0534
+2025-01-06 16:55:44,569   INFO  [epoch 41][251/797], || Loss: 0.0337 || Conf Loss: 0.0029 || Loc Loss: 0.0308
+2025-01-06 16:56:01,499   INFO  [epoch 41][301/797], || Loss: 0.2533 || Conf Loss: 0.1539 || Loc Loss: 0.0994
+2025-01-06 16:56:20,090   INFO  [epoch 41][351/797], || Loss: 0.0453 || Conf Loss: 0.0053 || Loc Loss: 0.0401
+2025-01-06 16:56:38,740   INFO  [epoch 41][401/797], || Loss: 0.1935 || Conf Loss: 0.1064 || Loc Loss: 0.0871
+2025-01-06 16:56:56,382   INFO  [epoch 41][451/797], || Loss: 0.1686 || Conf Loss: 0.0885 || Loc Loss: 0.0801
+2025-01-06 16:57:14,226   INFO  [epoch 41][501/797], || Loss: 0.0888 || Conf Loss: 0.0493 || Loc Loss: 0.0396
+2025-01-06 16:57:32,439   INFO  [epoch 41][551/797], || Loss: 0.2519 || Conf Loss: 0.1561 || Loc Loss: 0.0958
+2025-01-06 16:57:49,771   INFO  [epoch 41][601/797], || Loss: 0.0939 || Conf Loss: 0.0567 || Loc Loss: 0.0372
+2025-01-06 16:58:08,192   INFO  [epoch 41][651/797], || Loss: 0.1289 || Conf Loss: 0.0681 || Loc Loss: 0.0609
+2025-01-06 16:58:26,798   INFO  [epoch 41][701/797], || Loss: 0.0909 || Conf Loss: 0.0315 || Loc Loss: 0.0594
+2025-01-06 16:58:45,903   INFO  [epoch 41][751/797], || Loss: 0.1749 || Conf Loss: 0.1038 || Loc Loss: 0.0711
+2025-01-06 16:59:03,004   INFO  [epoch 41][797/797], || Loss: 0.0948 || Conf Loss: 0.0346 || Loc Loss: 0.0602
+2025-01-06 16:59:03,501   INFO  learning rate 0.0000200
+2025-01-06 16:59:07,439   INFO  [epoch 42][1/797], || Loss: 0.0822 || Conf Loss: 0.0320 || Loc Loss: 0.0502
+2025-01-06 16:59:26,415   INFO  [epoch 42][51/797], || Loss: 0.1008 || Conf Loss: 0.0480 || Loc Loss: 0.0528
+2025-01-06 16:59:43,118   INFO  [epoch 42][101/797], || Loss: 0.1936 || Conf Loss: 0.0973 || Loc Loss: 0.0963
+2025-01-06 17:00:01,105   INFO  [epoch 42][151/797], || Loss: 0.2101 || Conf Loss: 0.1282 || Loc Loss: 0.0819
+2025-01-06 17:00:16,891   INFO  [epoch 42][201/797], || Loss: 0.2728 || Conf Loss: 0.0693 || Loc Loss: 0.2035
+2025-01-06 17:00:32,539   INFO  [epoch 42][251/797], || Loss: 0.1653 || Conf Loss: 0.0434 || Loc Loss: 0.1220
+2025-01-06 17:00:50,691   INFO  [epoch 42][301/797], || Loss: 0.1314 || Conf Loss: 0.0781 || Loc Loss: 0.0532
+2025-01-06 17:01:07,356   INFO  [epoch 42][351/797], || Loss: 0.0498 || Conf Loss: 0.0154 || Loc Loss: 0.0344
+2025-01-06 17:01:27,444   INFO  [epoch 42][401/797], || Loss: 0.1437 || Conf Loss: 0.0749 || Loc Loss: 0.0688
+2025-01-06 17:01:45,650   INFO  [epoch 42][451/797], || Loss: 0.1316 || Conf Loss: 0.0716 || Loc Loss: 0.0600
+2025-01-06 17:02:03,581   INFO  [epoch 42][501/797], || Loss: 0.1870 || Conf Loss: 0.1044 || Loc Loss: 0.0827
+2025-01-06 17:02:21,598   INFO  [epoch 42][551/797], || Loss: 0.0758 || Conf Loss: 0.0328 || Loc Loss: 0.0430
+2025-01-06 17:02:40,655   INFO  [epoch 42][601/797], || Loss: 0.0566 || Conf Loss: 0.0303 || Loc Loss: 0.0264
+2025-01-06 17:02:59,653   INFO  [epoch 42][651/797], || Loss: 0.3123 || Conf Loss: 0.2030 || Loc Loss: 0.1093
+2025-01-06 17:03:19,092   INFO  [epoch 42][701/797], || Loss: 0.1008 || Conf Loss: 0.0536 || Loc Loss: 0.0472
+2025-01-06 17:03:37,288   INFO  [epoch 42][751/797], || Loss: 0.1591 || Conf Loss: 0.0940 || Loc Loss: 0.0651
+2025-01-06 17:03:53,881   INFO  [epoch 42][797/797], || Loss: 0.0938 || Conf Loss: 0.0395 || Loc Loss: 0.0543
+2025-01-06 17:03:55,464   INFO  learning rate 0.0000200
+2025-01-06 17:03:57,975   INFO  [epoch 43][1/797], || Loss: 0.0201 || Conf Loss: 0.0024 || Loc Loss: 0.0177
+2025-01-06 17:04:17,765   INFO  [epoch 43][51/797], || Loss: 0.1257 || Conf Loss: 0.0453 || Loc Loss: 0.0804
+2025-01-06 17:04:35,958   INFO  [epoch 43][101/797], || Loss: 0.0607 || Conf Loss: 0.0199 || Loc Loss: 0.0408
+2025-01-06 17:04:52,210   INFO  [epoch 43][151/797], || Loss: 0.0868 || Conf Loss: 0.0465 || Loc Loss: 0.0403
+2025-01-06 17:05:09,078   INFO  [epoch 43][201/797], || Loss: 0.1670 || Conf Loss: 0.1056 || Loc Loss: 0.0614
+2025-01-06 17:05:27,423   INFO  [epoch 43][251/797], || Loss: 0.1047 || Conf Loss: 0.0436 || Loc Loss: 0.0611
+2025-01-06 17:05:44,805   INFO  [epoch 43][301/797], || Loss: 0.0646 || Conf Loss: 0.0165 || Loc Loss: 0.0481
+2025-01-06 17:06:01,407   INFO  [epoch 43][351/797], || Loss: 0.1462 || Conf Loss: 0.0450 || Loc Loss: 0.1012
+2025-01-06 17:06:18,872   INFO  [epoch 43][401/797], || Loss: 0.1690 || Conf Loss: 0.0893 || Loc Loss: 0.0797
+2025-01-06 17:06:37,340   INFO  [epoch 43][451/797], || Loss: 0.1296 || Conf Loss: 0.0375 || Loc Loss: 0.0921
+2025-01-06 17:06:55,302   INFO  [epoch 43][501/797], || Loss: 0.1155 || Conf Loss: 0.0350 || Loc Loss: 0.0805
+2025-01-06 17:07:12,610   INFO  [epoch 43][551/797], || Loss: 0.1026 || Conf Loss: 0.0540 || Loc Loss: 0.0485
+2025-01-06 17:07:31,576   INFO  [epoch 43][601/797], || Loss: 0.1708 || Conf Loss: 0.0847 || Loc Loss: 0.0861
+2025-01-06 17:07:48,514   INFO  [epoch 43][651/797], || Loss: 0.0698 || Conf Loss: 0.0435 || Loc Loss: 0.0264
+2025-01-06 17:08:06,237   INFO  [epoch 43][701/797], || Loss: 0.0904 || Conf Loss: 0.0563 || Loc Loss: 0.0341
+2025-01-06 17:08:24,771   INFO  [epoch 43][751/797], || Loss: 0.2187 || Conf Loss: 0.1288 || Loc Loss: 0.0899
+2025-01-06 17:08:42,570   INFO  [epoch 43][797/797], || Loss: 0.1107 || Conf Loss: 0.0428 || Loc Loss: 0.0679
+2025-01-06 17:08:43,021   INFO  learning rate 0.0000200
+2025-01-06 17:08:46,543   INFO  [epoch 44][1/797], || Loss: 0.0487 || Conf Loss: 0.0120 || Loc Loss: 0.0367
+2025-01-06 17:09:03,527   INFO  [epoch 44][51/797], || Loss: 0.0951 || Conf Loss: 0.0478 || Loc Loss: 0.0473
+2025-01-06 17:09:20,132   INFO  [epoch 44][101/797], || Loss: 0.2277 || Conf Loss: 0.1042 || Loc Loss: 0.1235
+2025-01-06 17:09:37,748   INFO  [epoch 44][151/797], || Loss: 0.2220 || Conf Loss: 0.1354 || Loc Loss: 0.0866
+2025-01-06 17:09:55,091   INFO  [epoch 44][201/797], || Loss: 0.0846 || Conf Loss: 0.0353 || Loc Loss: 0.0493
+2025-01-06 17:10:12,918   INFO  [epoch 44][251/797], || Loss: 0.1107 || Conf Loss: 0.0179 || Loc Loss: 0.0928
+2025-01-06 17:10:29,203   INFO  [epoch 44][301/797], || Loss: 0.1791 || Conf Loss: 0.0812 || Loc Loss: 0.0979
+2025-01-06 17:10:48,754   INFO  [epoch 44][351/797], || Loss: 0.1147 || Conf Loss: 0.0617 || Loc Loss: 0.0530
+2025-01-06 17:11:07,026   INFO  [epoch 44][401/797], || Loss: 0.1984 || Conf Loss: 0.1095 || Loc Loss: 0.0889
+2025-01-06 17:11:24,793   INFO  [epoch 44][451/797], || Loss: 0.1061 || Conf Loss: 0.0449 || Loc Loss: 0.0612
+2025-01-06 17:11:43,318   INFO  [epoch 44][501/797], || Loss: 0.1701 || Conf Loss: 0.0835 || Loc Loss: 0.0867
+2025-01-06 17:12:01,069   INFO  [epoch 44][551/797], || Loss: 0.0440 || Conf Loss: 0.0056 || Loc Loss: 0.0384
+2025-01-06 17:12:19,991   INFO  [epoch 44][601/797], || Loss: 0.1898 || Conf Loss: 0.1413 || Loc Loss: 0.0485
+2025-01-06 17:12:37,810   INFO  [epoch 44][651/797], || Loss: 0.1637 || Conf Loss: 0.0633 || Loc Loss: 0.1004
+2025-01-06 17:12:57,033   INFO  [epoch 44][701/797], || Loss: 0.1284 || Conf Loss: 0.0699 || Loc Loss: 0.0586
+2025-01-06 17:13:14,148   INFO  [epoch 44][751/797], || Loss: 0.2758 || Conf Loss: 0.1300 || Loc Loss: 0.1458
+2025-01-06 17:13:30,075   INFO  [epoch 44][797/797], || Loss: 0.2716 || Conf Loss: 0.1121 || Loc Loss: 0.1595
+2025-01-06 17:13:30,487   INFO  learning rate 0.0000200
+2025-01-06 17:13:34,086   INFO  [epoch 45][1/797], || Loss: 0.1563 || Conf Loss: 0.0749 || Loc Loss: 0.0813
+2025-01-06 17:13:51,633   INFO  [epoch 45][51/797], || Loss: 0.0845 || Conf Loss: 0.0288 || Loc Loss: 0.0557
+2025-01-06 17:14:09,084   INFO  [epoch 45][101/797], || Loss: 0.1243 || Conf Loss: 0.0656 || Loc Loss: 0.0587
+2025-01-06 17:14:28,577   INFO  [epoch 45][151/797], || Loss: 0.0796 || Conf Loss: 0.0329 || Loc Loss: 0.0467
+2025-01-06 17:14:44,535   INFO  [epoch 45][201/797], || Loss: 0.1307 || Conf Loss: 0.0637 || Loc Loss: 0.0670
+2025-01-06 17:15:02,224   INFO  [epoch 45][251/797], || Loss: 0.0895 || Conf Loss: 0.0452 || Loc Loss: 0.0443
+2025-01-06 17:15:19,523   INFO  [epoch 45][301/797], || Loss: 0.0645 || Conf Loss: 0.0119 || Loc Loss: 0.0526
+2025-01-06 17:15:35,460   INFO  [epoch 45][351/797], || Loss: 0.0400 || Conf Loss: 0.0119 || Loc Loss: 0.0282
+2025-01-06 17:15:52,187   INFO  [epoch 45][401/797], || Loss: 0.1002 || Conf Loss: 0.0475 || Loc Loss: 0.0527
+2025-01-06 17:16:10,158   INFO  [epoch 45][451/797], || Loss: 0.0793 || Conf Loss: 0.0343 || Loc Loss: 0.0450
+2025-01-06 17:16:28,480   INFO  [epoch 45][501/797], || Loss: 0.1112 || Conf Loss: 0.0472 || Loc Loss: 0.0640
+2025-01-06 17:16:47,363   INFO  [epoch 45][551/797], || Loss: 0.1712 || Conf Loss: 0.0795 || Loc Loss: 0.0917
+2025-01-06 17:17:05,202   INFO  [epoch 45][601/797], || Loss: 0.0749 || Conf Loss: 0.0214 || Loc Loss: 0.0535
+2025-01-06 17:17:24,644   INFO  [epoch 45][651/797], || Loss: 0.0643 || Conf Loss: 0.0264 || Loc Loss: 0.0379
+2025-01-06 17:17:41,968   INFO  [epoch 45][701/797], || Loss: 0.1105 || Conf Loss: 0.0602 || Loc Loss: 0.0503
+2025-01-06 17:18:01,990   INFO  [epoch 45][751/797], || Loss: 0.0935 || Conf Loss: 0.0404 || Loc Loss: 0.0530
+2025-01-06 17:18:17,219   INFO  [epoch 45][797/797], || Loss: 0.0559 || Conf Loss: 0.0314 || Loc Loss: 0.0245
+2025-01-06 17:18:17,721   INFO  learning rate 0.0000200
+2025-01-06 17:18:21,369   INFO  [epoch 46][1/797], || Loss: 0.0486 || Conf Loss: 0.0157 || Loc Loss: 0.0329
+2025-01-06 17:18:39,557   INFO  [epoch 46][51/797], || Loss: 0.1535 || Conf Loss: 0.1129 || Loc Loss: 0.0406
+2025-01-06 17:18:55,907   INFO  [epoch 46][101/797], || Loss: 0.1332 || Conf Loss: 0.0122 || Loc Loss: 0.1211
+2025-01-06 17:19:11,793   INFO  [epoch 46][151/797], || Loss: 0.1628 || Conf Loss: 0.0918 || Loc Loss: 0.0709
+2025-01-06 17:19:27,694   INFO  [epoch 46][201/797], || Loss: 0.0602 || Conf Loss: 0.0267 || Loc Loss: 0.0335
+2025-01-06 17:19:45,576   INFO  [epoch 46][251/797], || Loss: 0.1585 || Conf Loss: 0.0734 || Loc Loss: 0.0851
+2025-01-06 17:20:03,501   INFO  [epoch 46][301/797], || Loss: 0.2093 || Conf Loss: 0.1174 || Loc Loss: 0.0919
+2025-01-06 17:20:20,163   INFO  [epoch 46][351/797], || Loss: 0.0838 || Conf Loss: 0.0391 || Loc Loss: 0.0448
+2025-01-06 17:20:38,607   INFO  [epoch 46][401/797], || Loss: 0.2008 || Conf Loss: 0.1138 || Loc Loss: 0.0869
+2025-01-06 17:20:58,525   INFO  [epoch 46][451/797], || Loss: 0.2009 || Conf Loss: 0.1492 || Loc Loss: 0.0517
+2025-01-06 17:21:16,276   INFO  [epoch 46][501/797], || Loss: 0.1177 || Conf Loss: 0.0468 || Loc Loss: 0.0710
+2025-01-06 17:21:34,409   INFO  [epoch 46][551/797], || Loss: 0.0402 || Conf Loss: 0.0090 || Loc Loss: 0.0313
+2025-01-06 17:21:53,163   INFO  [epoch 46][601/797], || Loss: 0.2495 || Conf Loss: 0.1603 || Loc Loss: 0.0893
+2025-01-06 17:22:12,722   INFO  [epoch 46][651/797], || Loss: 0.1676 || Conf Loss: 0.0833 || Loc Loss: 0.0843
+2025-01-06 17:22:29,368   INFO  [epoch 46][701/797], || Loss: 0.2462 || Conf Loss: 0.1460 || Loc Loss: 0.1001
+2025-01-06 17:22:49,103   INFO  [epoch 46][751/797], || Loss: 0.0841 || Conf Loss: 0.0514 || Loc Loss: 0.0327
+2025-01-06 17:23:06,527   INFO  [epoch 46][797/797], || Loss: 0.1133 || Conf Loss: 0.0608 || Loc Loss: 0.0525
+2025-01-06 17:23:06,991   INFO  learning rate 0.0000200
+2025-01-06 17:23:10,457   INFO  [epoch 47][1/797], || Loss: 0.1832 || Conf Loss: 0.0692 || Loc Loss: 0.1140
+2025-01-06 17:23:28,246   INFO  [epoch 47][51/797], || Loss: 0.0645 || Conf Loss: 0.0162 || Loc Loss: 0.0483
+2025-01-06 17:23:45,644   INFO  [epoch 47][101/797], || Loss: 0.0685 || Conf Loss: 0.0236 || Loc Loss: 0.0449
+2025-01-06 17:24:03,606   INFO  [epoch 47][151/797], || Loss: 0.2007 || Conf Loss: 0.0944 || Loc Loss: 0.1062
+2025-01-06 17:24:18,945   INFO  [epoch 47][201/797], || Loss: 0.1974 || Conf Loss: 0.1078 || Loc Loss: 0.0896
+2025-01-06 17:24:36,800   INFO  [epoch 47][251/797], || Loss: 0.0767 || Conf Loss: 0.0319 || Loc Loss: 0.0448
+2025-01-06 17:24:53,584   INFO  [epoch 47][301/797], || Loss: 0.1089 || Conf Loss: 0.0423 || Loc Loss: 0.0666
+2025-01-06 17:25:09,958   INFO  [epoch 47][351/797], || Loss: 0.1676 || Conf Loss: 0.0945 || Loc Loss: 0.0731
+2025-01-06 17:25:28,322   INFO  [epoch 47][401/797], || Loss: 0.1112 || Conf Loss: 0.0654 || Loc Loss: 0.0458
+2025-01-06 17:25:45,440   INFO  [epoch 47][451/797], || Loss: 0.1077 || Conf Loss: 0.0426 || Loc Loss: 0.0651
+2025-01-06 17:26:03,992   INFO  [epoch 47][501/797], || Loss: 0.0470 || Conf Loss: 0.0136 || Loc Loss: 0.0334
+2025-01-06 17:26:23,445   INFO  [epoch 47][551/797], || Loss: 0.2037 || Conf Loss: 0.1203 || Loc Loss: 0.0834
+2025-01-06 17:26:40,458   INFO  [epoch 47][601/797], || Loss: 0.1618 || Conf Loss: 0.1074 || Loc Loss: 0.0544
+2025-01-06 17:26:57,806   INFO  [epoch 47][651/797], || Loss: 0.1691 || Conf Loss: 0.0602 || Loc Loss: 0.1089
+2025-01-06 17:27:17,977   INFO  [epoch 47][701/797], || Loss: 0.0779 || Conf Loss: 0.0300 || Loc Loss: 0.0478
+2025-01-06 17:27:35,507   INFO  [epoch 47][751/797], || Loss: 0.0534 || Conf Loss: 0.0200 || Loc Loss: 0.0333
+2025-01-06 17:27:52,575   INFO  [epoch 47][797/797], || Loss: 0.0610 || Conf Loss: 0.0105 || Loc Loss: 0.0506
+2025-01-06 17:27:53,011   INFO  learning rate 0.0000200
+2025-01-06 17:27:57,535   INFO  [epoch 48][1/797], || Loss: 0.0704 || Conf Loss: 0.0258 || Loc Loss: 0.0446
+2025-01-06 17:28:15,802   INFO  [epoch 48][51/797], || Loss: 0.1276 || Conf Loss: 0.0599 || Loc Loss: 0.0677
+2025-01-06 17:28:32,739   INFO  [epoch 48][101/797], || Loss: 0.0830 || Conf Loss: 0.0426 || Loc Loss: 0.0404
+2025-01-06 17:28:49,123   INFO  [epoch 48][151/797], || Loss: 0.0482 || Conf Loss: 0.0289 || Loc Loss: 0.0193
+2025-01-06 17:29:06,015   INFO  [epoch 48][201/797], || Loss: 0.0977 || Conf Loss: 0.0658 || Loc Loss: 0.0319
+2025-01-06 17:29:23,444   INFO  [epoch 48][251/797], || Loss: 0.1073 || Conf Loss: 0.0424 || Loc Loss: 0.0650
+2025-01-06 17:29:39,908   INFO  [epoch 48][301/797], || Loss: 0.0696 || Conf Loss: 0.0173 || Loc Loss: 0.0523
+2025-01-06 17:29:57,955   INFO  [epoch 48][351/797], || Loss: 0.2182 || Conf Loss: 0.1045 || Loc Loss: 0.1136
+2025-01-06 17:30:14,294   INFO  [epoch 48][401/797], || Loss: 0.0683 || Conf Loss: 0.0199 || Loc Loss: 0.0484
+2025-01-06 17:30:31,794   INFO  [epoch 48][451/797], || Loss: 0.1330 || Conf Loss: 0.0764 || Loc Loss: 0.0566
+2025-01-06 17:30:49,462   INFO  [epoch 48][501/797], || Loss: 0.2227 || Conf Loss: 0.0795 || Loc Loss: 0.1432
+2025-01-06 17:31:08,731   INFO  [epoch 48][551/797], || Loss: 0.2144 || Conf Loss: 0.1160 || Loc Loss: 0.0984
+2025-01-06 17:31:27,067   INFO  [epoch 48][601/797], || Loss: 0.2128 || Conf Loss: 0.0960 || Loc Loss: 0.1168
+2025-01-06 17:31:44,718   INFO  [epoch 48][651/797], || Loss: 0.1129 || Conf Loss: 0.0515 || Loc Loss: 0.0614
+2025-01-06 17:32:02,014   INFO  [epoch 48][701/797], || Loss: 0.1642 || Conf Loss: 0.0640 || Loc Loss: 0.1002
+2025-01-06 17:32:18,534   INFO  [epoch 48][751/797], || Loss: 0.0972 || Conf Loss: 0.0464 || Loc Loss: 0.0507
+2025-01-06 17:32:34,234   INFO  [epoch 48][797/797], || Loss: 0.1465 || Conf Loss: 0.0826 || Loc Loss: 0.0639
+2025-01-06 17:32:35,135   INFO  learning rate 0.0000200
+2025-01-06 17:32:39,577   INFO  [epoch 49][1/797], || Loss: 0.0949 || Conf Loss: 0.0430 || Loc Loss: 0.0519
+2025-01-06 17:32:57,071   INFO  [epoch 49][51/797], || Loss: 0.0818 || Conf Loss: 0.0370 || Loc Loss: 0.0447
+2025-01-06 17:33:14,807   INFO  [epoch 49][101/797], || Loss: 0.0489 || Conf Loss: 0.0101 || Loc Loss: 0.0388
+2025-01-06 17:33:31,252   INFO  [epoch 49][151/797], || Loss: 0.0472 || Conf Loss: 0.0210 || Loc Loss: 0.0262
+2025-01-06 17:33:47,904   INFO  [epoch 49][201/797], || Loss: 0.0708 || Conf Loss: 0.0238 || Loc Loss: 0.0471
+2025-01-06 17:34:05,447   INFO  [epoch 49][251/797], || Loss: 0.1985 || Conf Loss: 0.1309 || Loc Loss: 0.0676
+2025-01-06 17:34:24,070   INFO  [epoch 49][301/797], || Loss: 0.1641 || Conf Loss: 0.0870 || Loc Loss: 0.0771
+2025-01-06 17:34:41,615   INFO  [epoch 49][351/797], || Loss: 0.1120 || Conf Loss: 0.0346 || Loc Loss: 0.0774
+2025-01-06 17:34:59,609   INFO  [epoch 49][401/797], || Loss: 0.2797 || Conf Loss: 0.1863 || Loc Loss: 0.0934
+2025-01-06 17:35:15,433   INFO  [epoch 49][451/797], || Loss: 0.0701 || Conf Loss: 0.0124 || Loc Loss: 0.0577
+2025-01-06 17:35:32,969   INFO  [epoch 49][501/797], || Loss: 0.0878 || Conf Loss: 0.0347 || Loc Loss: 0.0531
+2025-01-06 17:35:51,599   INFO  [epoch 49][551/797], || Loss: 0.0888 || Conf Loss: 0.0305 || Loc Loss: 0.0583
+2025-01-06 17:36:10,495   INFO  [epoch 49][601/797], || Loss: 0.0328 || Conf Loss: 0.0037 || Loc Loss: 0.0292
+2025-01-06 17:36:28,680   INFO  [epoch 49][651/797], || Loss: 0.1172 || Conf Loss: 0.0580 || Loc Loss: 0.0591
+2025-01-06 17:36:46,881   INFO  [epoch 49][701/797], || Loss: 0.0778 || Conf Loss: 0.0163 || Loc Loss: 0.0615
+2025-01-06 17:37:05,899   INFO  [epoch 49][751/797], || Loss: 0.0837 || Conf Loss: 0.0290 || Loc Loss: 0.0547
+2025-01-06 17:37:22,070   INFO  [epoch 49][797/797], || Loss: 0.0747 || Conf Loss: 0.0439 || Loc Loss: 0.0307
+2025-01-06 17:37:22,515   INFO  learning rate 0.0000200
+2025-01-06 17:37:25,592   INFO  [epoch 50][1/797], || Loss: 0.0635 || Conf Loss: 0.0057 || Loc Loss: 0.0578
+2025-01-06 17:37:43,962   INFO  [epoch 50][51/797], || Loss: 0.0751 || Conf Loss: 0.0299 || Loc Loss: 0.0452
+2025-01-06 17:38:00,595   INFO  [epoch 50][101/797], || Loss: 0.0721 || Conf Loss: 0.0334 || Loc Loss: 0.0387
+2025-01-06 17:38:17,145   INFO  [epoch 50][151/797], || Loss: 0.1296 || Conf Loss: 0.0880 || Loc Loss: 0.0416
+2025-01-06 17:38:34,229   INFO  [epoch 50][201/797], || Loss: 0.1449 || Conf Loss: 0.0749 || Loc Loss: 0.0701
+2025-01-06 17:38:50,725   INFO  [epoch 50][251/797], || Loss: 0.1581 || Conf Loss: 0.0455 || Loc Loss: 0.1126
+2025-01-06 17:39:07,853   INFO  [epoch 50][301/797], || Loss: 0.0747 || Conf Loss: 0.0187 || Loc Loss: 0.0560
+2025-01-06 17:39:25,988   INFO  [epoch 50][351/797], || Loss: 0.0463 || Conf Loss: 0.0129 || Loc Loss: 0.0335
+2025-01-06 17:39:42,336   INFO  [epoch 50][401/797], || Loss: 0.0375 || Conf Loss: 0.0109 || Loc Loss: 0.0267
+2025-01-06 17:40:00,183   INFO  [epoch 50][451/797], || Loss: 0.0722 || Conf Loss: 0.0170 || Loc Loss: 0.0553
+2025-01-06 17:40:18,276   INFO  [epoch 50][501/797], || Loss: 0.0710 || Conf Loss: 0.0233 || Loc Loss: 0.0477
+2025-01-06 17:40:36,198   INFO  [epoch 50][551/797], || Loss: 0.1362 || Conf Loss: 0.0740 || Loc Loss: 0.0622
+2025-01-06 17:40:54,565   INFO  [epoch 50][601/797], || Loss: 0.1579 || Conf Loss: 0.0677 || Loc Loss: 0.0902
+2025-01-06 17:41:13,348   INFO  [epoch 50][651/797], || Loss: 0.1447 || Conf Loss: 0.0409 || Loc Loss: 0.1038
+2025-01-06 17:41:31,796   INFO  [epoch 50][701/797], || Loss: 0.1020 || Conf Loss: 0.0435 || Loc Loss: 0.0585
+2025-01-06 17:41:50,062   INFO  [epoch 50][751/797], || Loss: 0.1216 || Conf Loss: 0.0616 || Loc Loss: 0.0599
+2025-01-06 17:42:04,791   INFO  [epoch 50][797/797], || Loss: 0.1148 || Conf Loss: 0.0360 || Loc Loss: 0.0788
+2025-01-06 17:42:05,208   INFO  learning rate 0.0000200
+2025-01-06 17:42:09,102   INFO  [epoch 51][1/797], || Loss: 0.0553 || Conf Loss: 0.0248 || Loc Loss: 0.0306
+2025-01-06 17:42:26,871   INFO  [epoch 51][51/797], || Loss: 0.4439 || Conf Loss: 0.1194 || Loc Loss: 0.3245
+2025-01-06 17:42:43,636   INFO  [epoch 51][101/797], || Loss: 0.0822 || Conf Loss: 0.0368 || Loc Loss: 0.0454
+2025-01-06 17:42:59,520   INFO  [epoch 51][151/797], || Loss: 0.1734 || Conf Loss: 0.1049 || Loc Loss: 0.0686
+2025-01-06 17:43:17,938   INFO  [epoch 51][201/797], || Loss: 0.2395 || Conf Loss: 0.1402 || Loc Loss: 0.0993
+2025-01-06 17:43:34,031   INFO  [epoch 51][251/797], || Loss: 0.1366 || Conf Loss: 0.0500 || Loc Loss: 0.0866
+2025-01-06 17:43:52,110   INFO  [epoch 51][301/797], || Loss: 0.0925 || Conf Loss: 0.0348 || Loc Loss: 0.0576
+2025-01-06 17:44:09,959   INFO  [epoch 51][351/797], || Loss: 0.1184 || Conf Loss: 0.0458 || Loc Loss: 0.0725
+2025-01-06 17:44:27,008   INFO  [epoch 51][401/797], || Loss: 0.0647 || Conf Loss: 0.0278 || Loc Loss: 0.0369
+2025-01-06 17:44:44,495   INFO  [epoch 51][451/797], || Loss: 0.0665 || Conf Loss: 0.0228 || Loc Loss: 0.0437
+2025-01-06 17:45:03,441   INFO  [epoch 51][501/797], || Loss: 0.2537 || Conf Loss: 0.1318 || Loc Loss: 0.1220
+2025-01-06 17:45:21,859   INFO  [epoch 51][551/797], || Loss: 0.0602 || Conf Loss: 0.0176 || Loc Loss: 0.0426
+2025-01-06 17:45:40,990   INFO  [epoch 51][601/797], || Loss: 0.0553 || Conf Loss: 0.0071 || Loc Loss: 0.0482
+2025-01-06 17:45:58,839   INFO  [epoch 51][651/797], || Loss: 0.0975 || Conf Loss: 0.0467 || Loc Loss: 0.0508
+2025-01-06 17:46:17,647   INFO  [epoch 51][701/797], || Loss: 0.2499 || Conf Loss: 0.1278 || Loc Loss: 0.1221
+2025-01-06 17:46:36,099   INFO  [epoch 51][751/797], || Loss: 0.1424 || Conf Loss: 0.0725 || Loc Loss: 0.0698
+2025-01-06 17:46:50,996   INFO  [epoch 51][797/797], || Loss: 0.0531 || Conf Loss: 0.0171 || Loc Loss: 0.0360
+2025-01-06 17:46:51,468   INFO  learning rate 0.0000200
+2025-01-06 17:46:55,770   INFO  [epoch 52][1/797], || Loss: 0.2005 || Conf Loss: 0.1408 || Loc Loss: 0.0596
+2025-01-06 17:47:13,447   INFO  [epoch 52][51/797], || Loss: 0.1496 || Conf Loss: 0.0718 || Loc Loss: 0.0778
+2025-01-06 17:47:30,528   INFO  [epoch 52][101/797], || Loss: 0.1302 || Conf Loss: 0.0614 || Loc Loss: 0.0688
+2025-01-06 17:47:47,438   INFO  [epoch 52][151/797], || Loss: 0.1921 || Conf Loss: 0.1005 || Loc Loss: 0.0916
+2025-01-06 17:48:03,917   INFO  [epoch 52][201/797], || Loss: 0.1550 || Conf Loss: 0.0729 || Loc Loss: 0.0821
+2025-01-06 17:48:21,256   INFO  [epoch 52][251/797], || Loss: 0.0779 || Conf Loss: 0.0233 || Loc Loss: 0.0546
+2025-01-06 17:48:39,267   INFO  [epoch 52][301/797], || Loss: 0.0605 || Conf Loss: 0.0153 || Loc Loss: 0.0452
+2025-01-06 17:48:55,580   INFO  [epoch 52][351/797], || Loss: 0.0353 || Conf Loss: 0.0030 || Loc Loss: 0.0322
+2025-01-06 17:49:12,645   INFO  [epoch 52][401/797], || Loss: 0.0569 || Conf Loss: 0.0158 || Loc Loss: 0.0411
+2025-01-06 17:49:29,433   INFO  [epoch 52][451/797], || Loss: 0.0655 || Conf Loss: 0.0183 || Loc Loss: 0.0471
+2025-01-06 17:49:47,567   INFO  [epoch 52][501/797], || Loss: 0.1103 || Conf Loss: 0.0360 || Loc Loss: 0.0743
+2025-01-06 17:50:05,429   INFO  [epoch 52][551/797], || Loss: 0.0751 || Conf Loss: 0.0202 || Loc Loss: 0.0549
+2025-01-06 17:50:24,635   INFO  [epoch 52][601/797], || Loss: 0.0728 || Conf Loss: 0.0206 || Loc Loss: 0.0522
+2025-01-06 17:50:43,232   INFO  [epoch 52][651/797], || Loss: 0.1522 || Conf Loss: 0.0684 || Loc Loss: 0.0838
+2025-01-06 17:51:00,718   INFO  [epoch 52][701/797], || Loss: 0.0559 || Conf Loss: 0.0245 || Loc Loss: 0.0315
+2025-01-06 17:51:17,792   INFO  [epoch 52][751/797], || Loss: 0.0785 || Conf Loss: 0.0272 || Loc Loss: 0.0513
+2025-01-06 17:51:35,389   INFO  [epoch 52][797/797], || Loss: 0.0574 || Conf Loss: 0.0166 || Loc Loss: 0.0408
+2025-01-06 17:51:35,837   INFO  learning rate 0.0000200
+2025-01-06 17:51:39,147   INFO  [epoch 53][1/797], || Loss: 0.1273 || Conf Loss: 0.0353 || Loc Loss: 0.0919
+2025-01-06 17:51:57,905   INFO  [epoch 53][51/797], || Loss: 0.0627 || Conf Loss: 0.0106 || Loc Loss: 0.0520
+2025-01-06 17:52:16,632   INFO  [epoch 53][101/797], || Loss: 0.0989 || Conf Loss: 0.0439 || Loc Loss: 0.0550
+2025-01-06 17:52:33,475   INFO  [epoch 53][151/797], || Loss: 0.0909 || Conf Loss: 0.0538 || Loc Loss: 0.0371
+2025-01-06 17:52:50,802   INFO  [epoch 53][201/797], || Loss: 0.2437 || Conf Loss: 0.1001 || Loc Loss: 0.1436
+2025-01-06 17:53:07,682   INFO  [epoch 53][251/797], || Loss: 0.0723 || Conf Loss: 0.0197 || Loc Loss: 0.0526
+2025-01-06 17:53:25,039   INFO  [epoch 53][301/797], || Loss: 0.1625 || Conf Loss: 0.0666 || Loc Loss: 0.0959
+2025-01-06 17:53:41,755   INFO  [epoch 53][351/797], || Loss: 0.3072 || Conf Loss: 0.1034 || Loc Loss: 0.2038
+2025-01-06 17:53:58,780   INFO  [epoch 53][401/797], || Loss: 0.1694 || Conf Loss: 0.0422 || Loc Loss: 0.1272
+2025-01-06 17:54:16,045   INFO  [epoch 53][451/797], || Loss: 0.1534 || Conf Loss: 0.0855 || Loc Loss: 0.0679
+2025-01-06 17:54:32,992   INFO  [epoch 53][501/797], || Loss: 0.1088 || Conf Loss: 0.0454 || Loc Loss: 0.0634
+2025-01-06 17:54:51,614   INFO  [epoch 53][551/797], || Loss: 0.0715 || Conf Loss: 0.0303 || Loc Loss: 0.0412
+2025-01-06 17:55:09,424   INFO  [epoch 53][601/797], || Loss: 0.0462 || Conf Loss: 0.0171 || Loc Loss: 0.0291
+2025-01-06 17:55:26,705   INFO  [epoch 53][651/797], || Loss: 0.0836 || Conf Loss: 0.0248 || Loc Loss: 0.0589
+2025-01-06 17:55:45,764   INFO  [epoch 53][701/797], || Loss: 0.0556 || Conf Loss: 0.0087 || Loc Loss: 0.0469
+2025-01-06 17:56:03,190   INFO  [epoch 53][751/797], || Loss: 0.0536 || Conf Loss: 0.0179 || Loc Loss: 0.0357
+2025-01-06 17:56:19,499   INFO  [epoch 53][797/797], || Loss: 0.1567 || Conf Loss: 0.0724 || Loc Loss: 0.0843
+2025-01-06 17:56:19,941   INFO  learning rate 0.0000200
+2025-01-06 17:56:25,173   INFO  [epoch 54][1/797], || Loss: 0.1686 || Conf Loss: 0.0669 || Loc Loss: 0.1017
+2025-01-06 17:56:41,962   INFO  [epoch 54][51/797], || Loss: 0.1619 || Conf Loss: 0.0882 || Loc Loss: 0.0737
+2025-01-06 17:56:58,626   INFO  [epoch 54][101/797], || Loss: 0.1164 || Conf Loss: 0.0560 || Loc Loss: 0.0605
+2025-01-06 17:57:15,143   INFO  [epoch 54][151/797], || Loss: 0.1144 || Conf Loss: 0.0687 || Loc Loss: 0.0457
+2025-01-06 17:57:31,461   INFO  [epoch 54][201/797], || Loss: 0.1520 || Conf Loss: 0.0839 || Loc Loss: 0.0681
+2025-01-06 17:57:48,735   INFO  [epoch 54][251/797], || Loss: 0.0805 || Conf Loss: 0.0371 || Loc Loss: 0.0434
+2025-01-06 17:58:06,609   INFO  [epoch 54][301/797], || Loss: 0.0278 || Conf Loss: 0.0056 || Loc Loss: 0.0222
+2025-01-06 17:58:23,753   INFO  [epoch 54][351/797], || Loss: 0.1440 || Conf Loss: 0.0621 || Loc Loss: 0.0819
+2025-01-06 17:58:41,394   INFO  [epoch 54][401/797], || Loss: 0.0564 || Conf Loss: 0.0187 || Loc Loss: 0.0377
+2025-01-06 17:58:58,343   INFO  [epoch 54][451/797], || Loss: 0.4422 || Conf Loss: 0.3014 || Loc Loss: 0.1408
+2025-01-06 17:59:17,294   INFO  [epoch 54][501/797], || Loss: 0.0743 || Conf Loss: 0.0286 || Loc Loss: 0.0457
+2025-01-06 17:59:36,299   INFO  [epoch 54][551/797], || Loss: 0.1526 || Conf Loss: 0.0605 || Loc Loss: 0.0921
+2025-01-06 17:59:55,563   INFO  [epoch 54][601/797], || Loss: 0.0661 || Conf Loss: 0.0177 || Loc Loss: 0.0484
+2025-01-06 18:00:12,015   INFO  [epoch 54][651/797], || Loss: 0.0517 || Conf Loss: 0.0249 || Loc Loss: 0.0267
+2025-01-06 18:00:31,064   INFO  [epoch 54][701/797], || Loss: 0.0521 || Conf Loss: 0.0161 || Loc Loss: 0.0360
+2025-01-06 18:00:50,082   INFO  [epoch 54][751/797], || Loss: 0.1971 || Conf Loss: 0.1027 || Loc Loss: 0.0944
+2025-01-06 18:01:05,401   INFO  [epoch 54][797/797], || Loss: 0.1028 || Conf Loss: 0.0069 || Loc Loss: 0.0959
+2025-01-06 18:01:05,893   INFO  learning rate 0.0000200
+2025-01-06 18:01:10,014   INFO  [epoch 55][1/797], || Loss: 0.0819 || Conf Loss: 0.0263 || Loc Loss: 0.0555
+2025-01-06 18:01:27,751   INFO  [epoch 55][51/797], || Loss: 0.0936 || Conf Loss: 0.0630 || Loc Loss: 0.0306
+2025-01-06 18:01:45,633   INFO  [epoch 55][101/797], || Loss: 0.2075 || Conf Loss: 0.1116 || Loc Loss: 0.0959
+2025-01-06 18:02:01,227   INFO  [epoch 55][151/797], || Loss: 0.0618 || Conf Loss: 0.0294 || Loc Loss: 0.0324
+2025-01-06 18:02:17,604   INFO  [epoch 55][201/797], || Loss: 0.2083 || Conf Loss: 0.1136 || Loc Loss: 0.0947
+2025-01-06 18:02:38,166   INFO  [epoch 55][251/797], || Loss: 0.1793 || Conf Loss: 0.0729 || Loc Loss: 0.1064
+2025-01-06 18:02:55,752   INFO  [epoch 55][301/797], || Loss: 0.1315 || Conf Loss: 0.0257 || Loc Loss: 0.1058
+2025-01-06 18:03:12,615   INFO  [epoch 55][351/797], || Loss: 0.0881 || Conf Loss: 0.0439 || Loc Loss: 0.0443
+2025-01-06 18:03:31,250   INFO  [epoch 55][401/797], || Loss: 0.1584 || Conf Loss: 0.0383 || Loc Loss: 0.1200
+2025-01-06 18:03:49,019   INFO  [epoch 55][451/797], || Loss: 0.0902 || Conf Loss: 0.0278 || Loc Loss: 0.0624
+2025-01-06 18:04:07,370   INFO  [epoch 55][501/797], || Loss: 0.0973 || Conf Loss: 0.0410 || Loc Loss: 0.0563
+2025-01-06 18:04:25,165   INFO  [epoch 55][551/797], || Loss: 0.0376 || Conf Loss: 0.0094 || Loc Loss: 0.0283
+2025-01-06 18:04:43,803   INFO  [epoch 55][601/797], || Loss: 0.2932 || Conf Loss: 0.1674 || Loc Loss: 0.1258
+2025-01-06 18:05:01,603   INFO  [epoch 55][651/797], || Loss: 0.0479 || Conf Loss: 0.0136 || Loc Loss: 0.0343
+2025-01-06 18:05:21,669   INFO  [epoch 55][701/797], || Loss: 0.0585 || Conf Loss: 0.0148 || Loc Loss: 0.0436
+2025-01-06 18:05:38,828   INFO  [epoch 55][751/797], || Loss: 0.1045 || Conf Loss: 0.0368 || Loc Loss: 0.0678
+2025-01-06 18:05:54,893   INFO  [epoch 55][797/797], || Loss: 0.1069 || Conf Loss: 0.0460 || Loc Loss: 0.0609
+2025-01-06 18:05:55,322   INFO  learning rate 0.0000200
+2025-01-06 18:05:58,381   INFO  [epoch 56][1/797], || Loss: 0.0723 || Conf Loss: 0.0231 || Loc Loss: 0.0492
+2025-01-06 18:06:17,182   INFO  [epoch 56][51/797], || Loss: 0.0762 || Conf Loss: 0.0367 || Loc Loss: 0.0394
+2025-01-06 18:06:32,124   INFO  [epoch 56][101/797], || Loss: 0.1059 || Conf Loss: 0.0346 || Loc Loss: 0.0713
+2025-01-06 18:06:49,023   INFO  [epoch 56][151/797], || Loss: 0.0936 || Conf Loss: 0.0329 || Loc Loss: 0.0607
+2025-01-06 18:07:05,959   INFO  [epoch 56][201/797], || Loss: 0.0904 || Conf Loss: 0.0203 || Loc Loss: 0.0701
+2025-01-06 18:07:23,383   INFO  [epoch 56][251/797], || Loss: 0.2175 || Conf Loss: 0.1133 || Loc Loss: 0.1042
+2025-01-06 18:07:42,126   INFO  [epoch 56][301/797], || Loss: 0.1210 || Conf Loss: 0.0276 || Loc Loss: 0.0934
+2025-01-06 18:08:00,227   INFO  [epoch 56][351/797], || Loss: 0.1748 || Conf Loss: 0.0882 || Loc Loss: 0.0866
+2025-01-06 18:08:17,182   INFO  [epoch 56][401/797], || Loss: 0.0881 || Conf Loss: 0.0304 || Loc Loss: 0.0576
+2025-01-06 18:08:36,438   INFO  [epoch 56][451/797], || Loss: 0.0825 || Conf Loss: 0.0387 || Loc Loss: 0.0438
+2025-01-06 18:08:52,758   INFO  [epoch 56][501/797], || Loss: 0.2328 || Conf Loss: 0.1100 || Loc Loss: 0.1228
+2025-01-06 18:09:10,192   INFO  [epoch 56][551/797], || Loss: 0.0653 || Conf Loss: 0.0285 || Loc Loss: 0.0368
+2025-01-06 18:09:28,701   INFO  [epoch 56][601/797], || Loss: 0.1117 || Conf Loss: 0.0474 || Loc Loss: 0.0643
+2025-01-06 18:09:46,435   INFO  [epoch 56][651/797], || Loss: 0.0547 || Conf Loss: 0.0169 || Loc Loss: 0.0378
+2025-01-06 18:10:05,819   INFO  [epoch 56][701/797], || Loss: 0.0722 || Conf Loss: 0.0283 || Loc Loss: 0.0439
+2025-01-06 18:10:26,984   INFO  [epoch 56][751/797], || Loss: 0.2241 || Conf Loss: 0.0625 || Loc Loss: 0.1616
+2025-01-06 18:10:41,819   INFO  [epoch 56][797/797], || Loss: 0.0842 || Conf Loss: 0.0121 || Loc Loss: 0.0721
+2025-01-06 18:10:42,673   INFO  learning rate 0.0000200
+2025-01-06 18:10:46,591   INFO  [epoch 57][1/797], || Loss: 0.0725 || Conf Loss: 0.0191 || Loc Loss: 0.0534
+2025-01-06 18:11:04,551   INFO  [epoch 57][51/797], || Loss: 0.1284 || Conf Loss: 0.0631 || Loc Loss: 0.0653
+2025-01-06 18:11:21,707   INFO  [epoch 57][101/797], || Loss: 0.0529 || Conf Loss: 0.0129 || Loc Loss: 0.0400
+2025-01-06 18:11:38,518   INFO  [epoch 57][151/797], || Loss: 0.1267 || Conf Loss: 0.0451 || Loc Loss: 0.0816
+2025-01-06 18:11:54,254   INFO  [epoch 57][201/797], || Loss: 0.0458 || Conf Loss: 0.0162 || Loc Loss: 0.0296
+2025-01-06 18:12:12,100   INFO  [epoch 57][251/797], || Loss: 0.0825 || Conf Loss: 0.0239 || Loc Loss: 0.0586
+2025-01-06 18:12:29,366   INFO  [epoch 57][301/797], || Loss: 0.0496 || Conf Loss: 0.0204 || Loc Loss: 0.0292
+2025-01-06 18:12:45,939   INFO  [epoch 57][351/797], || Loss: 0.0369 || Conf Loss: 0.0043 || Loc Loss: 0.0326
+2025-01-06 18:13:03,829   INFO  [epoch 57][401/797], || Loss: 0.0422 || Conf Loss: 0.0076 || Loc Loss: 0.0346
+2025-01-06 18:13:21,888   INFO  [epoch 57][451/797], || Loss: 0.0927 || Conf Loss: 0.0399 || Loc Loss: 0.0528
+2025-01-06 18:13:40,027   INFO  [epoch 57][501/797], || Loss: 0.0555 || Conf Loss: 0.0158 || Loc Loss: 0.0397
+2025-01-06 18:13:56,721   INFO  [epoch 57][551/797], || Loss: 0.0595 || Conf Loss: 0.0128 || Loc Loss: 0.0467
+2025-01-06 18:14:15,878   INFO  [epoch 57][601/797], || Loss: 0.0244 || Conf Loss: 0.0083 || Loc Loss: 0.0161
+2025-01-06 18:14:33,815   INFO  [epoch 57][651/797], || Loss: 0.0578 || Conf Loss: 0.0214 || Loc Loss: 0.0364
+2025-01-06 18:14:51,985   INFO  [epoch 57][701/797], || Loss: 0.0658 || Conf Loss: 0.0381 || Loc Loss: 0.0277
+2025-01-06 18:15:09,654   INFO  [epoch 57][751/797], || Loss: 0.2767 || Conf Loss: 0.1591 || Loc Loss: 0.1176
+2025-01-06 18:15:25,680   INFO  [epoch 57][797/797], || Loss: 0.1375 || Conf Loss: 0.0450 || Loc Loss: 0.0924
+2025-01-06 18:15:26,159   INFO  learning rate 0.0000200
+2025-01-06 18:15:29,842   INFO  [epoch 58][1/797], || Loss: 0.0721 || Conf Loss: 0.0219 || Loc Loss: 0.0502
+2025-01-06 18:15:47,013   INFO  [epoch 58][51/797], || Loss: 0.0928 || Conf Loss: 0.0422 || Loc Loss: 0.0506
+2025-01-06 18:16:03,585   INFO  [epoch 58][101/797], || Loss: 0.0610 || Conf Loss: 0.0171 || Loc Loss: 0.0439
+2025-01-06 18:16:20,029   INFO  [epoch 58][151/797], || Loss: 0.0633 || Conf Loss: 0.0269 || Loc Loss: 0.0364
+2025-01-06 18:16:38,159   INFO  [epoch 58][201/797], || Loss: 0.1991 || Conf Loss: 0.1219 || Loc Loss: 0.0772
+2025-01-06 18:16:55,877   INFO  [epoch 58][251/797], || Loss: 0.0830 || Conf Loss: 0.0306 || Loc Loss: 0.0524
+2025-01-06 18:17:13,882   INFO  [epoch 58][301/797], || Loss: 0.3506 || Conf Loss: 0.1653 || Loc Loss: 0.1853
+2025-01-06 18:17:31,312   INFO  [epoch 58][351/797], || Loss: 0.2532 || Conf Loss: 0.0928 || Loc Loss: 0.1604
+2025-01-06 18:17:48,240   INFO  [epoch 58][401/797], || Loss: 0.1304 || Conf Loss: 0.0517 || Loc Loss: 0.0787
+2025-01-06 18:18:06,814   INFO  [epoch 58][451/797], || Loss: 0.0981 || Conf Loss: 0.0427 || Loc Loss: 0.0554
+2025-01-06 18:18:24,015   INFO  [epoch 58][501/797], || Loss: 0.0796 || Conf Loss: 0.0209 || Loc Loss: 0.0588
+2025-01-06 18:18:41,795   INFO  [epoch 58][551/797], || Loss: 0.0678 || Conf Loss: 0.0342 || Loc Loss: 0.0337
+2025-01-06 18:19:00,406   INFO  [epoch 58][601/797], || Loss: 0.1703 || Conf Loss: 0.0973 || Loc Loss: 0.0730
+2025-01-06 18:19:17,981   INFO  [epoch 58][651/797], || Loss: 0.1033 || Conf Loss: 0.0301 || Loc Loss: 0.0732
+2025-01-06 18:19:36,463   INFO  [epoch 58][701/797], || Loss: 0.1010 || Conf Loss: 0.0008 || Loc Loss: 0.1002
+2025-01-06 18:19:54,808   INFO  [epoch 58][751/797], || Loss: 0.1214 || Conf Loss: 0.0717 || Loc Loss: 0.0497
+2025-01-06 18:20:10,766   INFO  [epoch 58][797/797], || Loss: 0.0701 || Conf Loss: 0.0217 || Loc Loss: 0.0484
+2025-01-06 18:20:11,145   INFO  learning rate 0.0000200
+2025-01-06 18:20:15,140   INFO  [epoch 59][1/797], || Loss: 0.0560 || Conf Loss: 0.0063 || Loc Loss: 0.0498
+2025-01-06 18:20:32,866   INFO  [epoch 59][51/797], || Loss: 0.0476 || Conf Loss: 0.0131 || Loc Loss: 0.0346
+2025-01-06 18:20:50,548   INFO  [epoch 59][101/797], || Loss: 0.1919 || Conf Loss: 0.1046 || Loc Loss: 0.0873
+2025-01-06 18:21:07,764   INFO  [epoch 59][151/797], || Loss: 0.0793 || Conf Loss: 0.0044 || Loc Loss: 0.0749
+2025-01-06 18:21:24,495   INFO  [epoch 59][201/797], || Loss: 0.0685 || Conf Loss: 0.0191 || Loc Loss: 0.0494
+2025-01-06 18:21:41,496   INFO  [epoch 59][251/797], || Loss: 0.0635 || Conf Loss: 0.0182 || Loc Loss: 0.0454
+2025-01-06 18:21:58,800   INFO  [epoch 59][301/797], || Loss: 0.0731 || Conf Loss: 0.0298 || Loc Loss: 0.0433
+2025-01-06 18:22:15,213   INFO  [epoch 59][351/797], || Loss: 0.0377 || Conf Loss: 0.0073 || Loc Loss: 0.0304
+2025-01-06 18:22:34,235   INFO  [epoch 59][401/797], || Loss: 0.0745 || Conf Loss: 0.0337 || Loc Loss: 0.0408
+2025-01-06 18:22:51,639   INFO  [epoch 59][451/797], || Loss: 0.0808 || Conf Loss: 0.0308 || Loc Loss: 0.0500
+2025-01-06 18:23:09,974   INFO  [epoch 59][501/797], || Loss: 0.1421 || Conf Loss: 0.0684 || Loc Loss: 0.0738
+2025-01-06 18:23:26,807   INFO  [epoch 59][551/797], || Loss: 0.4624 || Conf Loss: 0.2181 || Loc Loss: 0.2443
+2025-01-06 18:23:44,353   INFO  [epoch 59][601/797], || Loss: 0.0521 || Conf Loss: 0.0110 || Loc Loss: 0.0411
+2025-01-06 18:24:01,472   INFO  [epoch 59][651/797], || Loss: 0.1437 || Conf Loss: 0.0852 || Loc Loss: 0.0585
+2025-01-06 18:24:21,099   INFO  [epoch 59][701/797], || Loss: 0.1753 || Conf Loss: 0.0610 || Loc Loss: 0.1143
+2025-01-06 18:24:40,592   INFO  [epoch 59][751/797], || Loss: 0.1117 || Conf Loss: 0.0474 || Loc Loss: 0.0642
+2025-01-06 18:24:56,463   INFO  [epoch 59][797/797], || Loss: 0.1099 || Conf Loss: 0.0363 || Loc Loss: 0.0736
+2025-01-06 18:24:56,853   INFO  Training Finished, checkpoints saved to /home/data/lhw/OpenCOOD/logs/attack/opv2v/second/mean/detection/second_mean

@@ -1,0 +1,492 @@
+2024-11-10 13:07:41,789   INFO  -----------------parser argument:------------------
+2024-11-10 13:07:41,790   INFO  hypes_yaml       ../hypes_yaml/cfg/attack/opv2v/point_pillar/mean/detection/point_pillar_intermediate_mean.yaml
+2024-11-10 13:07:41,790   INFO  model_dir        
+2024-11-10 13:07:41,790   INFO  ckpt             -1
+2024-11-10 13:07:41,790   INFO  half             False
+2024-11-10 13:07:41,790   INFO  dist_url         env://
+2024-11-10 13:07:41,790   INFO  rank             0
+2024-11-10 13:07:41,790   INFO  world_size       4
+2024-11-10 13:07:41,790   INFO  gpu              0
+2024-11-10 13:07:41,790   INFO  distributed      True
+2024-11-10 13:07:41,790   INFO  dist_backend     nccl
+2024-11-10 13:07:41,790   INFO  -----------------hypes argument:------------------
+2024-11-10 13:07:41,790   INFO  name: point_pillar_intermediate_mean
+2024-11-10 13:07:41,790   INFO  root_dir: ../../opv2v_data_dumping/train
+2024-11-10 13:07:41,790   INFO  validate_dir: ../../opv2v_data_dumping/validate
+2024-11-10 13:07:41,790   INFO  yaml_parser: load_point_pillar_params
+2024-11-10 13:07:41,790   INFO  train_params: {
+2024-11-10 13:07:41,790   INFO      batch_size: 2
+2024-11-10 13:07:41,791   INFO      epoches: 15
+2024-11-10 13:07:41,791   INFO      eval_freq: 1
+2024-11-10 13:07:41,791   INFO      save_freq: 1
+2024-11-10 13:07:41,791   INFO  }
+2024-11-10 13:07:41,791   INFO  num_class: 2
+2024-11-10 13:07:41,791   INFO  fusion: {
+2024-11-10 13:07:41,791   INFO      core_method: IntermediateFusionDataset
+2024-11-10 13:07:41,791   INFO      args: []
+2024-11-10 13:07:41,791   INFO  }
+2024-11-10 13:07:41,791   INFO  preprocess: {
+2024-11-10 13:07:41,791   INFO      core_method: SpVoxelPreprocessor
+2024-11-10 13:07:41,791   INFO      args: {
+2024-11-10 13:07:41,791   INFO          voxel_size: [0.4, 0.4, 4]
+2024-11-10 13:07:41,791   INFO          max_points_per_voxel: 32
+2024-11-10 13:07:41,791   INFO          max_voxel_train: 32000
+2024-11-10 13:07:41,791   INFO          max_voxel_test: 70000
+2024-11-10 13:07:41,791   INFO      }
+2024-11-10 13:07:41,791   INFO      cav_lidar_range: [-140.8, -40, -3, 140.8, 40, 1]
+2024-11-10 13:07:41,791   INFO  }
+2024-11-10 13:07:41,791   INFO  data_augment: [{'NAME': 'random_world_flip', 'ALONG_AXIS_LIST': ['x']}, {'NAME': 'random_world_rotation', 'WORLD_ROT_ANGLE': [-0.78539816, 0.78539816]}, {'NAME': 'random_world_scaling', 'WORLD_SCALE_RANGE': [0.95, 1.05]}]
+2024-11-10 13:07:41,791   INFO  postprocess: {
+2024-11-10 13:07:41,791   INFO      core_method: VoxelPostprocessor
+2024-11-10 13:07:41,791   INFO      anchor_args: {
+2024-11-10 13:07:41,791   INFO          cav_lidar_range: [-140.8, -40, -3, 140.8, 40, 1]
+2024-11-10 13:07:41,791   INFO          l: 3.9
+2024-11-10 13:07:41,791   INFO          w: 1.6
+2024-11-10 13:07:41,791   INFO          h: 1.56
+2024-11-10 13:07:41,791   INFO          r: [0, 90]
+2024-11-10 13:07:41,792   INFO          feature_stride: 2
+2024-11-10 13:07:41,792   INFO          num: 2
+2024-11-10 13:07:41,792   INFO          vw: 0.4
+2024-11-10 13:07:41,792   INFO          vh: 0.4
+2024-11-10 13:07:41,792   INFO          vd: 4
+2024-11-10 13:07:41,792   INFO          W: 704
+2024-11-10 13:07:41,792   INFO          H: 200
+2024-11-10 13:07:41,792   INFO          D: 1
+2024-11-10 13:07:41,792   INFO      }
+2024-11-10 13:07:41,792   INFO      target_args: {
+2024-11-10 13:07:41,792   INFO          pos_threshold: 0.6
+2024-11-10 13:07:41,792   INFO          neg_threshold: 0.45
+2024-11-10 13:07:41,792   INFO          score_threshold: 0.2
+2024-11-10 13:07:41,792   INFO      }
+2024-11-10 13:07:41,792   INFO      order: hwl
+2024-11-10 13:07:41,792   INFO      max_num: 100
+2024-11-10 13:07:41,792   INFO      nms_thresh: 0.15
+2024-11-10 13:07:41,792   INFO  }
+2024-11-10 13:07:41,792   INFO  model: {
+2024-11-10 13:07:41,792   INFO      core_method: point_pillar_intermediate
+2024-11-10 13:07:41,792   INFO      args: {
+2024-11-10 13:07:41,792   INFO          voxel_size: [0.4, 0.4, 4]
+2024-11-10 13:07:41,792   INFO          lidar_range: [-140.8, -40, -3, 140.8, 40, 1]
+2024-11-10 13:07:41,792   INFO          anchor_number: 2
+2024-11-10 13:07:41,792   INFO          num_class: 2
+2024-11-10 13:07:41,792   INFO          fusion_module: MeanFusion
+2024-11-10 13:07:41,792   INFO          pillar_vfe: {
+2024-11-10 13:07:41,792   INFO              use_norm: True
+2024-11-10 13:07:41,792   INFO              with_distance: False
+2024-11-10 13:07:41,793   INFO              use_absolute_xyz: True
+2024-11-10 13:07:41,793   INFO              num_filters: [64]
+2024-11-10 13:07:41,793   INFO          }
+2024-11-10 13:07:41,793   INFO          point_pillar_scatter: {
+2024-11-10 13:07:41,793   INFO              num_features: 64
+2024-11-10 13:07:41,793   INFO              grid_size: [704 200   1]
+2024-11-10 13:07:41,793   INFO          }
+2024-11-10 13:07:41,793   INFO          base_bev_backbone: {
+2024-11-10 13:07:41,793   INFO              layer_nums: [3, 5, 8]
+2024-11-10 13:07:41,793   INFO              layer_strides: [2, 2, 2]
+2024-11-10 13:07:41,793   INFO              num_filters: [64, 128, 256]
+2024-11-10 13:07:41,793   INFO              upsample_strides: [1, 2, 4]
+2024-11-10 13:07:41,793   INFO              num_upsample_filter: [128, 128, 128]
+2024-11-10 13:07:41,793   INFO          }
+2024-11-10 13:07:41,793   INFO          anchor_num: 2
+2024-11-10 13:07:41,793   INFO      }
+2024-11-10 13:07:41,793   INFO  }
+2024-11-10 13:07:41,793   INFO  loss: {
+2024-11-10 13:07:41,793   INFO      core_method: point_pillar_loss
+2024-11-10 13:07:41,794   INFO      args: {
+2024-11-10 13:07:41,794   INFO          cls_weight: 1.0
+2024-11-10 13:07:41,794   INFO          reg: 2.0
+2024-11-10 13:07:41,794   INFO          num_class: 2
+2024-11-10 13:07:41,794   INFO      }
+2024-11-10 13:07:41,794   INFO  }
+2024-11-10 13:07:41,794   INFO  optimizer: {
+2024-11-10 13:07:41,794   INFO      core_method: Adam
+2024-11-10 13:07:41,794   INFO      lr: 0.002
+2024-11-10 13:07:41,794   INFO      args: {
+2024-11-10 13:07:41,794   INFO          eps: 1e-10
+2024-11-10 13:07:41,794   INFO          weight_decay: 0.0001
+2024-11-10 13:07:41,794   INFO      }
+2024-11-10 13:07:41,794   INFO  }
+2024-11-10 13:07:41,794   INFO  lr_scheduler: {
+2024-11-10 13:07:41,794   INFO      core_method: multistep
+2024-11-10 13:07:41,794   INFO      gamma: 0.1
+2024-11-10 13:07:41,794   INFO      step_size: [10, 15]
+2024-11-10 13:07:41,794   INFO  }
+2024-11-10 13:07:41,794   INFO  -----------------Dataset Building------------------
+2024-11-10 13:07:42,283   INFO  ---------------Creating Model------------------
+2024-11-10 13:07:42,348   INFO  ----------- Model point_pillar_intermediate_mean created, param count: 6585874 -----------
+2024-11-10 13:07:42,348   INFO  DistributedDataParallel(
+  (module): PointPillarIntermediate(
+    (pillar_vfe): PillarVFE(
+      (pfn_layers): ModuleList(
+        (0): PFNLayer(
+          (linear): Linear(in_features=10, out_features=64, bias=False)
+          (norm): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (scatter): PointPillarScatter()
+    (backbone): BaseBEVBackbone(
+      (blocks): ModuleList(
+        (0): Sequential(
+          (0): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), bias=False)
+          (2): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (3): ReLU()
+          (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (5): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (6): ReLU()
+          (7): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (8): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (9): ReLU()
+          (10): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (11): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (12): ReLU()
+        )
+        (1): Sequential(
+          (0): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+          (1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), bias=False)
+          (2): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (3): ReLU()
+          (4): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (5): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (6): ReLU()
+          (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (8): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (9): ReLU()
+          (10): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (11): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (12): ReLU()
+          (13): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (14): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (15): ReLU()
+          (16): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (17): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (18): ReLU()
+        )
+        (2): Sequential(
+          (0): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+          (1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), bias=False)
+          (2): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (3): ReLU()
+          (4): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (5): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (6): ReLU()
+          (7): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (8): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (9): ReLU()
+          (10): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (11): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (12): ReLU()
+          (13): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (14): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (15): ReLU()
+          (16): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (17): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (18): ReLU()
+          (19): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (20): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (21): ReLU()
+          (22): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (23): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (24): ReLU()
+          (25): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (26): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (27): ReLU()
+        )
+      )
+      (deblocks): ModuleList(
+        (0): Sequential(
+          (0): ConvTranspose2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (1): Sequential(
+          (0): ConvTranspose2d(128, 128, kernel_size=(2, 2), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (2): Sequential(
+          (0): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(4, 4), bias=False)
+          (1): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+    )
+    (batch_norm): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (fusion_module): MeanFusion()
+    (cls_head): Conv2d(384, 4, kernel_size=(1, 1), stride=(1, 1))
+    (reg_head): Conv2d(384, 14, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+2024-11-10 13:07:42,351   INFO  Training start
+2024-11-10 13:07:42,352   INFO  learning rate 0.0020000
+2024-11-10 13:07:47,331   INFO  [epoch 0][1/797], || Loss: 433.8140 || Conf Loss: 429.0455 || Loc Loss: 4.7685
+2024-11-10 13:08:04,500   INFO  [epoch 0][51/797], || Loss: 69.2982 || Conf Loss: 68.4324 || Loc Loss: 0.8657
+2024-11-10 13:08:20,823   INFO  [epoch 0][101/797], || Loss: 5.6596 || Conf Loss: 4.7862 || Loc Loss: 0.8734
+2024-11-10 13:08:35,916   INFO  [epoch 0][151/797], || Loss: 4.0717 || Conf Loss: 3.1287 || Loc Loss: 0.9430
+2024-11-10 13:08:57,319   INFO  [epoch 0][201/797], || Loss: 3.2848 || Conf Loss: 2.5339 || Loc Loss: 0.7509
+2024-11-10 13:09:19,203   INFO  [epoch 0][251/797], || Loss: 5.1711 || Conf Loss: 4.4412 || Loc Loss: 0.7299
+2024-11-10 13:09:41,592   INFO  [epoch 0][301/797], || Loss: 4.5404 || Conf Loss: 3.4670 || Loc Loss: 1.0734
+2024-11-10 13:10:02,758   INFO  [epoch 0][351/797], || Loss: 2.9587 || Conf Loss: 2.3285 || Loc Loss: 0.6303
+2024-11-10 13:10:26,192   INFO  [epoch 0][401/797], || Loss: 2.9390 || Conf Loss: 2.2421 || Loc Loss: 0.6968
+2024-11-10 13:10:49,659   INFO  [epoch 0][451/797], || Loss: 8.6353 || Conf Loss: 8.0001 || Loc Loss: 0.6351
+2024-11-10 13:11:12,295   INFO  [epoch 0][501/797], || Loss: 2.6655 || Conf Loss: 1.9563 || Loc Loss: 0.7092
+2024-11-10 13:11:38,460   INFO  [epoch 0][551/797], || Loss: 2.6250 || Conf Loss: 1.9498 || Loc Loss: 0.6753
+2024-11-10 13:12:01,924   INFO  [epoch 0][601/797], || Loss: 2.4704 || Conf Loss: 1.7559 || Loc Loss: 0.7145
+2024-11-10 13:12:28,027   INFO  [epoch 0][651/797], || Loss: 3.2078 || Conf Loss: 2.0190 || Loc Loss: 1.1888
+2024-11-10 13:12:50,402   INFO  [epoch 0][701/797], || Loss: 2.7264 || Conf Loss: 2.0856 || Loc Loss: 0.6408
+2024-11-10 13:13:13,332   INFO  [epoch 0][751/797], || Loss: 2.1376 || Conf Loss: 1.5766 || Loc Loss: 0.5609
+2024-11-10 13:13:33,773   INFO  [epoch 0][797/797], || Loss: 2.4418 || Conf Loss: 1.7471 || Loc Loss: 0.6948
+2024-11-10 13:13:34,076   INFO  learning rate 0.0020000
+2024-11-10 13:13:37,746   INFO  [epoch 1][1/797], || Loss: 1.9991 || Conf Loss: 1.4617 || Loc Loss: 0.5374
+2024-11-10 13:13:56,586   INFO  [epoch 1][51/797], || Loss: 2.4725 || Conf Loss: 1.6505 || Loc Loss: 0.8219
+2024-11-10 13:14:13,225   INFO  [epoch 1][101/797], || Loss: 1.4522 || Conf Loss: 0.9485 || Loc Loss: 0.5038
+2024-11-10 13:14:28,541   INFO  [epoch 1][151/797], || Loss: 3.6611 || Conf Loss: 2.3920 || Loc Loss: 1.2690
+2024-11-10 13:14:45,627   INFO  [epoch 1][201/797], || Loss: 2.3255 || Conf Loss: 1.4886 || Loc Loss: 0.8369
+2024-11-10 13:15:02,489   INFO  [epoch 1][251/797], || Loss: 1.8689 || Conf Loss: 1.2613 || Loc Loss: 0.6075
+2024-11-10 13:15:20,321   INFO  [epoch 1][301/797], || Loss: 2.4493 || Conf Loss: 1.4418 || Loc Loss: 1.0075
+2024-11-10 13:15:39,164   INFO  [epoch 1][351/797], || Loss: 2.0706 || Conf Loss: 1.3920 || Loc Loss: 0.6786
+2024-11-10 13:15:56,146   INFO  [epoch 1][401/797], || Loss: 2.0006 || Conf Loss: 1.3773 || Loc Loss: 0.6233
+2024-11-10 13:16:13,755   INFO  [epoch 1][451/797], || Loss: 1.6234 || Conf Loss: 1.1968 || Loc Loss: 0.4266
+2024-11-10 13:16:30,507   INFO  [epoch 1][501/797], || Loss: 1.0325 || Conf Loss: 0.7049 || Loc Loss: 0.3276
+2024-11-10 13:16:48,580   INFO  [epoch 1][551/797], || Loss: 1.4030 || Conf Loss: 0.9816 || Loc Loss: 0.4214
+2024-11-10 13:17:08,822   INFO  [epoch 1][601/797], || Loss: 1.2624 || Conf Loss: 0.7541 || Loc Loss: 0.5083
+2024-11-10 13:17:24,735   INFO  [epoch 1][651/797], || Loss: 1.7005 || Conf Loss: 1.1869 || Loc Loss: 0.5137
+2024-11-10 13:17:44,084   INFO  [epoch 1][701/797], || Loss: 0.9925 || Conf Loss: 0.6101 || Loc Loss: 0.3825
+2024-11-10 13:18:02,018   INFO  [epoch 1][751/797], || Loss: 1.9318 || Conf Loss: 1.3288 || Loc Loss: 0.6030
+2024-11-10 13:18:17,882   INFO  [epoch 1][797/797], || Loss: 1.3119 || Conf Loss: 0.7895 || Loc Loss: 0.5225
+2024-11-10 13:18:19,015   INFO  learning rate 0.0020000
+2024-11-10 13:18:21,831   INFO  [epoch 2][1/797], || Loss: 1.5578 || Conf Loss: 0.8943 || Loc Loss: 0.6635
+2024-11-10 13:18:42,030   INFO  [epoch 2][51/797], || Loss: 1.1440 || Conf Loss: 0.6787 || Loc Loss: 0.4652
+2024-11-10 13:18:59,415   INFO  [epoch 2][101/797], || Loss: 1.4014 || Conf Loss: 1.0263 || Loc Loss: 0.3750
+2024-11-10 13:19:16,364   INFO  [epoch 2][151/797], || Loss: 1.4154 || Conf Loss: 1.0242 || Loc Loss: 0.3913
+2024-11-10 13:19:32,181   INFO  [epoch 2][201/797], || Loss: 0.9499 || Conf Loss: 0.5920 || Loc Loss: 0.3579
+2024-11-10 13:19:49,428   INFO  [epoch 2][251/797], || Loss: 1.1977 || Conf Loss: 0.7623 || Loc Loss: 0.4354
+2024-11-10 13:20:07,622   INFO  [epoch 2][301/797], || Loss: 1.6348 || Conf Loss: 1.1374 || Loc Loss: 0.4974
+2024-11-10 13:20:25,280   INFO  [epoch 2][351/797], || Loss: 1.6511 || Conf Loss: 1.2133 || Loc Loss: 0.4379
+2024-11-10 13:20:41,392   INFO  [epoch 2][401/797], || Loss: 1.5929 || Conf Loss: 1.0415 || Loc Loss: 0.5514
+2024-11-10 13:20:59,243   INFO  [epoch 2][451/797], || Loss: 0.8570 || Conf Loss: 0.5275 || Loc Loss: 0.3296
+2024-11-10 13:21:17,255   INFO  [epoch 2][501/797], || Loss: 0.6509 || Conf Loss: 0.4028 || Loc Loss: 0.2482
+2024-11-10 13:21:34,453   INFO  [epoch 2][551/797], || Loss: 0.7919 || Conf Loss: 0.5113 || Loc Loss: 0.2806
+2024-11-10 13:21:52,843   INFO  [epoch 2][601/797], || Loss: 1.2363 || Conf Loss: 0.7442 || Loc Loss: 0.4921
+2024-11-10 13:22:13,743   INFO  [epoch 2][651/797], || Loss: 1.2971 || Conf Loss: 0.8589 || Loc Loss: 0.4381
+2024-11-10 13:22:29,712   INFO  [epoch 2][701/797], || Loss: 0.8859 || Conf Loss: 0.4971 || Loc Loss: 0.3888
+2024-11-10 13:22:51,052   INFO  [epoch 2][751/797], || Loss: 1.7335 || Conf Loss: 1.0968 || Loc Loss: 0.6366
+2024-11-10 13:23:06,151   INFO  [epoch 2][797/797], || Loss: 2.2424 || Conf Loss: 1.4940 || Loc Loss: 0.7484
+2024-11-10 13:23:06,489   INFO  learning rate 0.0020000
+2024-11-10 13:23:11,362   INFO  [epoch 3][1/797], || Loss: 1.2684 || Conf Loss: 0.7905 || Loc Loss: 0.4778
+2024-11-10 13:23:27,416   INFO  [epoch 3][51/797], || Loss: 1.7487 || Conf Loss: 1.3643 || Loc Loss: 0.3844
+2024-11-10 13:23:44,023   INFO  [epoch 3][101/797], || Loss: 1.2720 || Conf Loss: 0.8291 || Loc Loss: 0.4430
+2024-11-10 13:24:00,820   INFO  [epoch 3][151/797], || Loss: 1.3895 || Conf Loss: 0.8559 || Loc Loss: 0.5336
+2024-11-10 13:24:16,427   INFO  [epoch 3][201/797], || Loss: 1.4117 || Conf Loss: 0.8590 || Loc Loss: 0.5526
+2024-11-10 13:24:33,004   INFO  [epoch 3][251/797], || Loss: 1.0146 || Conf Loss: 0.6134 || Loc Loss: 0.4013
+2024-11-10 13:24:50,182   INFO  [epoch 3][301/797], || Loss: 2.8970 || Conf Loss: 2.1003 || Loc Loss: 0.7967
+2024-11-10 13:25:07,634   INFO  [epoch 3][351/797], || Loss: 1.3117 || Conf Loss: 0.7861 || Loc Loss: 0.5256
+2024-11-10 13:25:25,365   INFO  [epoch 3][401/797], || Loss: 1.5343 || Conf Loss: 1.0273 || Loc Loss: 0.5070
+2024-11-10 13:25:44,007   INFO  [epoch 3][451/797], || Loss: 1.0794 || Conf Loss: 0.7419 || Loc Loss: 0.3375
+2024-11-10 13:26:01,162   INFO  [epoch 3][501/797], || Loss: 1.2230 || Conf Loss: 0.7938 || Loc Loss: 0.4292
+2024-11-10 13:26:18,070   INFO  [epoch 3][551/797], || Loss: 0.8870 || Conf Loss: 0.5986 || Loc Loss: 0.2884
+2024-11-10 13:26:36,041   INFO  [epoch 3][601/797], || Loss: 0.9027 || Conf Loss: 0.5934 || Loc Loss: 0.3094
+2024-11-10 13:26:54,090   INFO  [epoch 3][651/797], || Loss: 1.0956 || Conf Loss: 0.7792 || Loc Loss: 0.3164
+2024-11-10 13:27:13,389   INFO  [epoch 3][701/797], || Loss: 1.2797 || Conf Loss: 0.6874 || Loc Loss: 0.5923
+2024-11-10 13:27:32,047   INFO  [epoch 3][751/797], || Loss: 1.2782 || Conf Loss: 0.7973 || Loc Loss: 0.4808
+2024-11-10 13:27:48,151   INFO  [epoch 3][797/797], || Loss: 1.1133 || Conf Loss: 0.7532 || Loc Loss: 0.3601
+2024-11-10 13:27:48,487   INFO  learning rate 0.0020000
+2024-11-10 13:27:52,515   INFO  [epoch 4][1/797], || Loss: 1.6687 || Conf Loss: 1.1374 || Loc Loss: 0.5313
+2024-11-10 13:28:10,215   INFO  [epoch 4][51/797], || Loss: 1.0795 || Conf Loss: 0.7776 || Loc Loss: 0.3019
+2024-11-10 13:28:26,534   INFO  [epoch 4][101/797], || Loss: 0.9688 || Conf Loss: 0.6316 || Loc Loss: 0.3372
+2024-11-10 13:28:43,532   INFO  [epoch 4][151/797], || Loss: 1.2017 || Conf Loss: 0.7522 || Loc Loss: 0.4495
+2024-11-10 13:29:00,191   INFO  [epoch 4][201/797], || Loss: 0.7273 || Conf Loss: 0.5148 || Loc Loss: 0.2125
+2024-11-10 13:29:16,518   INFO  [epoch 4][251/797], || Loss: 0.8069 || Conf Loss: 0.4882 || Loc Loss: 0.3187
+2024-11-10 13:29:33,167   INFO  [epoch 4][301/797], || Loss: 2.1878 || Conf Loss: 1.6197 || Loc Loss: 0.5680
+2024-11-10 13:29:50,637   INFO  [epoch 4][351/797], || Loss: 1.4161 || Conf Loss: 0.9353 || Loc Loss: 0.4809
+2024-11-10 13:30:08,483   INFO  [epoch 4][401/797], || Loss: 1.1683 || Conf Loss: 0.7977 || Loc Loss: 0.3706
+2024-11-10 13:30:26,463   INFO  [epoch 4][451/797], || Loss: 0.8401 || Conf Loss: 0.5679 || Loc Loss: 0.2722
+2024-11-10 13:30:44,096   INFO  [epoch 4][501/797], || Loss: 1.0653 || Conf Loss: 0.6235 || Loc Loss: 0.4418
+2024-11-10 13:31:02,506   INFO  [epoch 4][551/797], || Loss: 0.9807 || Conf Loss: 0.6397 || Loc Loss: 0.3410
+2024-11-10 13:31:20,892   INFO  [epoch 4][601/797], || Loss: 0.9994 || Conf Loss: 0.6404 || Loc Loss: 0.3591
+2024-11-10 13:31:40,511   INFO  [epoch 4][651/797], || Loss: 0.6693 || Conf Loss: 0.4669 || Loc Loss: 0.2024
+2024-11-10 13:31:58,166   INFO  [epoch 4][701/797], || Loss: 0.9456 || Conf Loss: 0.6365 || Loc Loss: 0.3091
+2024-11-10 13:32:16,668   INFO  [epoch 4][751/797], || Loss: 1.4086 || Conf Loss: 0.9240 || Loc Loss: 0.4847
+2024-11-10 13:32:31,597   INFO  [epoch 4][797/797], || Loss: 0.8802 || Conf Loss: 0.5376 || Loc Loss: 0.3426
+2024-11-10 13:32:31,926   INFO  learning rate 0.0020000
+2024-11-10 13:32:35,696   INFO  [epoch 5][1/797], || Loss: 0.9648 || Conf Loss: 0.6332 || Loc Loss: 0.3316
+2024-11-10 13:32:52,438   INFO  [epoch 5][51/797], || Loss: 1.0344 || Conf Loss: 0.6524 || Loc Loss: 0.3820
+2024-11-10 13:33:08,456   INFO  [epoch 5][101/797], || Loss: 1.1008 || Conf Loss: 0.8027 || Loc Loss: 0.2981
+2024-11-10 13:33:24,624   INFO  [epoch 5][151/797], || Loss: 1.0651 || Conf Loss: 0.7244 || Loc Loss: 0.3407
+2024-11-10 13:33:42,410   INFO  [epoch 5][201/797], || Loss: 1.2155 || Conf Loss: 0.7999 || Loc Loss: 0.4157
+2024-11-10 13:34:00,218   INFO  [epoch 5][251/797], || Loss: 1.2104 || Conf Loss: 0.7328 || Loc Loss: 0.4775
+2024-11-10 13:34:16,649   INFO  [epoch 5][301/797], || Loss: 2.9882 || Conf Loss: 2.1527 || Loc Loss: 0.8354
+2024-11-10 13:34:35,295   INFO  [epoch 5][351/797], || Loss: 0.9262 || Conf Loss: 0.5342 || Loc Loss: 0.3920
+2024-11-10 13:34:52,990   INFO  [epoch 5][401/797], || Loss: 0.7423 || Conf Loss: 0.4716 || Loc Loss: 0.2708
+2024-11-10 13:35:11,444   INFO  [epoch 5][451/797], || Loss: 0.6634 || Conf Loss: 0.4449 || Loc Loss: 0.2184
+2024-11-10 13:35:29,447   INFO  [epoch 5][501/797], || Loss: 0.9279 || Conf Loss: 0.6000 || Loc Loss: 0.3280
+2024-11-10 13:35:47,387   INFO  [epoch 5][551/797], || Loss: 0.8188 || Conf Loss: 0.5669 || Loc Loss: 0.2519
+2024-11-10 13:36:03,405   INFO  [epoch 5][601/797], || Loss: 0.6989 || Conf Loss: 0.4276 || Loc Loss: 0.2713
+2024-11-10 13:36:19,992   INFO  [epoch 5][651/797], || Loss: 0.7816 || Conf Loss: 0.5557 || Loc Loss: 0.2259
+2024-11-10 13:36:38,915   INFO  [epoch 5][701/797], || Loss: 0.9898 || Conf Loss: 0.5660 || Loc Loss: 0.4238
+2024-11-10 13:36:57,063   INFO  [epoch 5][751/797], || Loss: 0.6527 || Conf Loss: 0.3883 || Loc Loss: 0.2644
+2024-11-10 13:37:14,978   INFO  [epoch 5][797/797], || Loss: 0.5989 || Conf Loss: 0.3653 || Loc Loss: 0.2336
+2024-11-10 13:37:15,327   INFO  learning rate 0.0020000
+2024-11-10 13:37:19,218   INFO  [epoch 6][1/797], || Loss: 0.9497 || Conf Loss: 0.5623 || Loc Loss: 0.3874
+2024-11-10 13:37:36,107   INFO  [epoch 6][51/797], || Loss: 1.3011 || Conf Loss: 0.8717 || Loc Loss: 0.4293
+2024-11-10 13:37:53,522   INFO  [epoch 6][101/797], || Loss: 1.3465 || Conf Loss: 1.0229 || Loc Loss: 0.3236
+2024-11-10 13:38:10,626   INFO  [epoch 6][151/797], || Loss: 1.3668 || Conf Loss: 1.0250 || Loc Loss: 0.3418
+2024-11-10 13:38:27,977   INFO  [epoch 6][201/797], || Loss: 0.8409 || Conf Loss: 0.5912 || Loc Loss: 0.2498
+2024-11-10 13:38:45,668   INFO  [epoch 6][251/797], || Loss: 0.6659 || Conf Loss: 0.3797 || Loc Loss: 0.2862
+2024-11-10 13:39:02,256   INFO  [epoch 6][301/797], || Loss: 0.7597 || Conf Loss: 0.5022 || Loc Loss: 0.2575
+2024-11-10 13:39:18,963   INFO  [epoch 6][351/797], || Loss: 0.4877 || Conf Loss: 0.3054 || Loc Loss: 0.1823
+2024-11-10 13:39:35,793   INFO  [epoch 6][401/797], || Loss: 0.5839 || Conf Loss: 0.3060 || Loc Loss: 0.2779
+2024-11-10 13:39:53,535   INFO  [epoch 6][451/797], || Loss: 1.0786 || Conf Loss: 0.8316 || Loc Loss: 0.2471
+2024-11-10 13:40:11,752   INFO  [epoch 6][501/797], || Loss: 1.4934 || Conf Loss: 1.0346 || Loc Loss: 0.4588
+2024-11-10 13:40:29,255   INFO  [epoch 6][551/797], || Loss: 0.9042 || Conf Loss: 0.4873 || Loc Loss: 0.4168
+2024-11-10 13:40:47,618   INFO  [epoch 6][601/797], || Loss: 0.6152 || Conf Loss: 0.4329 || Loc Loss: 0.1822
+2024-11-10 13:41:07,137   INFO  [epoch 6][651/797], || Loss: 0.5974 || Conf Loss: 0.3644 || Loc Loss: 0.2330
+2024-11-10 13:41:25,308   INFO  [epoch 6][701/797], || Loss: 2.1342 || Conf Loss: 1.4369 || Loc Loss: 0.6973
+2024-11-10 13:41:44,446   INFO  [epoch 6][751/797], || Loss: 0.7167 || Conf Loss: 0.4513 || Loc Loss: 0.2654
+2024-11-10 13:41:59,993   INFO  [epoch 6][797/797], || Loss: 1.2981 || Conf Loss: 0.4116 || Loc Loss: 0.8866
+2024-11-10 13:42:00,364   INFO  learning rate 0.0020000
+2024-11-10 13:42:04,374   INFO  [epoch 7][1/797], || Loss: 0.5525 || Conf Loss: 0.3343 || Loc Loss: 0.2182
+2024-11-10 13:42:21,599   INFO  [epoch 7][51/797], || Loss: 1.0628 || Conf Loss: 0.7002 || Loc Loss: 0.3626
+2024-11-10 13:42:37,623   INFO  [epoch 7][101/797], || Loss: 1.2597 || Conf Loss: 0.8850 || Loc Loss: 0.3747
+2024-11-10 13:42:53,991   INFO  [epoch 7][151/797], || Loss: 0.7396 || Conf Loss: 0.3927 || Loc Loss: 0.3470
+2024-11-10 13:43:12,234   INFO  [epoch 7][201/797], || Loss: 0.6908 || Conf Loss: 0.4281 || Loc Loss: 0.2627
+2024-11-10 13:43:28,816   INFO  [epoch 7][251/797], || Loss: 0.7861 || Conf Loss: 0.5767 || Loc Loss: 0.2094
+2024-11-10 13:43:46,958   INFO  [epoch 7][301/797], || Loss: 0.6053 || Conf Loss: 0.3251 || Loc Loss: 0.2802
+2024-11-10 13:44:03,658   INFO  [epoch 7][351/797], || Loss: 0.6474 || Conf Loss: 0.4144 || Loc Loss: 0.2330
+2024-11-10 13:44:22,226   INFO  [epoch 7][401/797], || Loss: 0.7580 || Conf Loss: 0.4384 || Loc Loss: 0.3196
+2024-11-10 13:44:39,993   INFO  [epoch 7][451/797], || Loss: 0.9481 || Conf Loss: 0.6448 || Loc Loss: 0.3033
+2024-11-10 13:44:58,031   INFO  [epoch 7][501/797], || Loss: 0.9721 || Conf Loss: 0.6456 || Loc Loss: 0.3265
+2024-11-10 13:45:15,714   INFO  [epoch 7][551/797], || Loss: 0.6755 || Conf Loss: 0.3942 || Loc Loss: 0.2813
+2024-11-10 13:45:34,261   INFO  [epoch 7][601/797], || Loss: 0.6611 || Conf Loss: 0.3721 || Loc Loss: 0.2890
+2024-11-10 13:45:51,050   INFO  [epoch 7][651/797], || Loss: 1.1865 || Conf Loss: 0.8263 || Loc Loss: 0.3601
+2024-11-10 13:46:09,888   INFO  [epoch 7][701/797], || Loss: 0.8223 || Conf Loss: 0.5846 || Loc Loss: 0.2377
+2024-11-10 13:46:28,140   INFO  [epoch 7][751/797], || Loss: 0.7747 || Conf Loss: 0.4419 || Loc Loss: 0.3328
+2024-11-10 13:46:43,577   INFO  [epoch 7][797/797], || Loss: 0.6525 || Conf Loss: 0.4206 || Loc Loss: 0.2319
+2024-11-10 13:46:43,932   INFO  learning rate 0.0020000
+2024-11-10 13:46:47,301   INFO  [epoch 8][1/797], || Loss: 1.3214 || Conf Loss: 0.9943 || Loc Loss: 0.3271
+2024-11-10 13:47:04,761   INFO  [epoch 8][51/797], || Loss: 0.8650 || Conf Loss: 0.5812 || Loc Loss: 0.2838
+2024-11-10 13:47:22,457   INFO  [epoch 8][101/797], || Loss: 0.6436 || Conf Loss: 0.4005 || Loc Loss: 0.2430
+2024-11-10 13:47:39,783   INFO  [epoch 8][151/797], || Loss: 0.5118 || Conf Loss: 0.3130 || Loc Loss: 0.1988
+2024-11-10 13:47:56,589   INFO  [epoch 8][201/797], || Loss: 0.6679 || Conf Loss: 0.4155 || Loc Loss: 0.2525
+2024-11-10 13:48:14,147   INFO  [epoch 8][251/797], || Loss: 0.7251 || Conf Loss: 0.4988 || Loc Loss: 0.2263
+2024-11-10 13:48:31,266   INFO  [epoch 8][301/797], || Loss: 0.4749 || Conf Loss: 0.3174 || Loc Loss: 0.1576
+2024-11-10 13:48:49,581   INFO  [epoch 8][351/797], || Loss: 0.5731 || Conf Loss: 0.3707 || Loc Loss: 0.2024
+2024-11-10 13:49:05,755   INFO  [epoch 8][401/797], || Loss: 0.5317 || Conf Loss: 0.3436 || Loc Loss: 0.1881
+2024-11-10 13:49:23,342   INFO  [epoch 8][451/797], || Loss: 0.5488 || Conf Loss: 0.3821 || Loc Loss: 0.1667
+2024-11-10 13:49:41,200   INFO  [epoch 8][501/797], || Loss: 0.9330 || Conf Loss: 0.6698 || Loc Loss: 0.2632
+2024-11-10 13:49:57,941   INFO  [epoch 8][551/797], || Loss: 0.6869 || Conf Loss: 0.5177 || Loc Loss: 0.1691
+2024-11-10 13:50:16,367   INFO  [epoch 8][601/797], || Loss: 0.5087 || Conf Loss: 0.3085 || Loc Loss: 0.2002
+2024-11-10 13:50:34,884   INFO  [epoch 8][651/797], || Loss: 0.5619 || Conf Loss: 0.3235 || Loc Loss: 0.2384
+2024-11-10 13:50:53,197   INFO  [epoch 8][701/797], || Loss: 0.7478 || Conf Loss: 0.5502 || Loc Loss: 0.1976
+2024-11-10 13:51:13,122   INFO  [epoch 8][751/797], || Loss: 0.8194 || Conf Loss: 0.5765 || Loc Loss: 0.2429
+2024-11-10 13:51:27,412   INFO  [epoch 8][797/797], || Loss: 0.6585 || Conf Loss: 0.4265 || Loc Loss: 0.2320
+2024-11-10 13:51:27,736   INFO  learning rate 0.0020000
+2024-11-10 13:51:31,119   INFO  [epoch 9][1/797], || Loss: 1.1833 || Conf Loss: 0.9463 || Loc Loss: 0.2369
+2024-11-10 13:51:49,360   INFO  [epoch 9][51/797], || Loss: 0.8149 || Conf Loss: 0.5516 || Loc Loss: 0.2634
+2024-11-10 13:52:04,942   INFO  [epoch 9][101/797], || Loss: 0.9542 || Conf Loss: 0.6824 || Loc Loss: 0.2718
+2024-11-10 13:52:22,720   INFO  [epoch 9][151/797], || Loss: 0.8509 || Conf Loss: 0.6194 || Loc Loss: 0.2316
+2024-11-10 13:52:39,489   INFO  [epoch 9][201/797], || Loss: 0.6213 || Conf Loss: 0.3996 || Loc Loss: 0.2216
+2024-11-10 13:52:56,519   INFO  [epoch 9][251/797], || Loss: 0.5286 || Conf Loss: 0.3813 || Loc Loss: 0.1473
+2024-11-10 13:53:13,738   INFO  [epoch 9][301/797], || Loss: 0.6794 || Conf Loss: 0.4401 || Loc Loss: 0.2393
+2024-11-10 13:53:31,101   INFO  [epoch 9][351/797], || Loss: 0.8385 || Conf Loss: 0.6317 || Loc Loss: 0.2068
+2024-11-10 13:53:47,961   INFO  [epoch 9][401/797], || Loss: 0.3858 || Conf Loss: 0.1913 || Loc Loss: 0.1945
+2024-11-10 13:54:05,996   INFO  [epoch 9][451/797], || Loss: 1.0285 || Conf Loss: 0.7438 || Loc Loss: 0.2847
+2024-11-10 13:54:23,868   INFO  [epoch 9][501/797], || Loss: 0.3805 || Conf Loss: 0.2559 || Loc Loss: 0.1246
+2024-11-10 13:54:42,104   INFO  [epoch 9][551/797], || Loss: 0.4143 || Conf Loss: 0.2838 || Loc Loss: 0.1305
+2024-11-10 13:54:59,987   INFO  [epoch 9][601/797], || Loss: 0.6968 || Conf Loss: 0.5066 || Loc Loss: 0.1902
+2024-11-10 13:55:17,785   INFO  [epoch 9][651/797], || Loss: 0.5644 || Conf Loss: 0.3319 || Loc Loss: 0.2325
+2024-11-10 13:55:36,877   INFO  [epoch 9][701/797], || Loss: 1.0702 || Conf Loss: 0.5930 || Loc Loss: 0.4772
+2024-11-10 13:55:55,575   INFO  [epoch 9][751/797], || Loss: 0.4590 || Conf Loss: 0.3068 || Loc Loss: 0.1522
+2024-11-10 13:56:12,139   INFO  [epoch 9][797/797], || Loss: 0.6236 || Conf Loss: 0.4463 || Loc Loss: 0.1773
+2024-11-10 13:56:12,452   INFO  learning rate 0.0002000
+2024-11-10 13:56:17,011   INFO  [epoch 10][1/797], || Loss: 0.9998 || Conf Loss: 0.6553 || Loc Loss: 0.3444
+2024-11-10 13:56:33,353   INFO  [epoch 10][51/797], || Loss: 0.5531 || Conf Loss: 0.4315 || Loc Loss: 0.1216
+2024-11-10 13:56:50,738   INFO  [epoch 10][101/797], || Loss: 0.8758 || Conf Loss: 0.6442 || Loc Loss: 0.2316
+2024-11-10 13:57:06,338   INFO  [epoch 10][151/797], || Loss: 0.5980 || Conf Loss: 0.3964 || Loc Loss: 0.2016
+2024-11-10 13:57:23,222   INFO  [epoch 10][201/797], || Loss: 0.6346 || Conf Loss: 0.3784 || Loc Loss: 0.2562
+2024-11-10 13:57:40,409   INFO  [epoch 10][251/797], || Loss: 0.6361 || Conf Loss: 0.4140 || Loc Loss: 0.2221
+2024-11-10 13:57:58,065   INFO  [epoch 10][301/797], || Loss: 0.6785 || Conf Loss: 0.5533 || Loc Loss: 0.1252
+2024-11-10 13:58:15,905   INFO  [epoch 10][351/797], || Loss: 0.3496 || Conf Loss: 0.2679 || Loc Loss: 0.0817
+2024-11-10 13:58:32,493   INFO  [epoch 10][401/797], || Loss: 0.4756 || Conf Loss: 0.2769 || Loc Loss: 0.1987
+2024-11-10 13:58:52,212   INFO  [epoch 10][451/797], || Loss: 0.9755 || Conf Loss: 0.7614 || Loc Loss: 0.2141
+2024-11-10 13:59:10,045   INFO  [epoch 10][501/797], || Loss: 0.9026 || Conf Loss: 0.5905 || Loc Loss: 0.3122
+2024-11-10 13:59:28,864   INFO  [epoch 10][551/797], || Loss: 0.6138 || Conf Loss: 0.4223 || Loc Loss: 0.1915
+2024-11-10 13:59:45,742   INFO  [epoch 10][601/797], || Loss: 1.0554 || Conf Loss: 0.6948 || Loc Loss: 0.3606
+2024-11-10 14:00:03,479   INFO  [epoch 10][651/797], || Loss: 0.8181 || Conf Loss: 0.5962 || Loc Loss: 0.2219
+2024-11-10 14:00:21,561   INFO  [epoch 10][701/797], || Loss: 0.3449 || Conf Loss: 0.2396 || Loc Loss: 0.1053
+2024-11-10 14:00:39,792   INFO  [epoch 10][751/797], || Loss: 0.9030 || Conf Loss: 0.6292 || Loc Loss: 0.2737
+2024-11-10 14:00:55,029   INFO  [epoch 10][797/797], || Loss: 0.3696 || Conf Loss: 0.1943 || Loc Loss: 0.1753
+2024-11-10 14:00:55,405   INFO  learning rate 0.0002000
+2024-11-10 14:01:00,028   INFO  [epoch 11][1/797], || Loss: 0.3630 || Conf Loss: 0.2540 || Loc Loss: 0.1090
+2024-11-10 14:01:18,916   INFO  [epoch 11][51/797], || Loss: 0.5065 || Conf Loss: 0.3366 || Loc Loss: 0.1698
+2024-11-10 14:01:35,818   INFO  [epoch 11][101/797], || Loss: 0.7795 || Conf Loss: 0.5402 || Loc Loss: 0.2392
+2024-11-10 14:01:52,351   INFO  [epoch 11][151/797], || Loss: 1.8872 || Conf Loss: 1.2857 || Loc Loss: 0.6015
+2024-11-10 14:02:10,028   INFO  [epoch 11][201/797], || Loss: 0.5598 || Conf Loss: 0.3927 || Loc Loss: 0.1672
+2024-11-10 14:02:27,839   INFO  [epoch 11][251/797], || Loss: 0.7109 || Conf Loss: 0.5155 || Loc Loss: 0.1954
+2024-11-10 14:02:44,363   INFO  [epoch 11][301/797], || Loss: 0.3093 || Conf Loss: 0.2309 || Loc Loss: 0.0784
+2024-11-10 14:03:00,475   INFO  [epoch 11][351/797], || Loss: 0.4038 || Conf Loss: 0.2749 || Loc Loss: 0.1289
+2024-11-10 14:03:19,629   INFO  [epoch 11][401/797], || Loss: 0.6786 || Conf Loss: 0.4239 || Loc Loss: 0.2547
+2024-11-10 14:03:36,958   INFO  [epoch 11][451/797], || Loss: 0.6883 || Conf Loss: 0.4678 || Loc Loss: 0.2205
+2024-11-10 14:03:55,064   INFO  [epoch 11][501/797], || Loss: 0.4927 || Conf Loss: 0.3850 || Loc Loss: 0.1077
+2024-11-10 14:04:11,401   INFO  [epoch 11][551/797], || Loss: 0.7296 || Conf Loss: 0.5045 || Loc Loss: 0.2251
+2024-11-10 14:04:30,270   INFO  [epoch 11][601/797], || Loss: 0.6186 || Conf Loss: 0.4043 || Loc Loss: 0.2143
+2024-11-10 14:04:49,414   INFO  [epoch 11][651/797], || Loss: 0.5341 || Conf Loss: 0.3752 || Loc Loss: 0.1589
+2024-11-10 14:05:07,750   INFO  [epoch 11][701/797], || Loss: 0.4388 || Conf Loss: 0.2824 || Loc Loss: 0.1564
+2024-11-10 14:05:27,655   INFO  [epoch 11][751/797], || Loss: 0.6874 || Conf Loss: 0.4755 || Loc Loss: 0.2119
+2024-11-10 14:05:43,270   INFO  [epoch 11][797/797], || Loss: 0.6580 || Conf Loss: 0.4768 || Loc Loss: 0.1812
+2024-11-10 14:05:43,624   INFO  learning rate 0.0002000
+2024-11-10 14:05:48,764   INFO  [epoch 12][1/797], || Loss: 0.4407 || Conf Loss: 0.1895 || Loc Loss: 0.2512
+2024-11-10 14:06:04,575   INFO  [epoch 12][51/797], || Loss: 0.2395 || Conf Loss: 0.1556 || Loc Loss: 0.0839
+2024-11-10 14:06:20,502   INFO  [epoch 12][101/797], || Loss: 0.8173 || Conf Loss: 0.5469 || Loc Loss: 0.2703
+2024-11-10 14:06:38,962   INFO  [epoch 12][151/797], || Loss: 0.4028 || Conf Loss: 0.2371 || Loc Loss: 0.1658
+2024-11-10 14:06:55,435   INFO  [epoch 12][201/797], || Loss: 0.4033 || Conf Loss: 0.2862 || Loc Loss: 0.1170
+2024-11-10 14:07:12,050   INFO  [epoch 12][251/797], || Loss: 0.2852 || Conf Loss: 0.1813 || Loc Loss: 0.1039
+2024-11-10 14:07:29,392   INFO  [epoch 12][301/797], || Loss: 0.4455 || Conf Loss: 0.2855 || Loc Loss: 0.1600
+2024-11-10 14:07:45,817   INFO  [epoch 12][351/797], || Loss: 0.4828 || Conf Loss: 0.3070 || Loc Loss: 0.1758
+2024-11-10 14:08:03,159   INFO  [epoch 12][401/797], || Loss: 0.6954 || Conf Loss: 0.4880 || Loc Loss: 0.2074
+2024-11-10 14:08:19,777   INFO  [epoch 12][451/797], || Loss: 0.5972 || Conf Loss: 0.3934 || Loc Loss: 0.2038
+2024-11-10 14:08:36,808   INFO  [epoch 12][501/797], || Loss: 0.9233 || Conf Loss: 0.6768 || Loc Loss: 0.2465
+2024-11-10 14:08:54,432   INFO  [epoch 12][551/797], || Loss: 0.8519 || Conf Loss: 0.6373 || Loc Loss: 0.2146
+2024-11-10 14:09:15,486   INFO  [epoch 12][601/797], || Loss: 0.5222 || Conf Loss: 0.3407 || Loc Loss: 0.1815
+2024-11-10 14:09:33,488   INFO  [epoch 12][651/797], || Loss: 0.6485 || Conf Loss: 0.4923 || Loc Loss: 0.1562
+2024-11-10 14:09:53,125   INFO  [epoch 12][701/797], || Loss: 0.8433 || Conf Loss: 0.5938 || Loc Loss: 0.2496
+2024-11-10 14:10:12,191   INFO  [epoch 12][751/797], || Loss: 0.3116 || Conf Loss: 0.2308 || Loc Loss: 0.0809
+2024-11-10 14:10:28,553   INFO  [epoch 12][797/797], || Loss: 0.3562 || Conf Loss: 0.2621 || Loc Loss: 0.0941
+2024-11-10 14:10:28,908   INFO  learning rate 0.0002000
+2024-11-10 14:10:32,720   INFO  [epoch 13][1/797], || Loss: 0.3939 || Conf Loss: 0.2772 || Loc Loss: 0.1167
+2024-11-10 14:10:49,214   INFO  [epoch 13][51/797], || Loss: 0.6401 || Conf Loss: 0.3972 || Loc Loss: 0.2428
+2024-11-10 14:11:05,845   INFO  [epoch 13][101/797], || Loss: 0.4258 || Conf Loss: 0.2405 || Loc Loss: 0.1852
+2024-11-10 14:11:23,182   INFO  [epoch 13][151/797], || Loss: 0.4543 || Conf Loss: 0.3290 || Loc Loss: 0.1254
+2024-11-10 14:11:41,183   INFO  [epoch 13][201/797], || Loss: 0.5382 || Conf Loss: 0.3181 || Loc Loss: 0.2201
+2024-11-10 14:11:57,272   INFO  [epoch 13][251/797], || Loss: 0.3705 || Conf Loss: 0.2545 || Loc Loss: 0.1160
+2024-11-10 14:12:14,658   INFO  [epoch 13][301/797], || Loss: 0.6403 || Conf Loss: 0.4133 || Loc Loss: 0.2270
+2024-11-10 14:12:31,517   INFO  [epoch 13][351/797], || Loss: 0.5669 || Conf Loss: 0.4059 || Loc Loss: 0.1609
+2024-11-10 14:12:48,671   INFO  [epoch 13][401/797], || Loss: 0.2470 || Conf Loss: 0.1691 || Loc Loss: 0.0779
+2024-11-10 14:13:06,356   INFO  [epoch 13][451/797], || Loss: 0.5218 || Conf Loss: 0.3635 || Loc Loss: 0.1583
+2024-11-10 14:13:24,698   INFO  [epoch 13][501/797], || Loss: 0.5358 || Conf Loss: 0.3567 || Loc Loss: 0.1791
+2024-11-10 14:13:42,710   INFO  [epoch 13][551/797], || Loss: 0.4906 || Conf Loss: 0.3049 || Loc Loss: 0.1858
+2024-11-10 14:13:59,684   INFO  [epoch 13][601/797], || Loss: 0.7462 || Conf Loss: 0.5244 || Loc Loss: 0.2218
+2024-11-10 14:14:17,953   INFO  [epoch 13][651/797], || Loss: 0.4265 || Conf Loss: 0.2511 || Loc Loss: 0.1754
+2024-11-10 14:14:37,722   INFO  [epoch 13][701/797], || Loss: 0.4354 || Conf Loss: 0.3089 || Loc Loss: 0.1265
+2024-11-10 14:14:55,778   INFO  [epoch 13][751/797], || Loss: 0.4302 || Conf Loss: 0.2759 || Loc Loss: 0.1542
+2024-11-10 14:15:12,385   INFO  [epoch 13][797/797], || Loss: 0.4465 || Conf Loss: 0.3176 || Loc Loss: 0.1289
+2024-11-10 14:15:12,711   INFO  learning rate 0.0002000
+2024-11-10 14:15:16,974   INFO  [epoch 14][1/797], || Loss: 0.4229 || Conf Loss: 0.2611 || Loc Loss: 0.1618
+2024-11-10 14:15:34,467   INFO  [epoch 14][51/797], || Loss: 0.3824 || Conf Loss: 0.2189 || Loc Loss: 0.1635
+2024-11-10 14:15:51,050   INFO  [epoch 14][101/797], || Loss: 1.0296 || Conf Loss: 0.6905 || Loc Loss: 0.3390
+2024-11-10 14:16:05,843   INFO  [epoch 14][151/797], || Loss: 0.7878 || Conf Loss: 0.5795 || Loc Loss: 0.2083
+2024-11-10 14:16:22,473   INFO  [epoch 14][201/797], || Loss: 0.3504 || Conf Loss: 0.2523 || Loc Loss: 0.0981
+2024-11-10 14:16:39,395   INFO  [epoch 14][251/797], || Loss: 1.3095 || Conf Loss: 1.1654 || Loc Loss: 0.1441
+2024-11-10 14:16:56,460   INFO  [epoch 14][301/797], || Loss: 0.4329 || Conf Loss: 0.3102 || Loc Loss: 0.1226
+2024-11-10 14:17:13,483   INFO  [epoch 14][351/797], || Loss: 0.4390 || Conf Loss: 0.2161 || Loc Loss: 0.2229
+2024-11-10 14:17:30,563   INFO  [epoch 14][401/797], || Loss: 0.3912 || Conf Loss: 0.2446 || Loc Loss: 0.1466
+2024-11-10 14:17:47,512   INFO  [epoch 14][451/797], || Loss: 0.6314 || Conf Loss: 0.3608 || Loc Loss: 0.2706
+2024-11-10 14:18:04,781   INFO  [epoch 14][501/797], || Loss: 0.2683 || Conf Loss: 0.1683 || Loc Loss: 0.1000
+2024-11-10 14:18:22,079   INFO  [epoch 14][551/797], || Loss: 0.3421 || Conf Loss: 0.2052 || Loc Loss: 0.1369
+2024-11-10 14:18:40,606   INFO  [epoch 14][601/797], || Loss: 0.5151 || Conf Loss: 0.3779 || Loc Loss: 0.1372
+2024-11-10 14:18:58,995   INFO  [epoch 14][651/797], || Loss: 0.6095 || Conf Loss: 0.4278 || Loc Loss: 0.1818
+2024-11-10 14:19:16,345   INFO  [epoch 14][701/797], || Loss: 0.3672 || Conf Loss: 0.2523 || Loc Loss: 0.1148
+2024-11-10 14:19:34,328   INFO  [epoch 14][751/797], || Loss: 0.4163 || Conf Loss: 0.2905 || Loc Loss: 0.1258
+2024-11-10 14:19:50,459   INFO  [epoch 14][797/797], || Loss: 0.6623 || Conf Loss: 0.5000 || Loc Loss: 0.1623
+2024-11-10 14:19:50,801   INFO  Training Finished, checkpoints saved to /home/data/lhw/OpenCOOD/logs/attack/opv2v/point_pillar/mean/detection/point_pillar_intermediate_mean

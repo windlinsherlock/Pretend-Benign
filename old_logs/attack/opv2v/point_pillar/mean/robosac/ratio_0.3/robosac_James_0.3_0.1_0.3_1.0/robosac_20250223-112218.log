@@ -1,0 +1,236 @@
+2025-02-23 11:22:18,642   INFO  -----------------parser argument:------------------
+2025-02-23 11:22:18,642   INFO  hypes_yaml       ../hypes_yaml/cfg/attack/opv2v/point_pillar/mean/robosac/ratio_0.3/robosac_James_0.3_0.1_0.3_1.0.yaml
+2025-02-23 11:22:18,642   INFO  model_dir        ../../logs/attack/opv2v/point_pillar/mean/detection/point_pillar_intermediate_mean/
+2025-02-23 11:22:18,642   INFO  ckpt             15
+2025-02-23 11:22:18,642   INFO  show_vis         False
+2025-02-23 11:22:18,642   INFO  show_sequence    False
+2025-02-23 11:22:18,642   INFO  save_vis         False
+2025-02-23 11:22:18,642   INFO  save_npy         True
+2025-02-23 11:22:18,642   INFO  global_sort_detections True
+2025-02-23 11:22:18,642   INFO  -----------------hypes argument:------------------
+2025-02-23 11:22:18,642   INFO  name: robosac_James_0.3_0.1_0.3_1.0
+2025-02-23 11:22:18,642   INFO  root_dir: ../../opv2v_data_dumping/train
+2025-02-23 11:22:18,642   INFO  validate_dir: ../../opv2v_data_dumping/validate
+2025-02-23 11:22:18,642   INFO  yaml_parser: load_point_pillar_params
+2025-02-23 11:22:18,642   INFO  pert_data_path: /home/data/lhw/OpenCOOD/pert_data/opv2v/point_pillar/mean/ratio_0.3/James_attack_0.3_0.1_0.3_1.0
+2025-02-23 11:22:18,643   INFO  train_params: {
+2025-02-23 11:22:18,643   INFO      batch_size: 1
+2025-02-23 11:22:18,643   INFO      epoches: 15
+2025-02-23 11:22:18,643   INFO      eval_freq: 1
+2025-02-23 11:22:18,643   INFO      save_freq: 1
+2025-02-23 11:22:18,643   INFO  }
+2025-02-23 11:22:18,643   INFO  num_class: 2
+2025-02-23 11:22:18,643   INFO  fusion: {
+2025-02-23 11:22:18,643   INFO      core_method: IntermediateFusionDataset
+2025-02-23 11:22:18,643   INFO      args: []
+2025-02-23 11:22:18,643   INFO  }
+2025-02-23 11:22:18,643   INFO  preprocess: {
+2025-02-23 11:22:18,643   INFO      core_method: SpVoxelPreprocessor
+2025-02-23 11:22:18,643   INFO      args: {
+2025-02-23 11:22:18,643   INFO          voxel_size: [0.4, 0.4, 4]
+2025-02-23 11:22:18,643   INFO          max_points_per_voxel: 32
+2025-02-23 11:22:18,643   INFO          max_voxel_train: 32000
+2025-02-23 11:22:18,643   INFO          max_voxel_test: 70000
+2025-02-23 11:22:18,643   INFO      }
+2025-02-23 11:22:18,643   INFO      cav_lidar_range: [-140.8, -40, -3, 140.8, 40, 1]
+2025-02-23 11:22:18,643   INFO  }
+2025-02-23 11:22:18,643   INFO  data_augment: [{'NAME': 'random_world_flip', 'ALONG_AXIS_LIST': ['x']}, {'NAME': 'random_world_rotation', 'WORLD_ROT_ANGLE': [-0.78539816, 0.78539816]}, {'NAME': 'random_world_scaling', 'WORLD_SCALE_RANGE': [0.95, 1.05]}]
+2025-02-23 11:22:18,643   INFO  postprocess: {
+2025-02-23 11:22:18,643   INFO      core_method: VoxelPostprocessor
+2025-02-23 11:22:18,643   INFO      anchor_args: {
+2025-02-23 11:22:18,643   INFO          cav_lidar_range: [-140.8, -40, -3, 140.8, 40, 1]
+2025-02-23 11:22:18,643   INFO          l: 3.9
+2025-02-23 11:22:18,643   INFO          w: 1.6
+2025-02-23 11:22:18,644   INFO          h: 1.56
+2025-02-23 11:22:18,644   INFO          r: [0, 90]
+2025-02-23 11:22:18,644   INFO          feature_stride: 2
+2025-02-23 11:22:18,644   INFO          num: 2
+2025-02-23 11:22:18,644   INFO          vw: 0.4
+2025-02-23 11:22:18,644   INFO          vh: 0.4
+2025-02-23 11:22:18,644   INFO          vd: 4
+2025-02-23 11:22:18,644   INFO          W: 704
+2025-02-23 11:22:18,644   INFO          H: 200
+2025-02-23 11:22:18,644   INFO          D: 1
+2025-02-23 11:22:18,644   INFO      }
+2025-02-23 11:22:18,644   INFO      target_args: {
+2025-02-23 11:22:18,644   INFO          pos_threshold: 0.6
+2025-02-23 11:22:18,644   INFO          neg_threshold: 0.45
+2025-02-23 11:22:18,644   INFO          score_threshold: 0.2
+2025-02-23 11:22:18,644   INFO      }
+2025-02-23 11:22:18,644   INFO      order: hwl
+2025-02-23 11:22:18,644   INFO      max_num: 100
+2025-02-23 11:22:18,644   INFO      nms_thresh: 0.15
+2025-02-23 11:22:18,644   INFO  }
+2025-02-23 11:22:18,644   INFO  model: {
+2025-02-23 11:22:18,644   INFO      core_method: point_pillar_robosac
+2025-02-23 11:22:18,644   INFO      args: {
+2025-02-23 11:22:18,644   INFO          voxel_size: [0.4, 0.4, 4]
+2025-02-23 11:22:18,644   INFO          lidar_range: [-140.8, -40, -3, 140.8, 40, 1]
+2025-02-23 11:22:18,644   INFO          anchor_number: 2
+2025-02-23 11:22:18,644   INFO          num_class: 2
+2025-02-23 11:22:18,644   INFO          fusion_module: MeanFusion
+2025-02-23 11:22:18,644   INFO          pillar_vfe: {
+2025-02-23 11:22:18,645   INFO              use_norm: True
+2025-02-23 11:22:18,645   INFO              with_distance: False
+2025-02-23 11:22:18,645   INFO              use_absolute_xyz: True
+2025-02-23 11:22:18,645   INFO              num_filters: [64]
+2025-02-23 11:22:18,645   INFO          }
+2025-02-23 11:22:18,645   INFO          point_pillar_scatter: {
+2025-02-23 11:22:18,645   INFO              num_features: 64
+2025-02-23 11:22:18,645   INFO              grid_size: [704 200   1]
+2025-02-23 11:22:18,645   INFO          }
+2025-02-23 11:22:18,645   INFO          base_bev_backbone: {
+2025-02-23 11:22:18,645   INFO              layer_nums: [3, 5, 8]
+2025-02-23 11:22:18,645   INFO              layer_strides: [2, 2, 2]
+2025-02-23 11:22:18,645   INFO              num_filters: [64, 128, 256]
+2025-02-23 11:22:18,645   INFO              upsample_strides: [1, 2, 4]
+2025-02-23 11:22:18,645   INFO              num_upsample_filter: [128, 128, 128]
+2025-02-23 11:22:18,645   INFO          }
+2025-02-23 11:22:18,645   INFO          anchor_num: 2
+2025-02-23 11:22:18,645   INFO      }
+2025-02-23 11:22:18,645   INFO  }
+2025-02-23 11:22:18,645   INFO  attack_setting: {
+2025-02-23 11:22:18,645   INFO      sequence_list: ['2021_09_11_00_33_16']
+2025-02-23 11:22:18,645   INFO  }
+2025-02-23 11:22:18,645   INFO  robosac_setting: {
+2025-02-23 11:22:18,646   INFO      step_budget: 20
+2025-02-23 11:22:18,646   INFO      box_matching_thresh: 0.3
+2025-02-23 11:22:18,646   INFO  }
+2025-02-23 11:22:18,646   INFO  loss: {
+2025-02-23 11:22:18,646   INFO      core_method: James_adv_loss
+2025-02-23 11:22:18,646   INFO      args: {
+2025-02-23 11:22:18,646   INFO          num_class: 2
+2025-02-23 11:22:18,646   INFO      }
+2025-02-23 11:22:18,646   INFO  }
+2025-02-23 11:22:18,646   INFO  optimizer: {
+2025-02-23 11:22:18,646   INFO      core_method: Adam
+2025-02-23 11:22:18,646   INFO      lr: 0.002
+2025-02-23 11:22:18,646   INFO      args: {
+2025-02-23 11:22:18,646   INFO          eps: 1e-10
+2025-02-23 11:22:18,646   INFO          weight_decay: 0.0001
+2025-02-23 11:22:18,646   INFO      }
+2025-02-23 11:22:18,646   INFO  }
+2025-02-23 11:22:18,646   INFO  lr_scheduler: {
+2025-02-23 11:22:18,646   INFO      core_method: multistep
+2025-02-23 11:22:18,646   INFO      gamma: 0.1
+2025-02-23 11:22:18,646   INFO      step_size: [10, 15]
+2025-02-23 11:22:18,646   INFO  }
+2025-02-23 11:22:18,646   INFO  Dataset Building
+2025-02-23 11:22:18,832   INFO  746 samples found.
+2025-02-23 11:22:18,832   INFO  Creating Model
+2025-02-23 11:22:23,351   INFO  ----------- Model robosac_James_0.3_0.1_0.3_1.0 created, param count: 6585874 -----------
+2025-02-23 11:22:23,352   INFO  PointPillarRobosac(
+  (pillar_vfe): PillarVFE(
+    (pfn_layers): ModuleList(
+      (0): PFNLayer(
+        (linear): Linear(in_features=10, out_features=64, bias=False)
+        (norm): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (scatter): PointPillarScatter()
+  (backbone): BaseBEVBackbone(
+    (blocks): ModuleList(
+      (0): Sequential(
+        (0): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+        (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (2): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (3): ReLU()
+        (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (5): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (6): ReLU()
+        (7): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (8): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (9): ReLU()
+        (10): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (11): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (12): ReLU()
+      )
+      (1): Sequential(
+        (0): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+        (1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (2): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (3): ReLU()
+        (4): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (5): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (6): ReLU()
+        (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (8): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (9): ReLU()
+        (10): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (11): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (12): ReLU()
+        (13): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (14): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (15): ReLU()
+        (16): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (17): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (18): ReLU()
+      )
+      (2): Sequential(
+        (0): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+        (1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (2): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (3): ReLU()
+        (4): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (5): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (6): ReLU()
+        (7): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (8): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (9): ReLU()
+        (10): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (11): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (12): ReLU()
+        (13): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (14): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (15): ReLU()
+        (16): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (17): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (18): ReLU()
+        (19): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (20): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (21): ReLU()
+        (22): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (23): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (24): ReLU()
+        (25): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (26): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (27): ReLU()
+      )
+    )
+    (deblocks): ModuleList(
+      (0): Sequential(
+        (0): ConvTranspose2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (1): Sequential(
+        (0): ConvTranspose2d(128, 128, kernel_size=(2, 2), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (2): Sequential(
+        (0): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(4, 4), bias=False)
+        (1): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+  )
+  (batch_norm): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (co_attack): CoAttackModule()
+  (fusion_module): MeanFusion()
+  (cls_head): Conv2d(384, 4, kernel_size=(1, 1), stride=(1, 1))
+  (reg_head): Conv2d(384, 14, kernel_size=(1, 1), stride=(1, 1))
+  (predict): Predict()
+  (robosac): Robosac()
+)
+2025-02-23 11:22:23,353   INFO  Loading Model from checkpoint_15
+2025-02-23 11:22:23,353   INFO  resuming by loading epoch 15
+2025-02-23 11:40:04,729   INFO  The Average Precision of epoch_15 is: The Average Precision at IOU 0.3 is 0.85, The Average Precision at IOU 0.5 is 0.84, The Average Precision at IOU 0.7 is 0.71
+2025-02-23 11:40:04,741   INFO  avg_step: 21.443699731903486
+2025-02-23 11:40:04,741   INFO  avg_time_cost: 0.3426641589055592
+2025-02-23 11:40:04,741   INFO  tp_collab_recall: 0.35415787252005065, fp_collab_recall: 0.0
+2025-02-23 11:40:04,741   INFO  tp_attacker_recall: 1.0, fp_attacker_recall: 1.0254691689008042
+2025-02-23 11:40:04,741   INFO  tp_collab_precision: 1.0, fp_collab_precision: 0.0
+2025-02-23 11:40:04,741   INFO  tp_attacker_precision: 0.4937127729980146, fp_attacker_precision: 0.5062872270019855
+2025-02-23 11:40:04,741   INFO  attack_succ_ratio: 0.0
